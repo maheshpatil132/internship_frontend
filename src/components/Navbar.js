@@ -1,30 +1,46 @@
 import React from 'react'
 import {AiOutlineHome} from 'react-icons/ai'
+import {MdKeyboardArrowRight} from 'react-icons/md'
 import { NavLink } from 'react-router-dom'
 const Navbar = () => {
   return (
     <div className=' bg-code-nav_dash navbar h-screen flex flex-col justify-between text-base'>
         <nav className=' mt-24'>
             <ul>
-                <li className='flex cursor-pointer dash_menu_li  p-3 px-5 rounded-lg  items-center justify-start gap-6 '>
-                       <AiOutlineHome size={18}/>
+                <li className='flex cursor-pointer dash_menu_li  p-3 px-5 rounded-lg  items-center justify-between  '>
+                     <div className='flex gap-6 items-center'> 
+                     <AiOutlineHome size={18}/>
                        <NavLink to={'/home'}>Home</NavLink>
+                     </div>
+                       <MdKeyboardArrowRight size={18}/>
                 </li>
-                <li className='flex cursor-pointer dash_menu_li p-3  px-5 rounded-lg  items-center justify-start gap-6'>
-                       <AiOutlineHome size={18}/>
-                       <NavLink to={'/home'}>Bidding</NavLink>
+                <li className='flex cursor-pointer dash_menu_li  p-3 px-5 rounded-lg  items-center justify-between  '>
+                     <div className='flex gap-6 items-center'> 
+                     <AiOutlineHome size={18}/>
+                       <NavLink to={'/home'}>Home</NavLink>
+                     </div>
+                       <MdKeyboardArrowRight size={18}/>
                 </li>
-                <li className='flex cursor-pointer dash_menu_li p-3 px-5 rounded-lg  items-center justify-start gap-6 '>
-                       <AiOutlineHome size={18}/>
-                       <NavLink to={'/home'}>order History</NavLink>
+                <li className='flex cursor-pointer dash_menu_li  p-3 px-5 rounded-lg  items-center justify-between  '>
+                     <div className='flex gap-6 items-center'> 
+                     <AiOutlineHome size={18}/>
+                       <NavLink to={'/home'}>Home</NavLink>
+                     </div>
+                       <MdKeyboardArrowRight size={18}/>
                 </li>
-                <li className=' flex cursor-pointer dash_menu_li  p-3 px-5 rounded-lg items-center justify-start gap-6 '>
-                       <AiOutlineHome size={18}/>
-                       <NavLink to={'/home'}>Track shipment</NavLink>
+                <li className='flex cursor-pointer dash_menu_li  p-3 px-5 rounded-lg  items-center justify-between  '>
+                     <div className='flex gap-6 items-center'> 
+                     <AiOutlineHome size={18}/>
+                       <NavLink to={'/home'}>Home</NavLink>
+                     </div>
+                       <MdKeyboardArrowRight size={18}/>
                 </li>
-                <li className=' flex cursor-pointer dash_menu_li p-3 px-5 rounded-lg items-center justify-start gap-6 '>
-                       <AiOutlineHome size={18}/>
-                       <NavLink to={'/home'}>Payment</NavLink>
+                <li className='flex cursor-pointer dash_menu_li  p-3 px-5 rounded-lg  items-center justify-between  '>
+                     <div className='flex gap-6 items-center'> 
+                     <AiOutlineHome size={18}/>
+                       <NavLink to={'/home'}>Home</NavLink>
+                     </div>
+                       <MdKeyboardArrowRight size={18}/>
                 </li>
             </ul>
         </nav>
