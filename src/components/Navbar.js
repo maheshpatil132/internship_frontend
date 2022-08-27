@@ -3,7 +3,7 @@ import {AiOutlineHome} from 'react-icons/ai'
 import { NavLink } from 'react-router-dom'
 const Navbar = () => {
   return (
-    <div className=' bg-code-nav_dash w-64 h-screen flex flex-col justify-between text-base'>
+    <div className=' bg-code-nav_dash w-72 h-screen flex flex-col justify-between text-base'>
         <nav className=' mt-24'>
             <ul>
                 <li className='flex cursor-pointer dash_menu_li  p-3 px-5 rounded-lg  items-center justify-start gap-6 '>
