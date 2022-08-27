@@ -13,7 +13,17 @@ module.exports = {
           'dash_board_primary':'#1672DE',
           'nav_dash':'#FBFCFC'
 
-        }
+        },
+        buyer : {
+          'primary':'#1672DE',
+          'heading':'#222C2E',
+          'button_1':'#DCFFD0',
+          'button_2':'#FDCECE',
+          'know_more':'#070242',
+          'small_heading':'#002046',
+          'button_1_text':' #00769B',
+        },
+
       },
       height:{
         code:{

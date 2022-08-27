@@ -39,3 +39,12 @@ body {
 .navbar{
   width: 272px;
 }
+
+.button_1{
+  color:  #00769B;
+  background-color: #DCFFD0;
+}
+.button_2{
+  color: #32009B;
+  background: #FDCECE;
+}
