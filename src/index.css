@@ -8,6 +8,9 @@
 
 body {
   font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .header {
@@ -17,8 +20,8 @@ body {
 }
 
 .dash_button{
-  color: #002446;
-  background-color:  #F9F9F9;
+  color:white ;
+  background-color:#004AA2 ;
   box-shadow: 0px 4px 36px rgba(0, 0, 0, 0.04), 0px 4px 35px rgba(0, 0, 0, 0.05);
   font-weight: 600;
 }
@@ -28,6 +31,7 @@ body {
 }
 
 /* nav_menu */
-.dash_menu_li{
+.dash_menu_li:hover{
+  background-color: white;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px -1px 20px rgba(0, 0, 0, 0.04);
 }
