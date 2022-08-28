@@ -1,5 +1,5 @@
-import Login from "./components/Login";
-import Home from "./components/Home";
+import Login from "./components/Login/Login";
+import Home from "./components/Home/Home";
 import {
   BrowserRouter as Router,
   Route,
