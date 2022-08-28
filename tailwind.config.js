@@ -22,6 +22,8 @@ module.exports = {
           'know_more':'#070242',
           'small_heading':'#002046',
           'button_1_text':' #00769B',
+          'text-color':'#637F94',
+          'second_know_more':'#004AA2',
         },
 
       },

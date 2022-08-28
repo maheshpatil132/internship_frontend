@@ -52,3 +52,13 @@ body {
 .icon_setting{
   transform: matrix(1, 0, 0, -1, 0, 0);
 }
+
+.box_shadow{
+  box-shadow: 0px 4px 36px rgba(0, 0, 0, 0.04), 0px 4px 35px rgba(0, 0, 0, 0.05);
+}
+
+.credit_shadow{
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px -1px 20px rgba(0, 0, 0, 0.04);
+}
+
+
