@@ -9,7 +9,7 @@ import BidBox from './BidBox'
 
 const Content = () => {
   return (
-    <div className=' flex-1 px-14 space-y-5 overflow-y-scroll h-screen bg-buyer-dash_bg '>
+    <div className=' flex-1 px-14 space-y-5 overflow-y-scroll h-screen bg-white '>
       <h1 className=' mt-24 text-3xl text-buyer-heading '>Overview</h1>
 
       <div className="box_conteainer grid grid-cols-3 gap-6 ">
