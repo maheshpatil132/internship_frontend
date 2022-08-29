@@ -2,7 +2,7 @@ import React from 'react'
 
 const Credit = () => {
   return (
-    <div className='credit_shadow flex bg-white w-full justify-between px-14  p-4'>
+    <div className='credit_shadow flex bg-white w-full justify-between px-14 rounded-lg  p-4'>
       <div className="heading text-lg">
         <h1 className='font-semibold text-buyer-small_heading'>Avail Amazing Credit Facilities for your Orders</h1>
         <p className=' text-buyer-text-color text-sm'>Get your Account Verified within 3 days.!</p>

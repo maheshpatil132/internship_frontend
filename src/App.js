@@ -11,7 +11,7 @@ function App() {
 
   return (
     <Router>
-      <div className="App relative bg-slate-100">
+      <div className="App relative">
         <Routes>
           <Route path="/login/:user" element={<Login />}></Route>
           <Route path="/" element={<Home/>}></Route>

@@ -4,7 +4,7 @@ import {MdKeyboardArrowRight} from 'react-icons/md'
 import { NavLink } from 'react-router-dom'
 const Navbar = () => {
   return (
-    <div className=' bg-code-nav_dash navbar h-screen flex flex-col justify-between text-base'>
+    <div className='navbar  h-screen flex flex-col justify-between text-base px-2'>
         <nav className=' mt-24'>
             <ul>
                 <li className='flex cursor-pointer dash_menu_li  p-3 px-5 rounded-lg  items-center justify-between  '>
