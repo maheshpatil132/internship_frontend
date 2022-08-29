@@ -19,7 +19,7 @@ const SellerBidBox = () => {
                     <p className=' '>503612-47-3</p>
                 </div>
             </div>
-            <div className="decr_box items-center justify-between flex gap-6">
+            <div className="decr_box items-end justify-between flex gap-6">
                 <div className="first font-medium">
                     <p className=' my-2  text-buyer-text-color '>Time Remaining</p>
                     <div className=' bg-seller-timing_color border border-seller-border_color p-1 rounded px-3 w-fit'>12:00:00</div>

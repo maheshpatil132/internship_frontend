@@ -25,7 +25,7 @@ const SearchBox = ({change}) => {
  
   
   return (
-    <div ref={searchbar} className='flex gap-4 py-4 items-center bg-white'>
+    <div ref={searchbar} className='flex gap-4 py-2 items-center bg-white'>
         <div className={`search_cover box_shadow border flex-1 rounded flex items-center ${change ? 'p-2' : 'p-4'} bg-white`}>
             <input type="text" className='flex-1 outline-none' placeholder='search' />
             <FiSearch size={20} className='text-buyer-text-color' />

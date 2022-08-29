@@ -87,7 +87,7 @@ const Content = ({user}) => {
         {/* credit end */}
 
         {/* search box start from here */}
-        <div ref={searchbar} className=' bg-slate-700 sticky top-4'>
+        <div ref={searchbar} className={' bg-slate-700 sticky top-4'}>
           <SearchBox  change={change} />
           </div>
         {/* search box endded */}
