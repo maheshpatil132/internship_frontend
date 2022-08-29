@@ -27,6 +27,11 @@ module.exports = {
           'dash_bg':'#FBFBFB'
         },
 
+        seller:{
+          'heading' :'#263238',
+          'border_color':'#00C1EC',
+          'timing_color':'#BEE5F5'
+        }
       },
       height:{
         code:{

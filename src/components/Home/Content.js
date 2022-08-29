@@ -5,12 +5,13 @@ import FrameIcon from '../../icons/growth.svg'
 import { BsFillArrowRightCircleFill } from 'react-icons/bs'
 import Credit from './Credit'
 import SearchBox from './SearchBox'
-import BidBox from './BidBox'
+import SellerBid from '../seller/SellerBid'
+import BuyerBid from '../buyer/BuyerBid'
 
-const Content = () => {
+const Content = ({user}) => {
   return (
-    <div className=' flex-1 px-14 space-y-5 overflow-y-scroll h-screen bg-white '>
-      <h1 className=' mt-24 text-3xl text-buyer-heading '>Overview</h1>
+    <div className=' flex-1 px-14 py-8 space-y-5 overflow-y-scroll h-screen bg-white '>
+      <h1 className=' mt-16 text-3xl text-buyer-heading '>Overview</h1>
 
       <div className="box_conteainer grid grid-cols-3 gap-6 ">
         <BuyerBox color='button_1' growth={true} icon={FrameIcon}  />
@@ -55,7 +56,11 @@ const Content = () => {
       </div>
 
        {/* credit start */}
+{     
+   
+       user!=='seller' &&
        <Credit/>
+       }
         {/* credit end */}
 
         {/* search box start from here */}
@@ -64,10 +69,12 @@ const Content = () => {
         
 
         {/* biding box started */}
-        <BidBox/>
-        <BidBox/>
-        <BidBox/>
-
+        {
+          user==='seller' ?
+        <SellerBid/>
+         :
+        <BuyerBid/>
+}
     </div>
   )
 }
