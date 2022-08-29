@@ -1,11 +1,16 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import {FiSearch} from 'react-icons/fi'
 import {MdOutlineArrowDropDown} from 'react-icons/md'
-const SearchBox = () => {
-  const [options, setOptions] = useState(false)
-  const [optionVal, setOptionVal] = useState('Sort by')
-  
 
+
+const SearchBox = ({change}) => {
+
+
+  const [options, setOptions] = useState(false)
+  const [pading, setPading] = useState('p-4')
+  const [optionVal, setOptionVal] = useState('Sort by')
+  const searchbar = useRef()
+  
 
   //functions
   const show_option = ()=>{
@@ -17,13 +22,15 @@ const SearchBox = () => {
     setOptions(false)
 
   }
+ 
+  
   return (
-    <div className='flex gap-4 items-center '>
-        <div className="search_cover box_shadow border flex-1 rounded flex items-center p-4 bg-white">
+    <div ref={searchbar} className='flex gap-4 py-4 items-center bg-white'>
+        <div className={`search_cover box_shadow border flex-1 rounded flex items-center ${change ? 'p-2' : 'p-4'} bg-white`}>
             <input type="text" className='flex-1 outline-none' placeholder='search' />
             <FiSearch size={20} className='text-buyer-text-color' />
         </div>
-        <div className="sort_cover border box_shadow  relative rounded w-64 justify-between items-center flex bg-white p-4">
+        <div className={`sort_cover border box_shadow  relative rounded w-64 justify-between items-center flex bg-white ${change ? 'p-2' : 'p-4'}`}>
            <p className=' text-buyer-text-color'>{optionVal}</p>
            <MdOutlineArrowDropDown onClick={show_option} className={`cursor-pointer ${options ? 'rotate-180':'rotate-0'} `} size={20}/>
 {     
