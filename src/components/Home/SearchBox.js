@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import {FiSearch} from 'react-icons/fi'
 import {MdOutlineArrowDropDown} from 'react-icons/md'
 
@@ -7,7 +7,6 @@ const SearchBox = ({change}) => {
 
 
   const [options, setOptions] = useState(false)
-  const [pading, setPading] = useState('p-4')
   const [optionVal, setOptionVal] = useState('Sort by')
   const searchbar = useRef()
   
