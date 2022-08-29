@@ -14,7 +14,7 @@ const BidBox = () => {
                 <div className="left flex flex-1 flex-col justify-between text-sm ">
                     <h1 className=' text-2xl text-buyer-small_heading font-semibold'>Apixaban</h1>
                     {/* <div className=' bg-buyer-button_1 p-1 rounded px-3 w-fit'>Bidding Ended</div> */}
-                    <div className="decr_box flex gap-6">
+                    <div className="decr_box flex gap-10">
                         <div className="first text-sm ">
                             <p className=' my-2 text-center text-buyer-text-color font-semibold'>Quantity</p>
                             <p className=' text-center'>3 MT</p>
