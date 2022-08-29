@@ -9,6 +9,12 @@ const SellerBid = () => {
            <SellerBidBox/>
            <SellerBidBox/>
            <SellerBidBox/>
+           <SellerBidBox/>
+           <SellerBidBox/>
+           <SellerBidBox/>
+           <SellerBidBox/>
+           <SellerBidBox/>
+           <SellerBidBox/>
        </div>
     </div>
   )
