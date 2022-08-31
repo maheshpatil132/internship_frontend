@@ -1,6 +1,7 @@
 import React from 'react'
 import img from '../images/company.png'
 import {BsArrowDownCircleFill} from 'react-icons/bs'
+import Footer from './Footer'
 
 const CompanyBox = () => {
     return (
@@ -35,6 +36,8 @@ const CompanyBox = () => {
                     <h3 className=' cursor-pointer text-base'>View Product</h3>
                 </div>
             </div>
+
+            <Footer/>
         </div>
     )
 }

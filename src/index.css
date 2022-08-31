@@ -80,13 +80,11 @@ body {
 
 
 
-.product::-webkit-scrollbar{
-  width: 0px;
-}
 
 .footer{
   background-image: url('./images/footer.png');
   background-size: cover;
+
 }
 
 

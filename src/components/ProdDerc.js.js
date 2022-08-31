@@ -7,7 +7,7 @@ import img3 from '../images/image6.png'
 function ProdDecr() {
 	return (
 		<>
-			<div className="h-full ">
+			<div className="h-full w-4/5 ">
 
 				<div className="px-20 py-14">
 
