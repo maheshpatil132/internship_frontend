@@ -8,6 +8,7 @@ import {
 import Prodcut from "./components/Prodcut";
 import Enquires from "./pages/Enquires/Enquires";
 import Bidding from "./pages/Bidding/Bidding";
+import CompanyBox from "./components/CompanyBox";
 
 
 
@@ -22,7 +23,8 @@ function App() {
           <Route path="/prod" element={<Prodcut/>}></Route>
           <Route path="/enqires" element={<Enquires/>}></Route>
           <Route path="/bidding" element={<Bidding/>}></Route>
-
+          <Route path="/company" element={<CompanyBox/>}></Route>
+          
 
         </Routes>
       </div>

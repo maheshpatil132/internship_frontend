@@ -70,7 +70,7 @@ body {
 
 
 .order_form{
-  width: 370px;
+  width: 400px;
 }
 
 .order_shadow{
@@ -81,4 +81,9 @@ body {
 
 .product::-webkit-scrollbar{
   width: 0px;
+}
+
+.footer{
+  background-image: url('./images/footer.png');
+  background-size: cover;
 }

@@ -28,7 +28,7 @@ const Featues = () => {
                         </div>
                     </div>
                 </div>
-                <button className=' bg-buyer-primary py-2 px-4 text-base rounded text-white'>Request a Quote</button>
+                <button className=' bg-buyer-primary py-2 px-4 mx-2 text-sm rounded text-white'>Having any Issues Contact us !</button>
 
             </div>
 

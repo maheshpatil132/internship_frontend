@@ -11,7 +11,7 @@ const Prodcut = () => {
        <div className=' product flex-1 h-screen overflow-y-scroll '>
          <ProdDecr/>
        </div>
-       <div className='h-screen gap-4 order_form px-4 flex flex-col'>
+       <div className='h-screen justify-between order_form px-4 py-2 flex flex-col'>
           <OrderForm/>
           <Featues/>
        </div>

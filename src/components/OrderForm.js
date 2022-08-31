@@ -10,7 +10,7 @@ const OrderForm = () => {
 
 
     return (
-        <div className='px-1 mt-16'>
+        <div className='px-1 mt-14'>
             <form action="" className='order_shadow flex flex-col space-y-2 py-5 px-6 rounded  bg-white text-sm'>
                 <div className=' flex items-center gap-4 text-buyer-primary font-medium'>
                     <BsCartFill size={20} />
@@ -51,7 +51,7 @@ const OrderForm = () => {
                     </div>
                 </div>
                 <p className='text-buyer-text-color text-sm'>Final Price will be available upon quotes</p>
-                <button className=' bg-buyer-primary py-2 px-4 text-base rounded text-white'>Request a Quote</button>
+                <button className=' bg-buyer-primary py-2 px-4 rounded text-white'>Request a Quote</button>
             </form>
 
         </div>
