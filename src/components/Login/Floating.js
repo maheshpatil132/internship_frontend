@@ -1,21 +1,21 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 
 const Floating = () => {
 
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
 
     // state variables
     const [byer, setByer] = useState(true)
 
     const select_seller = (e)=>{
         e.preventDefault();
-        navigate('/login/seller')
+        // navigate('/login/seller')
         setByer(false)
     }
     const select_byer = (e)=>{
         e.preventDefault();
-        navigate('/login/buyer')
+        // navigate('/login/buyer')
         setByer(true)
     }
     return (

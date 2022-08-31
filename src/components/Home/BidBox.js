@@ -6,7 +6,7 @@ import img from '../../images/structure.png'
 
 const BidBox = () => {
     return (
-        <div className=' bg-white p-6 justify-between flex box_shadow rounded'>
+        <div className=' bg-white p-6 border justify-between flex box_shadow rounded'>
 
             {/* left div start */}
             <div className=' flex flex-1'>

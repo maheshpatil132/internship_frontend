@@ -1,10 +1,11 @@
 import React from 'react'
 import Content from './Content'
 import Navbar from '../Navbar'
+import Header from '../Header'
 const Home = () => {
   return (
     <div>
-        <header className='p-3 border header z-50 absolute w-full bg-white'>Navigation will be here...</header>
+        <Header/>
         <div className="main flex">
             <Navbar/>
             <Content user='seller' />

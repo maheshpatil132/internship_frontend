@@ -11,7 +11,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  min-width: 1300px;
+  min-width: 1320px;
 }
 
 
@@ -69,3 +69,16 @@ body {
 }
 
 
+.order_form{
+  width: 370px;
+}
+
+.order_shadow{
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+
+
+.product::-webkit-scrollbar{
+  width: 0px;
+}

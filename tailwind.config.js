@@ -24,7 +24,8 @@ module.exports = {
           'button_1_text':' #00769B',
           'text-color':'#637F94',
           'second_know_more':'#004AA2',
-          'dash_bg':'#FBFBFB'
+          'dash_bg':'#FBFBFB',
+          'background':'#EBF4F9'
         },
 
         seller:{
