@@ -11,7 +11,7 @@ const OrderForm = () => {
 
     return (
         <div className='px-1 mt-14'>
-            <form action="" className='order_shadow flex flex-col space-y-2 py-5 px-6 rounded  bg-white text-sm'>
+            <form action="" className='order_shadow flex flex-col space-y-3 py-5 px-6 rounded  bg-white text-sm'>
                 <div className=' flex items-center gap-4 text-buyer-primary font-medium'>
                     <BsCartFill size={20} />
                     <h1>Order Now</h1>
