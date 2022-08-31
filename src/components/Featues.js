@@ -9,21 +9,21 @@ const Featues = () => {
                     <div className='feature_1 flex items-center gap-4'>
                         <FaTruck size={30} />
                         <div>
-                            <h3 className=' text-base font-medium'>FaTruck</h3>
+                            <h3 className=' text-base font-medium'>Feature 1</h3>
                             <p className=' text-buyer-text-color'>A line about the above feature</p>
                         </div>
                     </div>
                     <div className='feature_1 flex items-center gap-4'>
                         <FaTruck size={30} />
                         <div>
-                            <h3 className=' text-base font-medium'>FaTruck</h3>
+                            <h3 className=' text-base font-medium'>Feature 2</h3>
                             <p className=' text-buyer-text-color'>A line about the above feature</p>
                         </div>
                     </div>
                     <div className='feature_1 flex items-center gap-4'>
                         <FaTruck size={30} />
                         <div>
-                            <h3 className=' text-base font-medium'>FaTruck</h3>
+                            <h3 className=' text-base font-medium'>Feature 3</h3>
                             <p className=' text-buyer-text-color'>A line about the above feature</p>
                         </div>
                     </div>
