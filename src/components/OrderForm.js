@@ -46,8 +46,8 @@ const OrderForm = () => {
                 </div>
                 <div>
                     <h3 className=' mb-1'>Pincode</h3>
-                    <div className="input_cover flex gap-4">
-                        <input type="text" placeholder='Enter Delivery Pincode' className='outline-none box_shadow flex-1 border p-2 px-4' />
+                    <div className="input_cover flex flex-1 gap-4">
+                        <input type="text" placeholder='Enter Delivery Pincode' className='outline-none w-full box_shadow  border p-2 px-4' />
                     </div>
                 </div>
                 <p className='text-buyer-text-color text-sm'>Final Price will be available upon quotes</p>
