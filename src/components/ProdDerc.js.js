@@ -27,29 +27,29 @@ function ProdDecr() {
 					{/* Technical Description */}
 					<div className='mt-10'>
 						<div className="flex">
-							<div className="py-3 px-4 bg-buyer-background w-1/3">
+							<div className="py-3 px-4 rounded prod_bag  w-1/3">
 								<p class="font-xs">Substance</p>
 								<h3 class="font-xl">Name</h3>
 							</div>
-							<div className="py-3 mx-6 px-4 bg-buyer-background w-1/10">
+							<div className="py-3 mx-6 px-4 rounded prod_bag w-1/10">
 								<p class="font-xs">Substance</p>
 								<h3 class="font-xl">Name</h3>
 							</div>
-							<div className="py-3 px-4 bg-buyer-background w-1/10">
+							<div className="py-3 px-4 rounded  prod_bag w-1/10">
 								<p class="font-xs">Substance</p>
 								<h3 class="font-xl">Name</h3>
 							</div>
 						</div>
 						<div className="flex mt-6">
-							<div className="py-3 px-4 bg-buyer-background w-1/3">
+							<div className="py-3 px-4 prod_bag rounded w-1/3">
 								<p class="font-xs">Substance</p>
 								<h3 class="font-xl">Name</h3>
 							</div>
-							<div className="py-3 mx-6 px-4 bg-buyer-background w-1/10">
+							<div className="py-3 mx-6 px-4 rounded prod_bag w-1/10">
 								<p class="font-xs">Substance</p>
 								<h3 class="font-xl">Name</h3>
 							</div>
-							<div className="py-3 px-4 bg-buyer-background w-1/10">
+							<div className="py-3 px-4 rounded prod_bag w-1/10">
 								<p class="font-xs">Substance</p>
 								<h3 class="font-xl">Name</h3>
 							</div>

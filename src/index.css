@@ -88,3 +88,8 @@ body {
   background-image: url('./images/footer.png');
   background-size: cover;
 }
+
+
+.prod_bag {
+  background-color:  #dcedf7;
+}
