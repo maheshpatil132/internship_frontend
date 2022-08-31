@@ -33,7 +33,7 @@ const Content = ({user}) => {
 
 
   return (
-    <div ref={content} className=' flex-1 px-14 py-8 space-y-5 overflow-y-scroll h-screen bg-white '>
+    <div ref={content} className=' flex-1 px-14 py-8 space-y-5 overflow-y-scroll h-screen  '>
       <h1 className=' mt-16 text-3xl text-buyer-heading '>Overview</h1>
 
       <div className="box_conteainer grid grid-cols-3 gap-6 ">
