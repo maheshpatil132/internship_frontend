@@ -10,9 +10,9 @@ const OrderForm = () => {
 
 
     return (
-        <div className='px-1 mt-11 order_form'>
-            <div className=' rounded flex  order_shadow  bg-white'>
-            <form action="" className=' flex flex-col space-y-4 py-5 px-6  text-sm'>
+        <div className='px-1 mt-11  '>
+            <div className=' rounded flex  order_shadow order_form overflow-hidden relative bg-white '>
+            <form action="" className=' flex flex-col space-y-3 py-4 px-6 '>
                 <div className=' flex items-center gap-4 text-buyer-primary font-medium'>
                     <BsCartFill size={20} />
                     <h1>Order Now</h1>
@@ -51,7 +51,7 @@ const OrderForm = () => {
                         <input type="text" placeholder='Enter Delivery Pincode' className='outline-none w-full box_shadow  border p-2 px-4' />
                     </div>
                 </div>
-                <p className='text-buyer-text-color text-sm'>Final Price will be available upon quotes</p>
+                <p className='text-buyer-text-color'>Final Price will be available upon quotes</p>
                 <button className=' button bg-buyer-primary py-2 px-4 rounded text-white'>Request a Quote</button>
             </form>
 
