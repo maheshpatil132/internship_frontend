@@ -21,37 +21,37 @@ function ProdDecr() {
 						<div className="w-20 h-20 bg-black mr-5">
 						</div>
 
-						<div class="flex align-middle justify-center"><h1 class="my-auto text-2xl font-bold">TITANIUM DIOXIDE 960</h1></div>
+						<div className="flex align-middle justify-center"><h1 className="my-auto text-2xl font-bold">TITANIUM DIOXIDE 960</h1></div>
 					</div>
 
 					{/* Technical Description */}
 					<div className='mt-10'>
 						<div className="flex">
 							<div className="py-3 px-4 rounded prod_bag  w-1/4">
-								<p class="font-xs">Substance</p>
-								<h3 class="font-xl">Titanium Dioxide (Rutile)</h3>
+								<p className="font-xs">Substance</p>
+								<h3 className="font-xl">Titanium Dioxide (Rutile)</h3>
 							</div>
 							<div className="py-3 mx-6 px-4 rounded prod_bag w-1/10">
-								<p class="font-xs">Substance</p>
-								<h3 class="font-xl">Name</h3>
+								<p className="font-xs">Substance</p>
+								<h3 className="font-xl">Name</h3>
 							</div>
 							<div className="py-3 px-4 rounded  prod_bag w-1/10">
-								<p class="font-xs">Substance</p>
-								<h3 class="font-xl">Name</h3>
+								<p className="font-xs">Substance</p>
+								<h3 className="font-xl">Name</h3>
 							</div>
 						</div>
 						<div className="flex mt-6">
 							<div className="py-3 px-4 prod_bag rounded w-1/4">
-								<p class="font-xs">Substance</p>
-								<h3 class="font-xl">Name</h3>
+								<p className="font-xs">Substance</p>
+								<h3 className="font-xl">Name</h3>
 							</div>
 							<div className="py-3 mx-6 px-4 rounded prod_bag w-1/10">
-								<p class="font-xs">Substance</p>
-								<h3 class="font-xl">Name</h3>
+								<p className="font-xs">Substance</p>
+								<h3 className="font-xl">Name</h3>
 							</div>
 							<div className="py-3 px-4 rounded prod_bag w-1/10">
-								<p class="font-xs">Substance</p>
-								<h3 class="font-xl">Name</h3>
+								<p className="font-xs">Substance</p>
+								<h3 className="font-xl">Name</h3>
 							</div>
 						</div>
 					</div>

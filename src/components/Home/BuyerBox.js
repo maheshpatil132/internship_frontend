@@ -26,7 +26,7 @@ const BuyerBox = ({ color, icon, icon_set ,growth }) => {
         <h1 className=' my-2 text-2xl'>Rs 123456</h1>
         <h2 className=' text-sm font-medium text-buyer-small_heading '>Total Purchase</h2>
       </div>
-      <div className={`growth ${color} flex justify-between items-center w-full gap-2 mx-auto my-4 border px-8 py-1 rounded-md text-sm`}>
+      <div className={`growth ${color} flex justify-around items-center px-2 w-full gap-2 mx-auto my-4 border py-1 rounded-md text-sm`}>
         <span className="span_1">12%</span>
         <span className="span_2">12% from last 1 week</span>
         {
