@@ -9,6 +9,7 @@ import Prodcut from "./components/Prodcut";
 import Enquires from "./pages/Enquires/Enquires";
 import Bidding from "./pages/Bidding/Bidding";
 import CompanyBox from "./components/CompanyBox";
+import SellerPage from "./pages/MainPage/SellerOnBoard/SellerPage";
 
 
 
@@ -24,6 +25,8 @@ function App() {
           <Route path="/enqires" element={<Enquires/>}></Route>
           <Route path="/bidding" element={<Bidding/>}></Route>
           <Route path="/company" element={<CompanyBox/>}></Route>
+          <Route path="/onboard" element={<SellerPage/>}></Route>
+
           
 
         </Routes>
