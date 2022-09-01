@@ -19,71 +19,72 @@ body {
 .header {
   left: 0px;
   top: 0px;
- 
+
 }
 
-.dash_button{
-  color:white ;
-  background-color:#004AA2 ;
+.dash_button {
+  color: white;
+  background-color: #004AA2;
   box-shadow: 0px 4px 36px rgba(0, 0, 0, 0.04), 0px 4px 35px rgba(0, 0, 0, 0.05);
   font-weight: 600;
 }
 
-.dash_link{
-  color:#5599FE;
+.dash_link {
+  color: #5599FE;
 }
 
 /* nav_menu */
-.dash_menu_li:hover{
+.dash_menu_li:hover {
   background-color: white;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px -1px 20px rgba(0, 0, 0, 0.04);
   color: #1672DE;
   font-weight: bold;
 }
 
-.navbar{
+.navbar {
   width: 272px;
   background-color: white;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px -1px 20px rgba(0, 0, 0, 0.04);
   z-index: 30;
 }
 
-.button_1{
-  color:  #00769B;
+.button_1 {
+  color: #00769B;
   background-color: #DCFFD0;
 }
-.button_2{
+
+.button_2 {
   color: #32009B;
   background: #FDCECE;
 }
 
-.icon_setting{
+.icon_setting {
   transform: matrix(1, 0, 0, -1, 0, 0);
 }
 
-.box_shadow{
+.box_shadow {
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04);
 }
 
-.credit_shadow{
+.credit_shadow {
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px -1px 20px rgba(0, 0, 0, 0.04);
 }
 
 
-.order_form{
+.order_form {
   width: 310px;
   height: 360px;
 }
 
 
-.order_shadow{
+.order_shadow {
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.12);
 }
 
 
 
 
-.footer{
+.footer {
   background-image: url('./images/footer.png');
   background-size: cover;
 
@@ -91,22 +92,36 @@ body {
 
 
 .prod_bag {
-  background-color:  #dcedf7;
+  background-color: #dcedf7;
 }
 
 
-.button{
+.button {
   background-color: #2736ad;
 }
 
 
-.right_form{
+.right_form {
   position: absolute;
   left: 200%;
 }
 
-.left_form{
+.left_form {
   position: absolute;
   left: -200%;
-  
+
+}
+
+
+.main_seller {
+
+  position: absolute;
+  width: 1050px;
+  height: 100%;
+  left: 150px;
+  top: 40%;
+  background-color: #32009B;
+  background: radial-gradient(41.47% 41.47% at 50% 50%, rgba(169, 221, 254, 0.3) 2.4%, rgba(169, 221, 254, 0.054) 26.35%, rgba(226, 118, 243, 0.114) 59.69%);
+  filter: blur(35px);
+   
 }
