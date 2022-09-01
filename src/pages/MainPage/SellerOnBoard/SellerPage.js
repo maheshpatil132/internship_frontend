@@ -23,7 +23,7 @@ const SellerPage = () => {
                     </div>
                 </div>
                 <div className="right flex">
-                    <img className=' h-96' src={img} alt="" />
+                    <img className=' h-[32rem]' src={img} alt="" />
                 </div>
             </div>
         </div>
