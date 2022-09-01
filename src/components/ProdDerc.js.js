@@ -7,7 +7,7 @@ import img3 from '../images/image6.png'
 function ProdDecr() {
 	return (
 		<>
-			<div className="h-full w-4/5 ">
+			<div className="h-full w-10/12 ">
 
 				<div className="px-20 py-14">
 
@@ -27,9 +27,9 @@ function ProdDecr() {
 					{/* Technical Description */}
 					<div className='mt-10'>
 						<div className="flex">
-							<div className="py-3 px-4 rounded prod_bag  w-1/3">
+							<div className="py-3 px-4 rounded prod_bag  w-1/4">
 								<p class="font-xs">Substance</p>
-								<h3 class="font-xl">Name</h3>
+								<h3 class="font-xl">Titanium Dioxide (Rutile)</h3>
 							</div>
 							<div className="py-3 mx-6 px-4 rounded prod_bag w-1/10">
 								<p class="font-xs">Substance</p>
@@ -41,7 +41,7 @@ function ProdDecr() {
 							</div>
 						</div>
 						<div className="flex mt-6">
-							<div className="py-3 px-4 prod_bag rounded w-1/3">
+							<div className="py-3 px-4 prod_bag rounded w-1/4">
 								<p class="font-xs">Substance</p>
 								<h3 class="font-xl">Name</h3>
 							</div>

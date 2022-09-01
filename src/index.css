@@ -71,7 +71,7 @@ body {
 
 
 .order_form{
-  width: 390px;
+  width: 350px;
 }
 
 .order_shadow{
@@ -95,4 +95,10 @@ body {
 
 .button{
   background-color: #2736ad;
+}
+
+
+.right_form{
+  position: absolute;
+  left: 200%;
 }
