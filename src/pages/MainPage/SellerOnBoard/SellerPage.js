@@ -18,10 +18,10 @@ const SellerPage = () => {
                         </p>
                         <div className=' w-96'>
                             <form action="" className=' flex flex-col gap-4'>
-                                <input type="text" className=' border-[#667080] rounded py-2 px-4 border outline-none' placeholder='Company Name' />
-                                <input type="text" className=' border-[#667080] py-2 px-4 border outline-none' placeholder='Email ' />
-                                <input type="text" className=' border-[#667080] py-2 px-4 border outline-none' placeholder='Phone Number' />
-                                <button className=' bg-buyer-primary py-2 px-6 text-white rounded'>Request A Call </button>
+                                <input type="text" className=' border-[#667080] rounded-md py-2 px-4 border outline-none' placeholder='Company Name' />
+                                <input type="text" className=' border-[#667080] rounded-md py-2 px-4 border outline-none' placeholder='Email ' />
+                                <input type="text" className=' border-[#667080] rounded-md py-2 px-4 border outline-none' placeholder='Phone Number' />
+                                <button className=' bg-buyer-primary py-3 px-6 text-white rounded-md'>Request A Call </button>
                             </form>
                         </div>
                     </div>
