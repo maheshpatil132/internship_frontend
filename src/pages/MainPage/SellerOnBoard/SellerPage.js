@@ -7,7 +7,7 @@ const SellerPage = () => {
         <div className=' flex flex-col'>
 
             {/* home div */}
-            <div className=' relative px-20 py-2 h-screen flex flex-col overflow-hidden'>
+            <div className=' relative px-44 py-2 h-screen flex flex-col overflow-hidden'>
                 <MainHeading />
                 <div className=' flex-1 flex justify-between items-center'>
                     <div className="left flex flex-col gap-6 w-2/5">
