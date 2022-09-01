@@ -3,7 +3,7 @@ import { FaTruck } from 'react-icons/fa'
 
 const Featues = () => {
     return (
-        <div className=' text-xs px-6'>
+        <div className=' text-xs px-6 mb-8'>
             <div className=' flex flex-col gap-3 justify-center  '>
                 <div className=' w-fit mx-auto flex flex-col gap-3'>
                     <div className='feature_1 flex items-center gap-4'>
