@@ -17,7 +17,7 @@ const OrderForm = () => {
     }
 
     return (
-        <div className='px-1 mt-11  '>
+        <div className='px-1 mt-16  '>
             <div className=' rounded flex  order_shadow order_form overflow-hidden relative bg-white '>
                 <form action="" onSubmit={forward} className={` ${!form1 && 'left_form'} left-0 transition ease-in-out delay-150  flex flex-col justify-between  py-4 px-6 `}>
                     <div className=' flex items-center gap-4 text-buyer-primary font-medium'>
