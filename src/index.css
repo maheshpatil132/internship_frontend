@@ -117,7 +117,7 @@ body {
     position: absolute;
     width: 1050px;
     height: 1050px;
-    left: 208px;
+    /* left: 208px; */
     top: 138px;
     background: radial-gradient(41.47% 41.47% at 50% 50%, rgba(169, 221, 254, 0.3) 2.4%, rgba(169, 221, 254, 0.054) 26.35%, rgba(226, 118, 243, 0.114) 59.69%);
    filter: blur(235px);

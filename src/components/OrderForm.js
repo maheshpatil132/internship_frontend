@@ -32,17 +32,17 @@ const OrderForm = () => {
                                 <input type="text" placeholder='Enter the Volume' className=' w-full box_shadow outline-none border p-2 px-4' />
                             </div>
 
-                            <div className="flex box_shadow justify-center border px-3">
+                            <div className="flex bg-white box_shadow justify-center border px-3">
                                 <select className="form-select 
                                             px-2.5
                                             py-1.5
                                             w-full
-                                            font-normal
                                             text-gray-700
                                             rounded
                                             transition
                                             ease-in-out
                                             outline-none
+                                            bg-transparent
                                             ">
                                     <option value="1">kgs</option>
                                     <option value="1">Two</option>
@@ -62,6 +62,8 @@ const OrderForm = () => {
                     <button  className=' button bg-buyer-primary py-2 px-4 rounded text-white'>Request a Quote</button>
                 </form>
 
+
+               {/* second form */}
                 <form action="" className={`  ${form1 && 'right_form'} left-full flex flex-col justify-between gap-1 py-4 px-6`}>
                     <div className=' flex items-center gap-2 text-buyer-primary font-medium'>
                         <IoArrowBackCircleSharp onClick={forward} className='cursor-pointer' size={22} />

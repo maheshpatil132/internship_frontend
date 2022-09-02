@@ -32,7 +32,7 @@ const Bidding = () => {
             <Header />
             <div className="flex">
                 <Navbar />
-                <div ref={content} className=' flex-1 px-14 py-8 space-y-5 overflow-y-scroll h-screen bg-white'>
+                <div ref={content} className=' flex-1 px-14 py-8 space-y-7 overflow-y-scroll h-screen bg-white'>
                     <Heading />
                     <div className="box_cont flex gap-5">
                         <Box />
