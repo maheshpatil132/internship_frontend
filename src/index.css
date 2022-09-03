@@ -125,3 +125,39 @@ body {
    z-index: 0;
 
 }
+
+
+
+.active{
+  background-color: #1672DE;
+  color: white;
+}
+
+.active:hover{
+  background-color: #1672DE;
+  color: white;
+}
+
+
+.graph {
+  background-color:#E6F3FF;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* hiren's css */
+
+.aside{
+  margin-top: -6rem;
+}
