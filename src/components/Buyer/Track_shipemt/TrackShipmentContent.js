@@ -1,5 +1,5 @@
 import React from "react";
-import "../../css/content.css";
+import "../../../css/content.css";
 
 import { useState } from "react";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
@@ -7,9 +7,9 @@ import { NavLink } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
 import { MdOutlineArrowDropDown } from "react-icons/md";
 
-import img from "../../Images/Chart.png";
+import img from "../../../images/Chart.png";
 
-const Content = () => {
+const TrackShipmentContent = () => {
   const [options, setOptions] = useState(false);
   const [optionVal, setOptionVal] = useState("Sort by");
 
@@ -24,7 +24,7 @@ const Content = () => {
   };
 
   return (
-    <div className="content_page">
+    <div className="content_page py-10 px-14 flex-1 overflow-y-scroll h-screen">
       <div className="track_header">
         <div>
           <img src={img} alt="" />
@@ -241,4 +241,4 @@ const Content = () => {
   );
 };
 
-export default Content;
+export default TrackShipmentContent;

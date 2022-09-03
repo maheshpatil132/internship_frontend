@@ -6,7 +6,7 @@ const Home = () => {
     <div className=' flex-1'>
         <Header/>
         <div className="main flex">
-            <Content user='buyer' />
+            <Content user='seller' />
         </div>
     </div>
   )

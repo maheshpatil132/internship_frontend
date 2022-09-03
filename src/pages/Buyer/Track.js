@@ -1,19 +1,16 @@
 import React from "react";
-import Content from "../../components/Buyer/Track_shipemt/Content";
-import Navbar from "../Navbar";
+import TrackShipmentContent from "../../components/Buyer/Track_shipemt/TrackShipmentContent";
+import Header from "../../components/Header";
 
-const Home = () => {
+const Track = () => {
   return (
-    <div>
-      <header className="p-3 border header absolute w-full bg-white">
-        Navigation will be here...
-      </header>
+    <div className=" flex-1">
+     <Header/>
       <div className="main flex">
-        <Navbar />
-        <Content />
+        <TrackShipmentContent />
       </div>
     </div>
   );
 };
 
-export default Home;
+export default Track;
