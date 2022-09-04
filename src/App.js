@@ -22,12 +22,12 @@ function App() {
   
   const Nav = () =>
   useRoutes([
-    { path: "/", element: <Navbar user='seller' /> },
-    { path: "/bidding", element: <Navbar user='seller' /> },
-    { path: "/enqires", element: <Navbar user='seller' /> },
-    { path:'/sellerorder' ,element: <Navbar user='seller' /> },
-    { path:'/buyerorder' ,element: <Navbar user='seller' /> },
-    { path:'/trackshipment' ,element: <Navbar user='seller' /> },
+    { path: "/", element: <Navbar user='buyer' /> },
+    { path: "/bidding", element: <Navbar user='buyer' /> },
+    { path: "/enqires", element: <Navbar user='buyer' /> },
+    { path:'/sellerorder' ,element: <Navbar user='buyer' /> },
+    { path:'/buyerorder' ,element: <Navbar user='buyer' /> },
+    { path:'/trackshipment' ,element: <Navbar user='buyer' /> },
     
 
   ]);
