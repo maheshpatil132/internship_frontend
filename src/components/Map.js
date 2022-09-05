@@ -2,7 +2,7 @@ import React from 'react'
 import map from '../images/map.png'
 const Map = () => {
   return (
-    <div className=' flex items-center gap-20 justify-between px-10 bg-[#00212F] text-white'>
+    <div className='flex items-center px-20 py-10 justify-around bg-[#00212F] text-white'>
       <div className=" flex-1 space-y-7">
         <h1 className=' font-semibold text-3xl'>Skyrocket your Reach Across the world with Maqure! </h1>
         <p className=' text-base text-[#FBFBFB]'>Request a demo to learn how Maqure makes it easier than ever for you to market, sell and transact online.

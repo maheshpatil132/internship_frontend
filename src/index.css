@@ -148,7 +148,9 @@ body {
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
 }
 
-
+.clips{
+  transform: rotate(-4.38deg);
+}
 
 
 

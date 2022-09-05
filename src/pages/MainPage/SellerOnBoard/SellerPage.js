@@ -10,19 +10,25 @@ import card1 from '../../../images/card1.png'
 import card2 from '../../../images/card2.png'
 import card3 from '../../../images/card3.png'
 import truck from '../../../images/Truck.png'
+import footer2 from '../../../images/footer2.png'
+
 
 import Map from '../../../components/Map'
 import Card from '../../../components/Card'
 import Review from '../../../components/Review'
+import FreqBox from '../../../components/FreqBox'
 
 
 const SellerPage = () => {
+
+  
+
     return (
-        <div className=' relative flex-1 flex flex-col py-4'>
+        <div className=' relative flex-1 flex flex-col py-4 overflow-hidden'>
 
             {/* home div */}
 
-            <div className=' relative overflow-hidden px-36  h-screen flex flex-col'>
+            <div className=' relative overflow-hidden px-36   h-screen flex flex-col'>
                 <div className=' gredient'></div>
                 <MainHeading />
                 <div className=' flex-1 flex justify-between items-center'>
@@ -161,14 +167,14 @@ const SellerPage = () => {
 
                 {/* Benefit only for Sellers! */}
 
-                <div className=' px-10 py-6'>
+                <div className=' px-20 py-6'>
 
                     <div className=' space-y-2 mb-14'>
                         <h1 className='  text-4xl  font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600'>Benefits only for Sellers!</h1>
                         <p className='text-[#637F94] text-base'>Enjoy the benefits that we provide only to you. The sellers! </p>
                     </div>
 
-                    <div className=' flex gap-5'>
+                    <div className=' flex gap-5 justify-center'>
                         <Card />
                         <Card />
                         <Card />
@@ -185,15 +191,45 @@ const SellerPage = () => {
                     </div>
 
                     <div className=' grid grid-cols-2 gap-4'>
-                        <Review/>
-                        <Review/>
-                        <Review/>
-                        <Review/>
+                        <Review />
+                        <Review />
+                        <Review />
+                        <Review />
                     </div>
-
                 </div>
 
 
+                {/* footer section */}
+
+                <div className=' my-32 w-[110%] -left-[5%]  justify-around relative flex items-center h-[475px] clips px-36 bg-[#00212F] '>
+                    <div className="left rotate-[4.38deg] flex flex-col w-[35%] gap-8">
+                        <h4 className=' font-semibold text-2xl italic text-white'>“Everything you need to move online — all in one place.”</h4>
+                        <p className='text-[#637F94] text-xl'>Everything you need to move online — all in one place.</p>
+                        <button className=' p-2 px-4 w-[345px] rounded-md bg-white'>
+                            <span className=' font-semibold text-lg text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600'> Request A Call
+                            </span>
+                        </button>
+                    </div>
+                    <div className=" rotate-[4.38deg] ">
+                        <img src={footer2} alt="" />
+                    </div>
+                </div>
+
+
+
+                {/* Frequently asked questions */}
+
+
+                <div className=' space-y-4 my-10'>
+                    <h1 className=' my-14 text-center text-[60px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600'>Frequently Asked Questions</h1>
+
+                  <FreqBox/>
+                  <FreqBox/>
+                  <FreqBox/>
+                  <FreqBox/>
+                  <FreqBox/>
+                    
+                </div>
 
 
             </div>
