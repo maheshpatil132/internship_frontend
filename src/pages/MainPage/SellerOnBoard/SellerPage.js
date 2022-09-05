@@ -21,12 +21,7 @@ import FreqBox from '../../../components/FreqBox'
 
 const SellerPage = () => {
   const image = useRef()
-   const large = () => {
-       image.current.style.height = '29rem'
-   }
-   const small = () => {
-    image.current.style.height = '24.6rem'
-}
+   
 
     return (
         <div className=' relative flex-1 flex flex-col py-4 overflow-hidden'>
@@ -141,34 +136,34 @@ const SellerPage = () => {
                     <div className=' flex mx-auto w-fit gap-4'>
                         <div className="left h-full  items-end flex flex-col  gap-3 text-[#004968]">
 
-                            <div onMouseOver={large} onMouseOut={small} className=' hover_effect bg-[#9898981a] hover:bg-[#72ccff1a] p-4 w-[322px]'>
+                            <div  className=' hover_effect bg-[#9898981a] hover:bg-[#72ccff1a] p-4 w-[322px]'>
                                 <h1 className=' text-[#1672DE]'>No Logistical Headaches</h1>
                                 <p>No Logistical Headaches No Logistical HeadachesNo Logistical HeadachesNo Logistical Headaches</p>
                             </div>
-                            <div onMouseOver={large} onMouseOut={small} className=' hover_effect bg-[#9898981a] hover:bg-[#72ccff1a] p-4 w-[322px]'>
+                            <div  className=' hover_effect bg-[#9898981a] hover:bg-[#72ccff1a] p-4 w-[322px]'>
                                 <h1 className=' text-[#1672DE]'>No Logistical Headaches</h1>
                                 <p>No Logistical Headaches No Logistical HeadachesNo Logistical HeadachesNo Logistical Headaches</p>
                             </div>
-                            <div onMouseOver={large} onMouseOut={small} className=' hover_effect bg-[#9898981a] hover:bg-[#72ccff1a] p-4 w-[322px]'>
+                            <div  className=' hover_effect bg-[#9898981a] hover:bg-[#72ccff1a] p-4 w-[322px]'>
                                 <h1 className=' text-[#1672DE]'>No Logistical Headaches</h1>
                                 <p>No Logistical Headaches No Logistical HeadachesNo Logistical HeadachesNo Logistical Headaches</p>
                             </div>
-                            <div onMouseOver={large} onMouseOut={small} className=' hover_effect bg-[#9898981a] hover:bg-[#72ccff1a] p-4 w-[322px]'>
+                            <div  className=' hover_effect bg-[#9898981a] hover:bg-[#72ccff1a] p-4 w-[322px]'>
                                 <h1 className=' text-[#1672DE]'>No Logistical Headaches</h1>
                                 <p>No Logistical Headaches No Logistical HeadachesNo Logistical HeadachesNo Logistical Headaches</p>
                             </div>
-                            <div onMouseOver={large} onMouseOut={small} className=' hover_effect bg-[#9898981a] hover:bg-[#72ccff1a] p-4 w-[322px]'>
+                            <div  className=' hover_effect bg-[#9898981a] hover:bg-[#72ccff1a] p-4 w-[322px]'>
                                 <h1 className=' text-[#1672DE]'>No Logistical Headaches</h1>
                                 <p>No Logistical Headaches No Logistical HeadachesNo Logistical HeadachesNo Logistical Headaches</p>
                             </div>
-                            <div onMouseOver={large} onMouseOut={small} className=' hover_effect bg-[#9898981a] hover:bg-[#72ccff1a] p-4 w-[322px]'>
+                            <div  className=' hover_effect bg-[#9898981a] hover:bg-[#72ccff1a] p-4 w-[322px]'>
                                 <h1 className=' text-[#1672DE]'>No Logistical Headaches</h1>
                                 <p>No Logistical Headaches No Logistical HeadachesNo Logistical HeadachesNo Logistical Headaches</p>
                             </div>
                         </div>
 
                         <div className="right">
-                            <img ref={image} className='image object-cover h-[24.6rem]' src={truck} alt="" />
+                            <img ref={image} className='image object-cover h-[30rem]' src={truck} alt="" />
                         </div>
                     </div>
                 </div>
@@ -230,14 +225,15 @@ const SellerPage = () => {
                 {/* Frequently asked questions */}
 
 
-                <div className=' space-y-4 my-10'>
-                    <h1 className=' my-14 text-center text-[60px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600'>Frequently Asked Questions</h1>
-
+                <div className=' space-y-20 my-10'>
+                    <h1 className=' text-center text-[60px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600'>Frequently Asked Questions</h1>
+                    <div className=' space-y-4'>
                     <FreqBox />
                     <FreqBox />
                     <FreqBox />
                     <FreqBox />
                     <FreqBox />
+                    </div>
 
                 </div>
 
