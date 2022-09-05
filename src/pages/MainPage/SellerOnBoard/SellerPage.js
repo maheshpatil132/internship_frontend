@@ -13,6 +13,7 @@ import truck from '../../../images/Truck.png'
 
 import Map from '../../../components/Map'
 import Card from '../../../components/Card'
+import Review from '../../../components/Review'
 
 
 const SellerPage = () => {
@@ -168,13 +169,33 @@ const SellerPage = () => {
                     </div>
 
                     <div className=' flex gap-5'>
-                       <Card/>
-                       <Card/>
-                       <Card/>
-                       <Card/>
+                        <Card />
+                        <Card />
+                        <Card />
+                        <Card />
                     </div>
 
                 </div>
+
+                {/* testinimonial section started */}
+                <div className='px-20 my-10'>
+                    <div className=' space-y-2 mb-14'>
+                        <h1 className='  text-4xl  font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600'>Testimonials</h1>
+                        <p className='text-[#637F94] text-base'>Here’s What our clients have to say for us! </p>
+                    </div>
+
+                    <div className=' grid grid-cols-2 gap-4'>
+                        <Review/>
+                        <Review/>
+                        <Review/>
+                        <Review/>
+                    </div>
+
+                </div>
+
+
+
+
             </div>
         </div>
     )
