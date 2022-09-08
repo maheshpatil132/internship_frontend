@@ -4,7 +4,7 @@ import logo from '../images/logo.png'
 const MainHeading = () => {
   return (
     <div>
-        <header className=' flex items-center w-full gap-16 '>
+        <header className=' flex items-center w-full gap-16 py-3 '>
             <div className="logo">
                <img src={logo} alt="" />
             </div>

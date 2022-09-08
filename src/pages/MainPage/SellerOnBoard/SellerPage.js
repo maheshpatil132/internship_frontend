@@ -24,7 +24,7 @@ const SellerPage = () => {
    
 
     return (
-        <div className=' relative flex-1 flex flex-col py-4 overflow-hidden'>
+        <div className=' relative flex-1 flex flex-col overflow-hidden'>
 
             {/* home div */}
 
