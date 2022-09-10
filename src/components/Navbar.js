@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { AiOutlineHome } from 'react-icons/ai'
 import { MdPayment } from 'react-icons/md'
 import { AiOutlineMenuUnfold } from 'react-icons/ai'
@@ -8,8 +8,16 @@ import { RiArrowDownSFill } from 'react-icons/ri'
 
 import { NavLink } from 'react-router-dom'
 const Navbar = ({ user }) => {
+
+  // states
+  const [rfq_li, setRfq_li] = useState(false)
+  const [buyer_li, setBuyer_li] = useState(false)
+  const [seller_li, setSeller_li] = useState(false)
+  const [product_li, setProduct_li] = useState(false)
+
+
   return (
-    <div className='navbar  h-screen flex flex-col justify-between text-base px-2'>
+    <div className='navbar   h-screen flex flex-col justify-between text-base px-2'>
       <nav className=' mt-24 text-[#637F94]'>
         <div>
           <NavLink to={'/'} className='flex cursor-pointer dash_menu_li  p-3 px-5 rounded-lg  items-center justify-between'>
@@ -103,57 +111,71 @@ const Navbar = ({ user }) => {
           {
             user === 'admin' &&
             <>
-              <div className=' flex  dash_menu_li  cursor-pointer gap-6 p-3 px-5 rounded-lg justify-between'>
+              <div onClick={()=>{setRfq_li(!rfq_li)}} className=' flex   cursor-pointer gap-6 p-3 px-5 rounded-lg justify-between'>
                 <MdPayment size={18} />
                 <ul className=' list-disc flex-1 list-inside'>
                   <div className=' flex justify-between'>
                     <h1>Rfqs</h1>
-                    <RiArrowDownSFill size={18} />
+                    <RiArrowDownSFill className={`${rfq_li && 'rotate-180'}`}  size={18} />
                   </div>
-                  <li>One</li>
-                  <li>two</li>
-                  <li>Three</li>
-                  <li>Four</li>
+                  {
+                    rfq_li && 
+                      <>
+                       <li>One</li>
+                       <li>two</li>
+                       <li>Three</li>
+                       <li>Four</li>
+                       </>
+                  }
+                 
                 </ul>
               </div>
 
-              <div className=' flex  dash_menu_li  cursor-pointer gap-6 p-3 px-5 rounded-lg justify-between'>
+              <div  onClick={()=>{setBuyer_li(!buyer_li)}} className=' flex   cursor-pointer gap-6 p-3 px-5 rounded-lg justify-between'>
                 <MdPayment size={18} />
                 <ul className=' list-disc flex-1 list-inside'>
                   <div className=' flex justify-between'>
                     <h1>buyer</h1>
-                    <RiArrowDownSFill size={18} />
+                    <RiArrowDownSFill className={`${seller_li && 'rotate-180'}`} size={18} />
                   </div>
+{    buyer_li && <>
                   <li>One</li>
                   <li>two</li>
+                  </>
+                  }
                 </ul>
               </div>
 
-              
-              <div className=' flex  dash_menu_li  cursor-pointer gap-6 p-3 px-5 rounded-lg justify-between'>
+
+              <div onClick={()=>{setSeller_li(!seller_li)}} className=' flex  cursor-pointer gap-6 p-3 px-5 rounded-lg justify-between'>
                 <MdPayment size={18} />
                 <ul className=' list-disc flex-1 list-inside'>
                   <div className=' flex justify-between'>
                     <h1>seller</h1>
-                    <RiArrowDownSFill size={18} />
+                    <RiArrowDownSFill className={`${seller_li && 'rotate-180'}`}  size={18} />
                   </div>
+                { seller_li && <>
                   <li>One</li>
                   <li>two</li>
+                  </>
+                  }
                 </ul>
               </div>
 
-              
-              <div className=' flex  dash_menu_li  cursor-pointer gap-6 p-3 px-5 rounded-lg justify-between'>
+
+              <div onClick={()=>{setProduct_li(!product_li)}} className=' flex cursor-pointer gap-6 p-3 px-5 rounded-lg justify-between'>
                 <MdPayment size={18} />
                 <ul className=' list-disc flex-1 list-inside'>
                   <div className=' flex justify-between'>
                     <h1>products</h1>
-                    <RiArrowDownSFill size={18} />
+                    <RiArrowDownSFill className={`${ product_li && 'rotate-180'}`}  size={18} />
                   </div>
+                  {  product_li && <>
                   <li>One</li>
                   <li>two</li>
                   <li>three</li>
-
+                  </>
+}
                 </ul>
               </div>
             </>
@@ -162,17 +184,21 @@ const Navbar = ({ user }) => {
       </nav>
       <div className=' gap-5 my-6 flex flex-col justify-center'>
 
-        
-        <div className="credit flex flex-col space-y-6  px-6 ">
-{  user !== 'admin' &&
-          <button className=' w-full dash_button border px-3 py-3 rounded '>Get Credit Now!</button>
-          }
+
+      {user !== 'admin' &&
+      <>
+        <div className="credit flex flex-col space-y-6  px-6 "> 
+            <button className=' w-full dash_button border px-3 py-3 rounded '>Get Credit Now!</button>
+       
           <hr className='border-b border-gray-300' />
         </div>
         <div className='flex flex-col mx-auto  w-fit'>
           <span className=''>Having issue? </span><a href="/contact" className=' text-code-dash_board_primary underline capitalize'>contact us</a>
         </div>
-      </div>
+      
+      </>
+    }
+    </div>
     </div>
   )
 }

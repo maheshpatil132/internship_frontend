@@ -48,6 +48,10 @@ body {
   z-index: 30;
 }
 
+.navbar::-webkit-scrollbar{
+  display: none;
+}
+
 .button_1 {
   color: #00769B;
   background-color: #DCFFD0;
@@ -186,3 +190,7 @@ body {
   margin-top: -6rem;
 }
 
+
+.scrollbox::-webkit-scrollbar{
+  display: none;
+}

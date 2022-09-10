@@ -24,8 +24,8 @@ function App() {
   useRoutes([
     { path: "/", element: <Navbar user='admin' /> },
     { path: "/bidding", element: <Navbar user='buyer' /> },
-    { path: "/enqires", element: <Navbar user='buyer' /> },
-    { path:'/sellerorder' ,element: <Navbar user='buyer' /> },
+    { path: "/enqires", element: <Navbar user='seller' /> },
+    { path:'/sellerorder' ,element: <Navbar user='seller' /> },
     { path:'/buyerorder' ,element: <Navbar user='buyer' /> },
     { path:'/trackshipment' ,element: <Navbar user='buyer' /> },
     

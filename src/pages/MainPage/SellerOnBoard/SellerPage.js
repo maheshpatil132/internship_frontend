@@ -17,6 +17,7 @@ import Map from '../../../components/Map'
 import Card from '../../../components/Card'
 import Review from '../../../components/Review'
 import FreqBox from '../../../components/FreqBox'
+import Onboard from '../../../components/onboard'
 
 
 const SellerPage = () => {
@@ -121,7 +122,8 @@ const SellerPage = () => {
                     </div>
 
                 </div>
-
+            
+               <Onboard/>
 
                 <Map />
 
