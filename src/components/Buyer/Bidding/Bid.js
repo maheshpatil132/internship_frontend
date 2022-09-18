@@ -6,14 +6,13 @@ import { GrDocumentDownload } from 'react-icons/gr'
 
 import img from '../../../images/structure.png'
 
-const Bid = () => {
+const Bid = ({elem}) => {
 
     const [know_more, setKnow_more] = useState(false)
 
     const show = () =>{
       setKnow_more(!know_more)
     }
-
     return (
         <div className=' bg-white p-6 border justify-between flex-col flex box_shadow rounded'>
 
@@ -28,7 +27,7 @@ const Bid = () => {
                         <div className="decr_box flex gap-10">
                             <div className=" text-sm ">
                                 <p className=' my-2 text-center text-buyer-text-color font-semibold'>Quantity</p>
-                                <p className=' text-center'>3 MT</p>
+                                <p className=' text-center'>{elem.quantity}</p>
                             </div>
                             <div className="text-sm">
                                 <p className='my-2  text-center text-buyer-text-color font-semibold'>HS CODE</p>
@@ -40,7 +39,7 @@ const Bid = () => {
                             </div>
                             <div className="text-sm">
                                 <p className='my-2  text-center text-buyer-text-color font-semibold'>status</p>
-                                <div className=' bg-buyer-button_2 p-1 rounded px-3 w-fit'>Bidding Ended</div>
+                                <div className=' bg-buyer-button_2 p-1 rounded px-3 w-fit'>{elem.quote_status}</div>
                             </div>
                         </div>
 
@@ -53,7 +52,7 @@ const Bid = () => {
                         <p>Lowest Bid Yet</p>
                         <IoEllipsisVertical className=' cursor-pointer' size={16} />
                     </div>
-                    <h1 className=' text-2xl font-bold'>$ 1,893.44</h1>
+                    <h1 className=' text-2xl font-bold'>{elem.finalPrice === 0 ? "Not Bidded" : elem.finalPrice }</h1>
                     <p className=' text-buyer-text-color mb-4'>*Updates in 12hrs</p>
 
                     <div className="buttons flex items-center gap-4">

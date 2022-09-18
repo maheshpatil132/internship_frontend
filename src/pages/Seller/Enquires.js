@@ -8,9 +8,21 @@ import SellerBidBox from '../../components/SellerBidBox'
 const Enquires = () => {
 
   const [change, setChange] = useState(false)
+  const [status, setStatus] = useState('live')
+
 
   const content = useRef()
   const searchbar = useRef()
+
+  const status_live = ()=>{
+    setStatus('live')
+ }
+ const status_pending = ()=>{
+  setStatus('pending')
+}
+const status_previous = ()=>{
+  setStatus('previous')
+}
 
 
   useEffect(() => {
@@ -35,9 +47,15 @@ const Enquires = () => {
           <Heading />
 
           <div className="box_cont flex gap-5">
-            <Box />
-            <Box />
-            <Box />
+            <div onClick={status_live} className={`text-sm box_shadow border flex flex-col gap-2  box_shadow rounded-lg py-3 cursor-pointer w-44 px-3 ${status==='live' && 'bg-buyer-primary text-white' } `}>
+              <Box content={'Live'} />
+            </div>
+            <div onClick={status_pending} className={`text-sm box_shadow border flex flex-col gap-2  box_shadow rounded-lg py-3 cursor-pointer w-44 px-3 ${status==='pending' && 'bg-buyer-primary text-white' } `} >
+              <Box content={'Pending'} />
+            </div>
+            <div onClick={status_previous} className={`text-sm box_shadow border flex flex-col gap-2  box_shadow rounded-lg py-3 cursor-pointer w-44 px-3 ${status==='previous' && 'bg-buyer-primary text-white' } `}>
+              <Box content={'Previous'} />
+            </div>
           </div>
 
           <div ref={searchbar} className='sticky top-4' >

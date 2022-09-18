@@ -15,7 +15,6 @@ const Navbar = ({ user }) => {
   const [seller_li, setSeller_li] = useState(false)
   const [product_li, setProduct_li] = useState(false)
 
-
   return (
     <div className='navbar   h-screen flex flex-col justify-between text-base px-2'>
       <nav className=' mt-24 text-[#637F94]'>
@@ -61,7 +60,7 @@ const Navbar = ({ user }) => {
 
 
 
-              <NavLink to={'/Payment'} className={`flex cursor-pointer dash_menu_li  p-3 px-5 rounded-lg  items-center justify-between`}>
+              <NavLink to={'/arfq'} className={`flex cursor-pointer dash_menu_li  p-3 px-5 rounded-lg  items-center justify-between`}>
                 <div className='flex gap-6 items-center'>
                   <FaTruck size={18} />
                   Payment
