@@ -35,7 +35,6 @@ export default function Activerfq() {
     setStatus('accepted')
   }
  
-  const [timerDays, setTimerDays] = useState();
 	const [timerHours, setTimerHours] = useState();
 	const [timerMinutes, setTimerMinutes] = useState();
 	const [timerSeconds, setTimerSeconds] = useState();
@@ -50,7 +49,6 @@ export default function Activerfq() {
 
 			const distance = countDownDate - now;
 
-			const days = Math.floor(distance / (24 * 60 * 60 * 1000));
 			const hours = Math.floor(
 				(distance % (24 * 60 * 60 * 1000)) / (1000 * 60 * 60)
 			);
@@ -67,7 +65,6 @@ export default function Activerfq() {
 				clearInterval(interval.current);
 			} else {
 				// Update Timer
-				setTimerDays(days);
 				setTimerHours(hours);
 				setTimerMinutes(minutes);
 				setTimerSeconds(seconds);

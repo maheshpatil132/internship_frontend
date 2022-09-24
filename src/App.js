@@ -3,7 +3,6 @@ import {
   Navigate,
   Route,
   Routes,
-  useNavigate,
   useRoutes
 } from "react-router-dom";
 import Enquires from "./pages/Seller/Enquires";
@@ -24,8 +23,7 @@ import { getallproduct } from "./actions/ProductActions";
 import Activerfq from "./components/Admin/RFQ/Activerfq.js";
 import AccepetedRfq from "./components/Admin/RFQ/AccepetedRfq.js"
 import RfqContent from "./components/Admin/RFQ/RfqContent";
-import axios from "axios";
-import { autologin, loginbuyeraction } from "./actions/BuyerActions";
+import { autologin} from "./actions/BuyerActions";
 import Rfq from "./components/Rfq";
 import SendRfq from "./components/SendRfq";
 import ComponentPage from "./components/Component";
@@ -34,7 +32,6 @@ import ComponentPage from "./components/Component";
 function App() {
 
 const {user , isAuthenticated} = useSelector(state=>state.user)
-const navigate = useNavigate()
 const dispatch = useDispatch()
 
   const Nav = () =>
@@ -67,7 +64,7 @@ const dispatch = useDispatch()
       // if(!isAuthenticated){
       //    navigate('/login')
       // }
-    }, [])
+    }, [dispatch])
     
   return (
     
