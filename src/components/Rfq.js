@@ -8,7 +8,6 @@ import { useParams } from 'react-router-dom'
 export default function Rfq(change) {
     const [bid, setBid] = useState(null)
     const [load, setLoad] = useState(true)
-    const [price, setPrice] = useState('')
     const [winner, setWinner] = useState('')
 
 
@@ -18,9 +17,7 @@ export default function Rfq(change) {
     const searchbar = useRef()
 
 
-    const price_handle = (e) => {
-        setPrice(e.target.value)
-    }
+   
 
     const UpdatePrice = async () => {
         const val = window.prompt('Enter the Price')

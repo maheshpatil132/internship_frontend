@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom'
-import Quoto from './Seller/Sellerorder/Quoto'
 import img from '../images/Vector.png'
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee'
 import CancelIcon from '@mui/icons-material/Cancel';

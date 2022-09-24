@@ -40,7 +40,6 @@ const Bidding = () => {
 
             setBids(data.buyerbids.bids)
 
-            console.log(bids);
 
 
         }
@@ -103,7 +102,7 @@ const Bidding = () => {
                                         <h1 className=' text-center text-xl'>No bids are in this status</h1>
 
                                     :
-                            //  for pending status
+                                    //  for pending status
                                     bids.filter(bid => bid.quote_status === 'ended').length > 0 ?
 
                                         bids.filter(bid => bid.quote_status === ('buyer_Accepted' || 'bidding ended')).map((elem, index) => {
@@ -119,9 +118,9 @@ const Bidding = () => {
                                 :
 
                                 // for previous status
-                                bids.filter(bid => bid.quote_status === 'rejected' || bid.quote_status === 'accepted' ).length > 0 ?
+                                bids.filter(bid => bid.quote_status === 'rejected' || bid.quote_status === 'accepted').length > 0 ?
 
-                                    bids.filter(bid => bid.quote_status === 'rejected' || bid.quote_status === 'accepted' ).map((elem, index) => {
+                                    bids.filter(bid => bid.quote_status === 'rejected' || bid.quote_status === 'accepted').map((elem, index) => {
                                         return (
                                             <Bid key={elem._id} id={elem._id} elem={elem} />
                                         )

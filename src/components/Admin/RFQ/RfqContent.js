@@ -6,13 +6,12 @@ import updown from "./rfqimg/updown.png";
 import Qvotobox from './Qvotobox';
 import SearchBox from '../../SearchBox';
 import Header from '../../Header';
-import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { getallorders } from '../../../actions/OrderActions';
 import { useNavigate } from 'react-router-dom';
 
 
-export default function RfqContent(change) {
+export default function RfqContent() {
   const [bids, setBids] = useState([])
   const [status, setStatus] = useState('processing')
 

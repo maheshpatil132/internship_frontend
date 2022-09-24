@@ -3,7 +3,6 @@ import React, { useState, Fragment, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import img from "../../../images/Vector.png";
 import rac from "./rfqimg/rac.png"
-import LoadingOverlay from 'react-loading-overlay-ts';
 import { FiSearch } from 'react-icons/fi'
 import { Checkbox } from "@material-tailwind/react";
 
@@ -14,7 +13,6 @@ export default function Qvotobox({ elem, id }) {
 	const [isActive, setIsActive] = useState(false)
 	const [showModal, setShowModal] = useState(false)
 	const [arr, setArr] = useState([])
-	const [sendbox, setSendBox] = useState([])
  
 	const sendarr = []
 
