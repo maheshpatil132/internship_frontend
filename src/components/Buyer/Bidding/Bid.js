@@ -5,13 +5,26 @@ import { FiPhoneCall } from 'react-icons/fi'
 import { GrDocumentDownload } from 'react-icons/gr'
 
 import img from '../../../images/structure.png'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const Bid = ({elem}) => {
 
     const [know_more, setKnow_more] = useState(false)
+    const navigate = useNavigate()
 
     const show = () =>{
       setKnow_more(!know_more)
+    }
+
+
+    const acceptQuote = async () =>{
+        await axios.put('/updates/order/buyer',{
+            quote_status:'accepted',
+            id : elem._id
+        }).then((res)=>{
+             console.log(res)          
+        })
     }
     return (
         <div className=' bg-white p-6 border justify-between flex-col flex box_shadow rounded'>
@@ -52,11 +65,11 @@ const Bid = ({elem}) => {
                         <p>Lowest Bid Yet</p>
                         <IoEllipsisVertical className=' cursor-pointer' size={16} />
                     </div>
-                    <h1 className=' text-2xl font-bold'>{elem.finalPrice === 0 ? "Not Bidded" : elem.finalPrice }</h1>
+                    <h1 className=' text-2xl font-bold'>{elem.buyer_Price === 0 ? "Not Bidded" : 'Rs. ' + elem.buyer_Price }</h1>
                     <p className=' text-buyer-text-color mb-4'>*Updates in 12hrs</p>
 
                     <div className="buttons flex items-center gap-4">
-                        <button className=' py-3 px-12 rounded-md text-sm bg-buyer-second_know_more text-white'>Accept</button>
+                        <button onClick={acceptQuote} className=' py-3 px-12 rounded-md text-sm bg-buyer-second_know_more text-white'>Accept</button>
                         <div className=' border p-3 rounded border-buyer-second_know_more'>
                             <FiPhoneCall size={20} />
                         </div>

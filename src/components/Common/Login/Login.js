@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { AiOutlineEye } from 'react-icons/ai'
 import { useDispatch, useSelector } from 'react-redux'
-import { loginbuyeraction, loginselleraction } from '../../../actions/BuyerActions'
+import { loginbuyeraction, loginselleraction, loginadminaction } from '../../../actions/BuyerActions'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom'
@@ -15,7 +15,7 @@ const Login = () => {
 
     // other variable and states
     const dispatch = useDispatch()
-    const { error,  isAuthenticated } = useSelector(state => state.user)
+    const { error, isAuthenticated } = useSelector(state => state.user)
     const navigate = useNavigate()
 
 
@@ -31,8 +31,31 @@ const Login = () => {
     }
     const submit_form = (e) => {
         e.preventDefault()
-        if(byer){
-            dispatch(loginbuyeraction(email, password)).then(()=>{
+        if (byer) {
+            if (email === 'hiren@gmail.com') {
+                dispatch(loginadminaction(email, password)).then(() => {
+                    if (!isAuthenticated) {
+                        toast.error(error)
+                    }
+                    if (isAuthenticated) {
+                        toast.success("Login Successfully!!")
+                        navigate('/')
+                    }
+                })
+            } else {
+                dispatch(loginbuyeraction(email, password)).then(() => {
+                    if (!isAuthenticated) {
+                        toast.error(error)
+                    }
+                    if (isAuthenticated) {
+                        toast.success("Login Successfully!!")
+                        navigate('/')
+                    }
+                })
+            }
+        }
+        else {
+            dispatch(loginselleraction(email, password)).then(() => {
                 if (!isAuthenticated) {
                     toast.error(error)
                 }
@@ -42,18 +65,7 @@ const Login = () => {
                 }
             })
         }
-        else{
-            dispatch(loginselleraction(email,password)).then(()=>{
-                if (!isAuthenticated) {
-                    toast.error(error)
-                }
-                if (isAuthenticated) {
-                    toast.success("Login Successfully!!")
-                    navigate('/')
-                }
-            })
-        }
-        
+
 
     }
 
@@ -67,12 +79,12 @@ const Login = () => {
         e.preventDefault();
         setByer(true)
     }
-    
+
 
     return (
         <div className='p-3 fixed left-1/2 flex flex-col  -translate-x-1/2 top-1/2 -translate-y-1/2 rounded-md bg-white w-96 border'>
-        
-            <form action=""  className=' p-3'>
+
+            <form action="" className=' p-3'>
                 <div className="heading">
                     <h1 className=' text-heading my-1 text-code-text-heading font-semibold'>Welcome back!</h1>
                     <p className=' text-base text-code-text-color'>Login below or <span> <a href="/" className=' text-code-primary underline'>Create an Account</a></span></p>

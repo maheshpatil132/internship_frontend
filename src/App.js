@@ -1,5 +1,6 @@
 import Login from "./components/Common/Login/Login";
 import {
+  Navigate,
   Route,
   Routes,
   useNavigate,
@@ -23,6 +24,11 @@ import { getallproduct } from "./actions/ProductActions";
 import Activerfq from "./components/Admin/RFQ/Activerfq.js";
 import AccepetedRfq from "./components/Admin/RFQ/AccepetedRfq.js"
 import RfqContent from "./components/Admin/RFQ/RfqContent";
+import axios from "axios";
+import { autologin, loginbuyeraction } from "./actions/BuyerActions";
+import Rfq from "./components/Rfq";
+import SendRfq from "./components/SendRfq";
+import ComponentPage from "./components/Component";
 
 
 function App() {
@@ -42,22 +48,27 @@ const dispatch = useDispatch()
       { path: '/activerfq', element: <Navbar user='admin'  /> },
       { path: '/rfq', element: <Navbar user='admin'  /> },
       { path: '/arfq', element: <Navbar user='admin'  /> },
-      
-      
+      { path: '/rfq/:id', element: <Navbar user='admin'  /> },
+      { path: '/sendRfq', element: <Navbar user='admin'  /> },
+      { path: '/component', element: <Navbar user='admin'  /> },
 
+
+
+      
     ]);
    
     useEffect(() => {
       
-      if(!isAuthenticated){
-         navigate('/login')
-      }
+      
 
       dispatch(getallproduct)
+      dispatch(autologin())
 
+      // if(!isAuthenticated){
+      //    navigate('/login')
+      // }
     }, [])
     
-
   return (
     
 
@@ -77,8 +88,17 @@ const dispatch = useDispatch()
           draggable
           pauseOnHover
         />
+       { 
+       !isAuthenticated ?
         <Routes>
           <Route path="/login" element={<Login />}></Route>
+          <Route
+        path="*"
+        element={<Navigate to="/login" replace />}
+    />
+        </Routes>
+        :
+        <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/prod" element={<Prodcut />}></Route>
           <Route path="/enqires" element={<Enquires />}></Route>
@@ -91,8 +111,17 @@ const dispatch = useDispatch()
           <Route path="/activerfq" element={<Activerfq />}></Route>
           <Route path="/rfq" element={<RfqContent />}></Route>
           <Route path="/arfq" element={<AccepetedRfq />}></Route>
+          <Route path="/rfq/:id" element={<Rfq />}></Route>
+          <Route path="/sendRfq" element={<SendRfq />}></Route>
+          <Route path="/component" element={<ComponentPage />}></Route>
 
-        </Routes>
+
+
+          <Route
+        path="*"
+        element={<Navigate to="/" replace />}
+    />
+        </Routes>}
       </div>
   
   );

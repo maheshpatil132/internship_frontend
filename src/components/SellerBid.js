@@ -1,21 +1,36 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import SellerBidBox from './SellerBidBox'
 
 const SellerBid = () => {
+  const [data, setData] = useState([])
+  const [sellerid, setSellerid] = useState('')
+  useEffect(() => {
+    axios.get('/seller/enquries').then((data) => {
+      console.log(data.data)
+      setData(data.data.bids)
+      setSellerid(data.data.sellerid)
+    })
+  }, [])
+
   return (
-    <div className=' flex flex-col gap-3'>
-       <h1>Latest Enquries </h1>
-       <div className="brid_box grid grid-cols-3 gap-6">
-           <SellerBidBox/>
-           <SellerBidBox/>
-           <SellerBidBox/>
-           <SellerBidBox/>
-           <SellerBidBox/>
-           <SellerBidBox/>
-           <SellerBidBox/>
-           <SellerBidBox/>
-           <SellerBidBox/>
-       </div>
+    <div className=" flex flex-col gap-3">
+      <h1>Latest Enquries </h1>
+      <div className="brid_box grid grid-cols-3 gap-6">
+      {data.map((e, key) => {
+        return e.bids.map((data, key) => {
+          return sellerid === data.seller && data.price === 0 ? (
+            <SellerBidBox e={e} sellerid={sellerid} />
+            
+          ) : (
+            ''
+          )
+        })
+      })}
+       <SellerBidBox  />
+       <SellerBidBox  />
+
+      </div>
     </div>
   )
 }

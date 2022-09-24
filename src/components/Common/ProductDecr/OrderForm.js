@@ -3,11 +3,16 @@ import { BsCartFill } from 'react-icons/bs'
 import {AiFillQuestionCircle} from 'react-icons/ai'
 import {IoArrowBackCircleSharp} from 'react-icons/io5'
 import {BsCloudUploadFill} from 'react-icons/bs'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const OrderForm = () => {
 
    const [form1, setForm1] = useState(true)
+   const [quantity, setQuantity] = useState('')
+   const [pincode, setPincode] = useState('')
 
+   const navigate = useNavigate()
 
     //functions
     
@@ -16,6 +21,25 @@ const OrderForm = () => {
         setForm1(!form1)
     }
 
+    const quantity_handle = (e)=>{
+        setQuantity(e.target.value)
+    }
+
+
+    const pincode_handle =(e)=>{
+        setPincode(e.target.value)
+    }
+
+
+    const create_order = async(e)=>{
+      e.preventDefault()
+      await axios.post('/new/order',{
+            quantity:quantity,
+            product:"632c3cde24cfa38779207ec6",
+        }).then(()=>{
+            navigate('/bidding')
+        }).catch((error)=>{console.log(error);})
+    }
     return (
         <div className='px-1 mt-16  '>
             <div className=' rounded flex  order_shadow order_form overflow-hidden relative bg-white '>
@@ -29,7 +53,7 @@ const OrderForm = () => {
                         <h3 className='mb-1'>Quantity</h3>
                         <div className="input_cover w-full flex gap-4">
                             <div className=' flex-1'>
-                                <input type="text" placeholder='Enter the Volume' className=' w-full box_shadow outline-none border p-2 px-4' />
+                                <input onChange={quantity_handle} type="number" value={quantity}  placeholder='Enter the Volume' className=' w-full box_shadow outline-none border p-2 px-4' />
                             </div>
 
                             <div className="flex bg-white box_shadow justify-center border px-3">
@@ -55,7 +79,7 @@ const OrderForm = () => {
                     <div>
                         <h3 className=' mb-1'>Pincode</h3>
                         <div className="input_cover flex flex-1 gap-4">
-                            <input type="text" placeholder='Enter Delivery Pincode' className='outline-none w-full box_shadow  border p-2 px-4' />
+                            <input onChange={pincode_handle} type="number" value={pincode} placeholder='Enter Delivery Pincode' className='outline-none w-full box_shadow  border p-2 px-4' />
                         </div>
                     </div>
                     <p className='text-buyer-text-color'>Final Price will be available upon quotes</p>
@@ -64,7 +88,7 @@ const OrderForm = () => {
 
 
                {/* second form */}
-                <form action="" className={`  ${form1 && 'right_form'} left-full flex flex-col justify-between gap-1 py-4 px-6`}>
+                <form action="" onSubmit={create_order} className={`  ${form1 && 'right_form'} left-full flex flex-col justify-between gap-1 py-4 px-6`}>
                     <div className=' flex items-center gap-2 text-buyer-primary font-medium'>
                         <IoArrowBackCircleSharp onClick={forward} className='cursor-pointer' size={22} />
                         <h1>Order Now</h1>
