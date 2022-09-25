@@ -246,7 +246,7 @@ export default function Qvotobox({ elem, id }) {
 					</div>
 					<div className="flex flex-col gap-2">
 						<p className="text-[14px] font-[600] text-[#637F94]">PinCode</p>
-						<p className="text-[14px] font-[400]">370001</p>
+						<p className="text-[14px] font-[400]">{elem.buyer_pincode}</p>
 					</div>
 				</div>
 

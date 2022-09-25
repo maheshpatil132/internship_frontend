@@ -38,6 +38,7 @@ const OrderForm = () => {
         await axios.post('/new/order', {
             quantity: quantity,
             product: "632c3cde24cfa38779207ec6",
+            buyer_pincode:pincode
         }).then(() => {
             navigate('/bidding')
         }).catch((error) => { console.log(error); })

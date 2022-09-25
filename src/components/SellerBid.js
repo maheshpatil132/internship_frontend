@@ -27,8 +27,7 @@ const SellerBid = () => {
           )
         })
       })}
-       <SellerBidBox  />
-       <SellerBidBox  />
+       
 
       </div>
     </div>

@@ -11,6 +11,7 @@ import { getallorders } from '../../../actions/OrderActions';
 
 export default function Activerfq() {
   const [bids, setBids] = useState([])
+  
   const [status, setStatus] = useState('active')
   const navigate = useNavigate()
 

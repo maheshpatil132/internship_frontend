@@ -32,6 +32,7 @@ export default function RfqContent() {
 
   }
   const status_Accepted = () => {
+    navigate('/arfq')
     setStatus('accepted')
 
   }

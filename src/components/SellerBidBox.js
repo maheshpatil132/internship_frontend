@@ -17,11 +17,10 @@ const SellerBidBox = ({ e }) => {
   }
 
     const giveprice = (id) => {
-      if(price){
+      console.log(id)
         axios.put(`/seller/quote/${id}`, {
           kimat: price,
         })
-      }
    
   }
 

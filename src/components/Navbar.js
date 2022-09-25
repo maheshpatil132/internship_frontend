@@ -111,14 +111,16 @@ const Navbar = ({ user }) => {
           {
             user === 'admin' &&
             <>
-
-              <div onClick={() => { setRfq_li(!rfq_li) }} className=' flex   cursor-pointer gap-6 p-3 px-5 rounded-lg justify-between'>
-                <MdPayment size={18} />
-                <ul className=' list-disc flex-1 list-inside space-y-1'>
-                  <div className=' flex justify-between'>
+              <div>
+                <div onClick={() => { setRfq_li(!rfq_li) }} className=' flex   cursor-pointer gap-6 p-3 px-5 rounded-lg justify-between'>
+                  <div className='flex gap-7'>
+                    <MdPayment size={18} />
                     <h1>Rfqs</h1>
-                    <RiArrowDownSFill className={`${rfq_li && 'rotate-180'}`} size={18} />
                   </div>
+                  <RiArrowDownSFill className={`${rfq_li && 'rotate-180'}`} size={18} />
+                </div>
+                <ul className=' list-disc ml-14 list-inside space-y-1'>
+
                   {
                     rfq_li &&
                     <>
@@ -132,7 +134,34 @@ const Navbar = ({ user }) => {
                 </ul>
               </div>
 
-              <div onClick={() => { setBuyer_li(!buyer_li) }} className=' flex   cursor-pointer gap-6 p-3 px-5 rounded-lg justify-between'>
+
+
+              <div>
+                <div onClick={() => { setBuyer_li(!buyer_li)}} className=' flex   cursor-pointer gap-6 p-3 px-5 rounded-lg justify-between'>
+                  <div className='flex gap-7'>
+                    <MdPayment size={18} />
+                    <h1>buyer</h1>
+                  </div>
+                  <RiArrowDownSFill className={`${rfq_li && 'rotate-180'}`} size={18} />
+                </div>
+                <ul className=' list-disc ml-14 list-inside space-y-1'>
+
+                  {
+                    rfq_li &&
+                    <>
+                      <NavLink to={'/rfq'}><li>invoice</li></NavLink>
+                      <NavLink to={'/activerfq'}> <li>Payments</li></NavLink>
+                      <NavLink to={'/rfq/1111'}><li>Track Shipment</li></NavLink>
+                      <NavLink to={'/component'}><li>Issues Raised</li></NavLink>
+                    </>
+                  }
+
+                </ul>
+              </div>
+
+          
+
+              {/* <div onClick={() => { setBuyer_li(!buyer_li) }} className=' flex   cursor-pointer gap-6 p-3 px-5 rounded-lg justify-between'>
                 <MdPayment size={18} />
                 <ul className=' list-disc flex-1 list-inside space-y-1'>
                   <div className=' flex justify-between'>
@@ -145,7 +174,7 @@ const Navbar = ({ user }) => {
                   </>
                   }
                 </ul>
-              </div>
+              </div> */}
 
 
               <div onClick={() => { setSeller_li(!seller_li) }} className=' flex  cursor-pointer gap-6 p-3 px-5 rounded-lg justify-between'>
