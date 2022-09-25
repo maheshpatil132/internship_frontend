@@ -53,107 +53,107 @@ export default function Activerfq() {
 
 
 
-<div class="flex flex-col mt-7">
-<div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-  <div class="py-2 inline-block w-[90%] sm:px-6 lg:px-8">
-    <div class="overflow-hidden">
-      <table class="min-w-full text-black text-1xl font-normal ">
-        <thead class="">
+<div className="flex flex-col mt-7">
+<div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
+  <div className="py-2 inline-block w-[90%] sm:px-6 lg:px-8">
+    <div className="overflow-hidden">
+      <table className="min-w-full text-black text-1xl font-normal ">
+        <thead className="">
         
         </thead>
         <tbody>
           <tr className="border-b h-12 hover:border-b  hover:border-blue-500">
            
-            <td class="text-sm  text-[#1672DE]  font-light px-6 py-4 whitespace-nowrap">
+            <td className="text-sm  text-[#1672DE]  font-light px-6 py-4 whitespace-nowrap">
             #5234234
             </td>
-            <td class="text-sm  font-light px-6 py-4 whitespace-nowrap">
+            <td className="text-sm  font-light px-6 py-4 whitespace-nowrap">
             Productname sdf dfsdbdf ffsb
             </td>
-            <td class="text-sm   font-light px-6 py-4 whitespace-nowrap  ">
+            <td className="text-sm   font-light px-6 py-4 whitespace-nowrap  ">
             24/4/2002
             </td>
-            <td class="text-sm  rounded-md  font-light px-6 py-4 whitespace-nowrap">
+            <td className="text-sm  rounded-md  font-light px-6 py-4 whitespace-nowrap">
            <p className='bg-[#1FACFB66] px-3 py-2 rounded-md text-center '> In Transit </p>
             </td>
-            <td class="text-sm   font-light px-6 py-4 whitespace-nowrap">
+            <td className="text-sm   font-light px-6 py-4 whitespace-nowrap">
             Rs 150942
             
             </td>
           
-           <td class="text-sm  font-light  whitespace-nowrap">
+           <td className="text-sm  font-light  whitespace-nowrap">
          <ChevronRightIcon/>
           
           </td>
           </tr>
           <tr className="border-b h-12 hover:border-b  hover:border-blue-500">
         
-          <td class="text-sm  text-[#1672DE]  font-light px-6 py-4 whitespace-nowrap">
+          <td className="text-sm  text-[#1672DE]  font-light px-6 py-4 whitespace-nowrap">
           #5234234
           </td>
-          <td class="text-sm  font-light px-6 py-4 whitespace-nowrap">
+          <td className="text-sm  font-light px-6 py-4 whitespace-nowrap">
           Productname sdf dfsdbdf ffsb
           </td>
-          <td class="text-sm   font-light px-6 py-4 whitespace-nowrap  ">
+          <td className="text-sm   font-light px-6 py-4 whitespace-nowrap  ">
           24/4/2002
           </td>
-          <td class="text-sm  rounded-md  font-light px-6 py-4 whitespace-nowrap">
+          <td className="text-sm  rounded-md  font-light px-6 py-4 whitespace-nowrap">
          <p className='bg-[#1FACFB66] px-3 py-2 rounded-md text-center '> In Transit </p>
           </td>
-          <td class="text-sm   font-light px-6 py-4 whitespace-nowrap">
+          <td className="text-sm   font-light px-6 py-4 whitespace-nowrap">
           Rs 150942
           
           </td>
         
-         <td class="text-sm  font-light  whitespace-nowrap">
+         <td className="text-sm  font-light  whitespace-nowrap">
        <ChevronRightIcon/>
         
         </td>
         </tr>
         <tr className="border-b h-12 hover:border-b  hover:border-blue-500">
        
-        <td class="text-sm  text-[#1672DE]  font-light px-6 py-4 whitespace-nowrap">
+        <td className="text-sm  text-[#1672DE]  font-light px-6 py-4 whitespace-nowrap">
         #5234234
         </td>
-        <td class="text-sm  font-light px-6 py-4 whitespace-nowrap">
+        <td className="text-sm  font-light px-6 py-4 whitespace-nowrap">
         Productname sdf dfsdbdf ffsb
         </td>
-        <td class="text-sm   font-light px-6 py-4 whitespace-nowrap  ">
+        <td className="text-sm   font-light px-6 py-4 whitespace-nowrap  ">
         24/4/2002
         </td>
-        <td class="text-sm  rounded-md  font-light px-6 py-4 whitespace-nowrap">
+        <td className="text-sm  rounded-md  font-light px-6 py-4 whitespace-nowrap">
        <p className='bg-[#FFF61C] px-3 py-2 rounded-md text-center'> Preparing </p>
         </td>
-        <td class="text-sm   font-light px-6 py-4 whitespace-nowrap">
+        <td className="text-sm   font-light px-6 py-4 whitespace-nowrap">
         Rs 150942
         
         </td>
       
-       <td class="text-sm  font-light  whitespace-nowrap">
+       <td className="text-sm  font-light  whitespace-nowrap">
      <ChevronRightIcon/>
       
       </td>
       </tr>
       <tr className="border-b h-12 hover:border-b  hover:border-blue-500">
      
-      <td class="text-sm  text-[#1672DE]  font-light px-6 py-4 whitespace-nowrap">
+      <td className="text-sm  text-[#1672DE]  font-light px-6 py-4 whitespace-nowrap">
       #5234234
       </td>
-      <td class="text-sm  font-light px-6 py-4 whitespace-nowrap">
+      <td className="text-sm  font-light px-6 py-4 whitespace-nowrap">
       Productname sdf dfsdbdf ffsb
       </td>
-      <td class="text-sm   font-light px-6 py-4 whitespace-nowrap  ">
+      <td className="text-sm   font-light px-6 py-4 whitespace-nowrap  ">
       24/4/2002
       </td>
-      <td class="text-sm  rounded-md  font-light px-6 py-4 whitespace-nowrap">
+      <td className="text-sm  rounded-md  font-light px-6 py-4 whitespace-nowrap">
      <p className='bg-[#64FF1C] px-3 py-2 text-center rounded-md '> Delivered </p>
       </td>
-      <td class="text-sm   font-light px-6 py-4 whitespace-nowrap">
+      <td className="text-sm   font-light px-6 py-4 whitespace-nowrap">
       Rs 150942
       
       </td>
     
-     <td class="text-sm  font-light  whitespace-nowrap">
+     <td className="text-sm  font-light  whitespace-nowrap">
    <ChevronRightIcon/>
     
     </td>

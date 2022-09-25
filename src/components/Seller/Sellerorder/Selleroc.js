@@ -52,51 +52,51 @@ export default function History() {
       <SearchBox />
 
       {/* table */}
-      <div class="flex flex-col mt-4">
-        <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-          <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
-            <div class="overflow-hidden">
-              <table class="min-w-full text-black text-1xl font-normal ">
-                <thead class="">
+      <div className="flex flex-col mt-4">
+        <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
+          <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+            <div className="overflow-hidden">
+              <table className="min-w-full text-black text-1xl font-normal ">
+                <thead className="">
                   <tr className="border-b  h-12 hover:border-b  ">
                     <th
                       scope="col"
-                      class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                      className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                     ></th>
                     <th
                       scope="col"
-                      class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                      className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                     >
                       RFQ No
                     </th>
                     <th
                       scope="col"
-                      class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                      className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                     >
                       Product Name
                     </th>
                     <th
                       scope="col"
-                      class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                      className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                     >
                       Quantity
                     </th>
                     
                     <th
                       scope="col"
-                      class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                      className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                     >
                       Status
                     </th>
                     <th
                       scope="col"
-                      class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                      className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                     >
                       Price Sold At
                     </th>
                     <th
                       scope="col"
-                      class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                      className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                     >
                       Price Quoted By you
                     </th>
@@ -107,27 +107,27 @@ export default function History() {
                     return sellerid === data.seller ? (
                       <tbody>
                         <tr className="border-b h-12 hover:border-b  hover:border-blue-500">
-                          <td class="px-6 py-4 text-blue-400  whitespace-nowrap text-sm font-medium ">
+                          <td className="px-6 py-4 text-blue-400  whitespace-nowrap text-sm font-medium ">
                             <ChevronRightIcon />
                           </td>
-                          <td class="text-sm text-blue-500 text-1xl  font-light px-6 py-4 whitespace-nowrap">
+                          <td className="text-sm text-blue-500 text-1xl  font-light px-6 py-4 whitespace-nowrap">
                             {e._id}
                           </td>
-                          <td class="text-sm  font-light px-6 py-4 whitespace-nowrap">
+                          <td className="text-sm  font-light px-6 py-4 whitespace-nowrap">
                             {e.product}
                           </td>
-                          <td class="text-sm   font-light px-6 py-4 whitespace-nowrap  ">
+                          <td className="text-sm   font-light px-6 py-4 whitespace-nowrap  ">
                             {e.quantity}
                           </td>
 
-                          <td class="text-sm  rounded-md h-3 font-light  ">
+                          <td className="text-sm  rounded-md h-3 font-light  ">
                             {' '}
                             <p className="px-2 py-2 bg-green-400">Accepeted</p>
                           </td>
-                          <td class="text-sm   font-light px-6 py-4 whitespace-nowrap">
+                          <td className="text-sm   font-light px-6 py-4 whitespace-nowrap">
                             {e.buyer_Price}
                           </td>
-                          <td class="text-sm   font-light px-6 py-4 whitespace-nowrap">
+                          <td className="text-sm   font-light px-6 py-4 whitespace-nowrap">
                             {e.bids.map((data, key) => {
                               return (
                                 <div>

@@ -27,6 +27,7 @@ import { autologin} from "./actions/BuyerActions";
 import Rfq from "./components/Rfq";
 import SendRfq from "./components/SendRfq";
 import ComponentPage from "./components/Component";
+import Create from "./components/Create";
 
 
 function App() {
@@ -111,6 +112,7 @@ const dispatch = useDispatch()
           <Route path="/rfq/:id" element={<Rfq />}></Route>
           <Route path="/sendRfq" element={<SendRfq />}></Route>
           <Route path="/component" element={<ComponentPage />}></Route>
+          <Route path="/create" element={<Create />}></Route>
 
 
 
