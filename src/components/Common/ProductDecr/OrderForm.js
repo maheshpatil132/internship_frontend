@@ -5,6 +5,10 @@ import { IoArrowBackCircleSharp } from 'react-icons/io5'
 import { BsCloudUploadFill } from 'react-icons/bs'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { toast, ToastContainer } from 'react-toastify'
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
+
 
 
 
@@ -13,6 +17,7 @@ const OrderForm = () => {
     const [form1, setForm1] = useState(true)
     const [quantity, setQuantity] = useState('')
     const [pincode, setPincode] = useState('')
+    const [remarks, setRemarks] = useState('')
 
     const navigate = useNavigate()
 
@@ -27,6 +32,10 @@ const OrderForm = () => {
         setQuantity(e.target.value)
     }
 
+    const remarks_handle = (e) => {
+        setRemarks(e.target.value)
+    }
+
 
     const pincode_handle = (e) => {
         setPincode(e.target.value)
@@ -34,17 +43,23 @@ const OrderForm = () => {
 
 
     const create_order = async (e) => {
+        console.log(typeof (pincode))
         e.preventDefault()
         await axios.post('/new/order', {
             quantity: quantity,
             product: "632c3cde24cfa38779207ec6",
-            buyer_pincode:pincode
+            buyer_pincode: parseInt(pincode),
+            remark: remarks
         }).then(() => {
+            toast.success('order create successfully')
             navigate('/bidding')
-        }).catch((error) => { console.log(error); })
+        }).catch((error) => {
+            toast.error(error.response.data.error)
+        })
     }
     return (
         <div className='px-1 mt-16  '>
+            <ToastContainer />
             <div className=' rounded flex  order_shadow order_form overflow-hidden relative bg-white '>
                 <form action="" onSubmit={forward} className={` ${!form1 && 'left_form'} left-0 transition ease-in-out delay-150  flex flex-col justify-between  py-4 px-6 `}>
                     <div className=' flex items-center gap-4 text-buyer-primary font-medium'>
@@ -101,7 +116,7 @@ const OrderForm = () => {
                     {/* Additional Remarks */}
                     <div className=' flex flex-col gap-1'>
                         <h3>Additional Remarks </h3>
-                        <input type="text" placeholder='Enter your Requirements ' className='rounded border py-2 px-2' />
+                        <input type="text" value={remarks} onChange={remarks_handle} placeholder='Enter your Requirements ' className='rounded border py-2 px-2' />
                     </div>
 
                     {/* upload documents */}

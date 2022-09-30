@@ -29,6 +29,7 @@ export default function Activerfq() {
 
   }
   const status_Accepted = () => {
+    navigate('/arfq')
     setStatus('accepted')
 
   }
@@ -87,21 +88,21 @@ export default function Activerfq() {
 
 
   return (
-    <div className='flex-1 px-14 py-8 space-y-5 overflow-y-scroll h-screen '>
-      <Header />
+    <div className=''>
+      
       <div className=' '>
-        <div className='flex gap-4 mt-16 '>
+        {/* <div className='flex gap-4 mt-16 '>
           <img src={updown} alt="" className='p-3 h-[70px] bg-[#E6F3FF]' />
           <div className='flex flex-col'>
             <p className='text-[#637F94] text-[20px] font-[400]'>Total RFQs</p>
             <h2 className='text-[48px] font-[600] -mt-3'>15000</h2>
           </div>
-        </div>
+        </div> */}
 
 
 
 
-        <div className="track_mid ">
+        {/* <div className="track_mid ">
           <div onClick={status_NewRFQs} className={` cursor-pointer  ${status === 'processing' ? 'first' : 'second'} `}>
             <div className="flex">
               <p className="flex-1">New RFQs</p>
@@ -130,12 +131,12 @@ export default function Activerfq() {
             </div>
             <h3>15000</h3>
           </div>
-        </div>
+        </div> */}
 
 
 
 
-        <div className="flex flex-col mt-7">
+        <div className="flex flex-col bg-white">
           <div className="mr-6">
             <div className="">
               <div className="overflow-hidden">
@@ -151,7 +152,7 @@ export default function Activerfq() {
                       </th>
                       <th
                         scope="col"
-                        className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                        className="text-sm   font-medium text-gray-900 px-6 py-4 text-left"
                       >
                         Product Name
                       </th>
@@ -161,17 +162,24 @@ export default function Activerfq() {
                       >
                         Quantity
                       </th>
-                      <th
-                        scope="col"
-                        className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-                      >
-                        Status
-                      </th>
+                      
                       <th
                         scope="col"
                         className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                       >
                         Date
+                      </th>
+                      <th
+                        scope="col"
+                        className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                      >
+                        status
+                      </th>
+                      <th
+                        scope="col"
+                        className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                      >
+                        Timer
                       </th>
                       <th
                         scope="col"
@@ -189,26 +197,33 @@ export default function Activerfq() {
                               <td className="text-sm  text-[#1672DE]  font-light px-6 py-4 whitespace-nowrap">
                                 #5234234
                               </td>
-                              <td className="text-sm text-center font-light px-6 py-4 whitespace-nowrap">
-                                {elem.product.name}
+                              <td className="text-sm  font-light px-6 py-4 whitespace-nowrap">
+                                {elem.product ? elem.product.name : 'null'}
                               </td>
                               <td className="text-sm   font-light px-6 py-4 whitespace-nowrap  ">
                                 {elem.quantity}
                               </td>
-                              <td className="text-sm  w-40 text-center rounded-lg  font-light px-6 py-4 whitespace-nowrap">
-                                <p className='bg-[#1FACFB66] px-4 py-2 '>{timerHours +' : '+ timerMinutes+' : '+ timerSeconds } </p>
-                              </td>
+                             
                               <td className="text-sm   font-light px-6 py-4 whitespace-nowrap">
-                                12/00/00
+                                {elem.createdAt.split('T')[0]}
 
                               </td>
-                              <td className="text-sm  font-light px-6 py-4  whitespace-nowrap">
+                              <td className="text-sm   font-light px-6 py-4 whitespace-nowrap">
+                                {
+                                  elem.bids.filter(bid=>bid.price===null).length+'/'+elem.bids.length
+                                }
+
+                              </td>
+                              <td className="text-sm   font-light px-6 py-4 whitespace-nowrap">
+                                12:00:00
+
+                              </td>
+                              <td className="text-sm font-light px-6 py-4  whitespace-nowrap">
                                 <button onClick={()=>{navigate(`/rfq/${elem._id}`)}} className='bg-[#1672DE] px-5 py-2 rounded-md text-white font-[600] '>View Details</button>
 
                               </td>
                               <td className="text-sm  font-light  whitespace-nowrap">
                                 <MoreVertIcon />
-
                               </td>
                             </tr>
                           )

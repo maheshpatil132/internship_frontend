@@ -1,10 +1,38 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import logo from '../images/logo.png'
+import axios from 'axios'
 
 const Create = () => {
 
+	const [email, setEmail] = useState('')
+	const [number, setNumber] = useState('')
+	const [password, setPassword] = useState('')
+
+
+	const email_handle = (e) => {
+        setEmail(e.target.value)
+	}
+	const number_handle = (e) => {
+        setNumber(e.target.value)
+	}
+	const password_handle = (e) => {
+        setPassword(e.target.value)
+	}
+
+	const submit_form = async(e)=>{
+		e.preventDefault();
+       await axios.post('/new/buyer',{
+		email:email,
+		password:password,
+		mobile:number
+	   })
+	}
+
+
     useEffect(() => {
+
+		
      
     }, [])
     
@@ -18,9 +46,12 @@ const Create = () => {
 							<img src={logo} alt="Logo" className='h-14 w-40 mx-auto mb-3'/>
 							<p className='text-3xl text-center font-semibold my-1'>Welcome to Maqure</p>
 							<p className='mb-5 text-center'>Enter you account details Or <a href="/" className='underline'>Login</a></p>
+							<form action="" onSubmit={submit_form}>
 							<div className="mb-6 mx-auto">
 								<p className='text-sm text-[#667080]'>Email</p>
 								<input
+								    value={email}
+									onChange={email_handle}
 									type="Email" required
 									className="form-control block w-80 px-4 py-2 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
 									id="exampleFormControlInput2"
@@ -31,6 +62,9 @@ const Create = () => {
 							<div className="mb-6 mx-auto">
 								<p className='text-sm text-[#667080]'>Phone Number</p>
 								<input
+								    value={number}
+									onChange={number_handle}
+
 									type='number' required
 									className="form-control block w-80 px-4 py-2 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
 									id="exampleFormControlInput2"
@@ -40,12 +74,16 @@ const Create = () => {
 							<div className="mb-6 mx-auto">
 								<p className='text-sm text-[#667080]'>Password</p>
 								<input
+								    value={password}
+									onChange={password_handle}
 									type="text" required
 									className="form-control block w-80 px-4 py-2 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
 									id="exampleFormControlInput2"
 									placeholder="shhh... Its Secret"
 								/>
 							</div>
+
+							</form>
 
 							<div className="text-center lg:text-left">
 								<button

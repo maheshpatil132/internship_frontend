@@ -129,7 +129,7 @@ export default function History() {
                             {elem._id}
                           </td>
                           <td className="text-sm    font-light px-6 py-4 whitespace-nowrap">
-                            {elem.product.name}
+                            {elem.product ? elem.product.name : 'null'}
                           </td>
                           <td className="text-sm  font-light px-6 py-4 whitespace-nowrap">
                             12/12/12

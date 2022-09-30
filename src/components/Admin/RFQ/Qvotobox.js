@@ -14,13 +14,18 @@ export default function Qvotobox({ elem, id }) {
 	const [showModal, setShowModal] = useState(false)
 	const [arr, setArr] = useState([])
  
+	const date = new Date(elem.createdAt)
+
+	const val = date.getDate()
+	const month = date.getMonth()
+	const year = date.getFullYear()
+
 	const sendarr = []
 
 	const searchbar = useRef()
 
 	const navigate = useNavigate()
 
-	console.log(elem)
 	const process = async (e) => {
 		try {
 			setIsActive(true)
@@ -50,11 +55,8 @@ export default function Qvotobox({ elem, id }) {
 				quote_status: 'rejected',
 				id: id
 			}).then((res) => {
-				if (res) {
 					setIsActive(false)
 					navigate('/activerfq')
-				}
-
 			})
 		} catch (error) {
 			console.log(error)
@@ -216,10 +218,14 @@ export default function Qvotobox({ elem, id }) {
 						<div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
 					</>
 				) : null}
+
+
+
+
 			<div className="right bg-white shadow-xl px-3  rounded-md py-4">
 				<div className="flex flex-col gap-2">
-					<p className="text-[#1672DE] text-[14px] font-[400px]">#{id}</p>
-					<h2 className=" text-[24px] font-[600]">#1672DE</h2>
+					<p className="text-[#1672DE] text-[14px] font-[400px]">#RFQ{val + '' + month + '' +year }</p>
+					<h2 className=" text-[24px] font-[600]">{elem.product.name}</h2>
 				</div>
 				<div className="flex gap-4 mt-3">
 					<button onClick={process} className="bg-[#1672DE] rounded-md text-[#FFFFFF] font-[700] text-[16px] px-5 py-2 border-2 ">
@@ -253,8 +259,8 @@ export default function Qvotobox({ elem, id }) {
 				<div className="flex gap-3 mt-6 mb-2">
 					<img src={rac} className={' h-full'} alt="" />
 					<div className="flex flex-col gap-1">
-						<p className="text-[16px] font-[400] text-black">Abc ltd. </p>
 						<p className="text-[14px] font-[600] text-[#1672DE]">Buyer Id : {elem.buyer} </p>
+						<p className="text-[16px] font-[400] text-black">Abc ltd. </p>
 					</div>
 				</div>
 
@@ -263,8 +269,9 @@ export default function Qvotobox({ elem, id }) {
 						Buyer's Remarks
 					</h2>
 					<p className="text-[#637F94] text-[14px] font-[400] mt-3">
-						Buyer’s Remarks Lorem ipsum dolor sit amet, consectetur adipiscing
-						elit. Vestibulum dui, sed id convallis rutrum. <span className="text-[blue]"> <a href="/"> read more </a></span>
+						{elem.remark}	
+						{ elem.remark.length > 40 &&
+						 <span className="text-[blue]"> <a href="/"> read more </a></span>}
 					</p>
 				</div>
 				<div className="mt-9">

@@ -9,6 +9,9 @@ import Header from '../../Header';
 import { useDispatch, useSelector } from 'react-redux';
 import { getallorders } from '../../../actions/OrderActions';
 import { useNavigate } from 'react-router-dom';
+import Activerfq from './Activerfq';
+import Accepted from './AccepetedRfq';
+import RfqHistory from './RfqHistory';
 
 
 export default function RfqContent() {
@@ -27,28 +30,26 @@ export default function RfqContent() {
     setStatus('processing')
   }
   const status_active = () => {
-    navigate('/activerfq')
+    
     setStatus('active')
 
   }
   const status_Accepted = () => {
-    navigate('/arfq')
+   
     setStatus('accepted')
 
   }
   const status_RfqHistory = () => {
-    setStatus('accepted')
+    setStatus('history')
   }
 
   useEffect(() => {
 
     dispatch(getallorders)
     setBids(bid)
+    
 
-  
-
-
-  }, [])
+  }, [dispatch])
 
 
 
@@ -90,7 +91,7 @@ export default function RfqContent() {
             </div>
             <h3>15000</h3>
           </div>
-          <div onClick={status_RfqHistory} className={` cursor-pointer  ${status === 'RFQs History' ? 'first' : ' second'} `}>
+          <div onClick={status_RfqHistory} className={` cursor-pointer  ${status === 'history' ? 'first' : ' second'} `}>
             <div className="flex">
               <p className="flex-1">RFQs History</p>
               <ChevronRightIcon className="mt-2 mr-4" />
@@ -107,23 +108,49 @@ export default function RfqContent() {
         <SearchBox />
       </div>
 
-      <div className=' grid grid-cols-3  justify-around gap-6'>
-
+      <div className=''>
+       <div className=' grid grid-cols-3  justify-around gap-6'>
         {
-          
-          bids.filter(bid => bid.quote_status === status).length > 0 ?
-            bids.filter(bid => bid.quote_status === status).map((elem, index) => {
+          status==='processing' &&
+          (
+          bid.filter(bid => bid.quote_status === status).length > 0 ?
+            bid.filter(bid => bid.quote_status === status).map((elem, index) => {
               return (
                 <Qvotobox key={elem._id} id={elem._id} elem={elem} />
               )
             })
 
             :
-            <h1 className=' text-center text-xl'>No bids are in this status</h1>
+            <h1>no bids in this status</h1>
 
+          )
+
+        }
+        </div>
+
+       
+
+       {
+          status==='active' &&
+          <Activerfq  />
+        }
+        
+
+        {
+          status==='accepted' &&
+          <Accepted  />
         }
 
 
+
+       {
+           
+           status === 'history'  &&
+
+           <RfqHistory/>
+
+
+       }
        
 
 

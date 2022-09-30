@@ -17,28 +17,31 @@ export default function Rfq(change) {
     const searchbar = useRef()
 
 
-   
+
 
     const UpdatePrice = async () => {
         const val = window.prompt('Enter the Price')
         setLoad(true)
-        await axios.put(`/updates/order/admin`, {
-            buyer_Price: val,
-            id: id
-        }).then((res) => {
-            setLoad(false)
-            setBid(res.data.order)
-        })
+        if (val) {
+            await axios.put(`/updates/order/admin`, {
+                buyer_Price: val,
+                id: id
+            }).then((res) => {
+                setLoad(false)
+                setBid(res.data.order)
+                console.log(bid)
+            })
+        }
     }
 
-    const Acceptorder = async(e)=>{
-        await axios.put(`/admin/accept/${id}`,{
-            id:id,
-            seller:e.target.getAttribute('seller'),
-            price:e.target.getAttribute('price'),
+    const Acceptorder = async (e) => {
+        await axios.put(`/admin/accept/${id}`, {
+            id: id,
+            seller: e.target.getAttribute('seller'),
+            price: e.target.getAttribute('price'),
 
-        }).then((res)=>{
-        }).catch((err)=>console.log(err.responce.message))
+        }).then((res) => {
+        }).catch((err) => console.log(err.responce.message))
     }
 
     useEffect(() => {
@@ -50,13 +53,13 @@ export default function Rfq(change) {
                     setLoad(false)
                     setWinner(res.data.order.winner[0].seller)
                 })
-                
+
             }
         }
 
         getdata()
 
-        
+
     }, [])
 
     return (
@@ -127,18 +130,18 @@ export default function Rfq(change) {
                                             <div className="text-[#1672DE] font-semibold">{elem.price ? elem.price : 'yet to quote'}</div>
                                         </div>
                                         <div className="w-1/6">
-                                            <button onClick={Acceptorder} seller={elem.seller._id} price={elem.price} className={` w-fit py-1 px-2 mt-2 rounded-md text-white ${winner===elem.seller._id ? 'bg-green-600' :'bg-[#1672DE]'}`}>Accept</button>
+                                            <button onClick={Acceptorder} seller={elem.seller._id} price={elem.price} className={` w-fit py-1 px-2 mt-2 rounded-md text-white ${winner === elem.seller._id ? 'bg-green-600' : 'bg-[#1672DE]'}`}>Accept</button>
                                         </div>
                                         <div className="w-1/6">
                                             <button className="border border-red-600 w-fit py-1 px-2 mt-2 rounded-md text-red-600">Reject</button>
                                         </div>
                                         <p>Edit</p>
                                     </div>
-                                 )
+                                )
                             })
 
-                            } 
-                            
+                            }
+
                         </div>
                     </div>
 

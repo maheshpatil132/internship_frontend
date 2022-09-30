@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { getallorders } from '../../../actions/OrderActions';
 
 
-export default function Accepted() {
+export default function RfqHistory() {
   const [bids, setBids] = useState([])
   const [status, setStatus] = useState('active')
 
@@ -20,28 +20,7 @@ export default function Accepted() {
   const dispatch = useDispatch()
 
 
-  const status_NewRFQs = () => {
-    navigate('/rfq')
-    setStatus('processing')
-  }
-  const status_active = () => {
-    navigate('/activerfq')
-    setStatus('active')
-
-  }
-  const status_Accepted = () => {
-    navigate('/arfq')
-    setStatus('accepted')
-
-  }
-  const status_RfqHistory = () => {
-    setStatus('accepted')
-  }
-
-
-  const status_color = () => {
-
-  }
+  
 
 
   useEffect(() => {
@@ -101,8 +80,9 @@ export default function Accepted() {
                   </thead>
                   <tbody>
 
-                    {bids.filter(bid => bid.quote_status === 'accepted').length > 0 ?
-                      bids.filter(bid => bid.quote_status === 'accepted').map((elem, index) => {
+                    {bids.filter(bid =>  bid.quote_status === 'rejected' || bid.quote_status === 'accepted').length > 0 ?
+                      bids.filter(bid =>  bid.quote_status === 'rejected' || bid.quote_status === 'accepted').map((elem, index) => {
+                        console.log(elem)
                         return (
                           <tr className="border-b h-12 hover:border-b  hover:border-blue-500">
 
@@ -110,16 +90,16 @@ export default function Accepted() {
                               #{elem._id}
                             </td>
                             <td className="text-sm  font-light px-6 py-4 whitespace-nowrap">
-                              {elem.product.name}
+                              {elem.product ? elem.product.name : 'null' }
                             </td>
                             <td className="text-sm  font-light px-6 py-4 whitespace-nowrap">
                               {elem.quantity}
                             </td>
-                            <td className="text-sm   font-light px-6 py-4 whitespace-nowrap  ">
+                            <td className="text-sm font-light px-6 py-4 whitespace-nowrap  ">
                               {elem.createdAt.split('T')[0]}
                             </td>
                             <td className="text-sm  rounded-md  font-light px-6 py-4 whitespace-nowrap">
-                              <p className={`${elem.order_status==='preparing' ? 'bg-[#FFF61C]' : 'bg-[#1FACFB66]'} px-3 py-2 rounded-md text-center `}>{elem.order_status} </p>
+                              <p className={` ${elem.quote_status==='accepted' ? 'bg-[#C9FFC8]' : 'bg-[#FFC8C8]'} px-3 py-2 rounded-md text-center `}>{elem.quote_status} </p>
                             </td>
 
                             <td className="text-sm  font-light  whitespace-nowrap">

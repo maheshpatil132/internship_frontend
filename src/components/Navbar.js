@@ -13,10 +13,12 @@ const Navbar = ({ user }) => {
   const [rfq_li, setRfq_li] = useState(false)
   const [buyer_li, setBuyer_li] = useState(false)
   const [seller_li, setSeller_li] = useState(false)
+  const [order_li, setOrder_li] = useState(false)
+
   const [product_li, setProduct_li] = useState(false)
 
   return (
-    <div className='navbar   h-screen flex flex-col justify-between text-base px-2'>
+    <div className='navbar   h-screen overflow-y-scroll flex flex-col justify-between text-base px-2'>
       <nav className=' mt-24'>
         <div>
           {user !== 'admin' &&
@@ -111,30 +113,13 @@ const Navbar = ({ user }) => {
           {
             user === 'admin' &&
             <>
-              <div>
-                <div onClick={() => { setRfq_li(!rfq_li) }} className=' flex   cursor-pointer gap-6 p-3 px-5 rounded-lg justify-between'>
-                  <div className='flex gap-7'>
-                    <MdPayment size={18} />
-                    <h1>Rfqs</h1>
-                  </div>
-                  <RiArrowDownSFill className={`${rfq_li && 'rotate-180'}`} size={18} />
+              <NavLink to={'/rfq'} className='flex cursor-pointer dash_menu_li  p-3 px-5 rounded-lg  items-center justify-between'>
+                <div className='flex gap-6 items-center'>
+                  <FaTruck size={18} />
+                  RFQs
                 </div>
-                <ul className=' list-disc ml-14 list-inside space-y-1'>
-
-                  {
-                    rfq_li &&
-                    <>
-                      <NavLink to={'/rfq'}><li>invoice</li></NavLink>
-                      <NavLink to={'/activerfq'}> <li>Payments</li></NavLink>
-                      <NavLink to={'/rfq/1111'}><li>Track Shipment</li></NavLink>
-                      <NavLink to={'/component'}><li>Issues Raised</li></NavLink>
-                    </>
-                  }
-
-                </ul>
-              </div>
-
-
+                <MdKeyboardArrowRight size={18} />
+              </NavLink>
 
               <div>
                 <div onClick={() => { setBuyer_li(!buyer_li)}} className=' flex   cursor-pointer gap-6 p-3 px-5 rounded-lg justify-between'>
@@ -142,48 +127,32 @@ const Navbar = ({ user }) => {
                     <MdPayment size={18} />
                     <h1>buyer</h1>
                   </div>
-                  <RiArrowDownSFill className={`${rfq_li && 'rotate-180'}`} size={18} />
+                  <RiArrowDownSFill className={`${buyer_li && 'rotate-180'}`} size={18} />
                 </div>
                 <ul className=' list-disc ml-14 list-inside space-y-1'>
 
                   {
-                    rfq_li &&
+                    buyer_li &&
                     <>
-                      <NavLink to={'/rfq'}><li>invoice</li></NavLink>
-                      <NavLink to={'/activerfq'}> <li>Payments</li></NavLink>
-                      <NavLink to={'/rfq/1111'}><li>Track Shipment</li></NavLink>
-                      <NavLink to={'/component'}><li>Issues Raised</li></NavLink>
+                      <NavLink className={({ isActive }) => (isActive ? 'active-link' : '')} to={'/create'}><li>Add New Buyer</li></NavLink>
+                      <NavLink className={({ isActive }) => (isActive ? 'active-link' : '')} to={'/profile'}><li>Buyer List</li></NavLink>
                     </>
                   }
 
                 </ul>
               </div>
 
-          
 
-              {/* <div onClick={() => { setBuyer_li(!buyer_li) }} className=' flex   cursor-pointer gap-6 p-3 px-5 rounded-lg justify-between'>
-                <MdPayment size={18} />
-                <ul className=' list-disc flex-1 list-inside space-y-1'>
-                  <div className=' flex justify-between'>
-                    <h1>buyer</h1>
-                    <RiArrowDownSFill className={`${seller_li && 'rotate-180'}`} size={18} />
-                  </div>
-                  {buyer_li && <>
-                    <NavLink to={'/create'}><li>Add New Buyer</li></NavLink>
-                    <li>Buyers List</li>
-                  </>
-                  }
-                </ul>
-              </div> */}
-
-
-              <div onClick={() => { setSeller_li(!seller_li) }} className=' flex  cursor-pointer gap-6 p-3 px-5 rounded-lg justify-between'>
-                <MdPayment size={18} />
-                <ul className=' list-disc flex-1 list-inside space-y-1'>
-                  <div className=' flex justify-between'>
+        
+              <div>
+                <div onClick={() => {setSeller_li(!seller_li)}} className=' flex   cursor-pointer gap-6 p-3 px-5 rounded-lg justify-between'>
+                  <div className='flex gap-7'>
+                    <MdPayment size={18} />
                     <h1>seller</h1>
-                    <RiArrowDownSFill className={`${seller_li && 'rotate-180'}`} size={18} />
                   </div>
+                  <RiArrowDownSFill className={`${seller_li  && 'rotate-180'}`} size={18} />
+                </div>
+                <ul className=' list-disc ml-14 list-inside space-y-1'>
                   {seller_li && <>
                     <li>Add New Seller</li>
                     <li>Sellers List</li>
@@ -193,14 +162,17 @@ const Navbar = ({ user }) => {
               </div>
 
 
-              <div onClick={() => { setProduct_li(!product_li) }} className=' flex cursor-pointer gap-6 p-3 px-5 rounded-lg justify-between'>
-                <MdPayment size={18} />
-                <ul className=' list-disc flex-1 list-inside space-y-1'>
-                  <div className=' flex justify-between'>
-                    <h1>products</h1>
-                    <RiArrowDownSFill className={`${product_li && 'rotate-180'}`} size={18} />
+              
+              <div>
+                <div onClick={() => {setProduct_li(!product_li)}} className=' flex   cursor-pointer gap-6 p-3 px-5 rounded-lg justify-between'>
+                  <div className='flex gap-7'>
+                    <MdPayment size={18} />
+                    <h1>product</h1>
                   </div>
-                  {product_li && <>
+                  <RiArrowDownSFill className={`${product_li  && 'rotate-180'}`} size={18} />
+                </div>
+                <ul className=' list-disc ml-14 list-inside space-y-1'>
+                {product_li && <>
                     <li>Add Product</li>
                     <li>Categories</li>
                     <li>Sellers Request</li>
@@ -208,6 +180,28 @@ const Navbar = ({ user }) => {
                   }
                 </ul>
               </div>
+              
+              <div>
+                <div onClick={() => {setOrder_li(!order_li)}} className=' flex   cursor-pointer gap-6 p-3 px-5 rounded-lg justify-between'>
+                  <div className='flex gap-7'>
+                    <MdPayment size={18} />
+                    <h1>orders</h1>
+                  </div>
+                  <RiArrowDownSFill className={`${order_li  && 'rotate-180'}`} size={18} />
+                </div>
+                <ul className=' list-disc ml-14 list-inside space-y-1'>
+                  {order_li && <>
+                    <li>invoice</li>
+                      <li>Payments</li>
+                     <li>Track Shipment</li>
+                     <li>Issues Raised</li>
+                  </>
+                  }
+                </ul>
+              </div>
+
+              
+              
             </>
           }
         </div>

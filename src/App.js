@@ -28,6 +28,7 @@ import Rfq from "./components/Rfq";
 import SendRfq from "./components/SendRfq";
 import ComponentPage from "./components/Component";
 import Create from "./components/Create";
+import Profile from "./pages/CommonPages/Profile";
 
 
 function App() {
@@ -49,6 +50,8 @@ const dispatch = useDispatch()
       { path: '/rfq/:id', element: <Navbar user='admin'  /> },
       { path: '/sendRfq', element: <Navbar user='admin'  /> },
       { path: '/component', element: <Navbar user='admin'  /> },
+      { path: '/profile', element: <Navbar user='admin'  /> },
+
 
 
 
@@ -97,6 +100,7 @@ const dispatch = useDispatch()
         </Routes>
         :
         <Routes>
+          
           <Route path="/" element={<Home />}></Route>
           <Route path="/prod" element={<Prodcut />}></Route>
           <Route path="/enqires" element={<Enquires />}></Route>
@@ -113,6 +117,7 @@ const dispatch = useDispatch()
           <Route path="/sendRfq" element={<SendRfq />}></Route>
           <Route path="/component" element={<ComponentPage />}></Route>
           <Route path="/create" element={<Create />}></Route>
+          <Route path="/profile" element={<Profile />}></Route>
 
 
 
