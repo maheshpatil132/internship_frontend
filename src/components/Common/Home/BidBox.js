@@ -29,13 +29,13 @@ const BidBox = () => {
                             <p className=' text-center'>503612-47-3</p>
                         </div>
                         <div className="text-sm">
-                        <p className='my-2  text-center text-buyer-text-color font-semibold'>status</p>
-                        <div className=' bg-buyer-button_1 p-1 rounded px-3 w-fit'>Bidding Ended</div>
+                            <p className='my-2  text-center text-buyer-text-color font-semibold'>status</p>
+                            <div className=' bg-buyer-button_1 p-1 rounded px-3 w-fit'>Bidding Ended</div>
                         </div>
                     </div>
                     <div className='flex items-center gap-2 text-end text-base font-medium text-buyer-second_know_more capitalize'><NavLink to={"/prod"} className='  font-semibold'>Know more</NavLink>
-                    <MdOutlineArrowDropDown className=' cursor-pointer' size={22} />
-                </div>
+                        <MdOutlineArrowDropDown className=' cursor-pointer' size={22} />
+                    </div>
                 </div>
             </div>
 
@@ -54,7 +54,6 @@ const BidBox = () => {
                         <FiPhoneCall size={20} />
                     </div>
                 </div>
-                <a href="/" className=' underline text-buyer-primary text-center'>Reject</a>
             </div>
 
         </div>

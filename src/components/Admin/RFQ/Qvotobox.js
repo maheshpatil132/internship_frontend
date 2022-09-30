@@ -9,7 +9,7 @@ import { Checkbox } from "@material-tailwind/react";
 
 
 
-export default function Qvotobox({ elem, id }) {
+export default function Qvotobox({ elem, id ,setStatus }) {
 	const [isActive, setIsActive] = useState(false)
 	const [showModal, setShowModal] = useState(false)
 	const [arr, setArr] = useState([])
@@ -29,19 +29,6 @@ export default function Qvotobox({ elem, id }) {
 	const process = async (e) => {
 		try {
 			setIsActive(true)
-			// await axios.put('/updates/order/admin', {
-			//  quote_status : 'active',
-			//  id : id
-			// }).then((res)=>{
-			//   if(res){
-			//     console.log(res)
-			//     setIsActive(false)
-			//     navigate('/activerfq')
-			//   }
-
-			// })
-
-
 			setShowModal(true)
 		} catch (error) {
 			console.log(error)
@@ -56,7 +43,6 @@ export default function Qvotobox({ elem, id }) {
 				id: id
 			}).then((res) => {
 					setIsActive(false)
-					navigate('/activerfq')
 			})
 		} catch (error) {
 			console.log(error)
@@ -84,9 +70,8 @@ export default function Qvotobox({ elem, id }) {
 			id:id,
 			sellers : sendarr
 		}).then((res)=>{
-			console.log(res);
 			setShowModal(false)
-            navigate('/arfq')
+			setStatus('active')
 		}).catch((err)=>{
 			console.log(err)
 		})
@@ -269,7 +254,7 @@ export default function Qvotobox({ elem, id }) {
 						Buyer's Remarks
 					</h2>
 					<p className="text-[#637F94] text-[14px] font-[400] mt-3">
-						{elem.remark}	
+						{elem.remark ? elem.remark : 'No Remark'}	
 						{ elem.remark.length > 40 &&
 						 <span className="text-[blue]"> <a href="/"> read more </a></span>}
 					</p>

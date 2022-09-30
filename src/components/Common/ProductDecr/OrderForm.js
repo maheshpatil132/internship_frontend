@@ -1,14 +1,12 @@
 import React, { useState } from 'react'
 import { BsCartFill } from 'react-icons/bs'
 import { AiFillQuestionCircle } from 'react-icons/ai'
+import 'reactjs-popup/dist/index.css';
 import { IoArrowBackCircleSharp } from 'react-icons/io5'
 import { BsCloudUploadFill } from 'react-icons/bs'
+import Popup from 'reactjs-popup';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import { toast, ToastContainer } from 'react-toastify'
-import Popup from 'reactjs-popup';
-import 'reactjs-popup/dist/index.css';
-
 
 
 
@@ -32,34 +30,36 @@ const OrderForm = () => {
         setQuantity(e.target.value)
     }
 
-    const remarks_handle = (e) => {
-        setRemarks(e.target.value)
-    }
-
 
     const pincode_handle = (e) => {
         setPincode(e.target.value)
     }
-
+    
+    const remarks_handle = (e) => {
+        setRemarks(e.target.value)
+    }
 
     const create_order = async (e) => {
-        console.log(typeof (pincode))
         e.preventDefault()
+        console.log(remarks)
         await axios.post('/new/order', {
             quantity: quantity,
             product: "632c3cde24cfa38779207ec6",
             buyer_pincode: parseInt(pincode),
             remark: remarks
         }).then(() => {
-            toast.success('order create successfully')
             navigate('/bidding')
-        }).catch((error) => {
-            toast.error(error.response.data.error)
-        })
+        }).catch((error) => { console.log(error); })
     }
+
+    const upload = () => {
+        let file = document.getElementById("file");
+        file.click()
+    }
+
+
     return (
         <div className='px-1 mt-16  '>
-            <ToastContainer />
             <div className=' rounded flex  order_shadow order_form overflow-hidden relative bg-white '>
                 <form action="" onSubmit={forward} className={` ${!form1 && 'left_form'} left-0 transition ease-in-out delay-150  flex flex-col justify-between  py-4 px-6 `}>
                     <div className=' flex items-center gap-4 text-buyer-primary font-medium'>
@@ -124,17 +124,29 @@ const OrderForm = () => {
 
                         {/* upload document heading */}
                         <div className=' flex items-center gap-2'>
-                            <h1 className=' '>Upload Documents  </h1>
-                            <AiFillQuestionCircle size={18} />
+                            
+                            <Popup
+                                trigger={open => (
+                                    <button type='button' className='flex gap-3'><p>Upload Documents</p><AiFillQuestionCircle size={18} /></button>
+                                )}
+                                position="top center"
+                                closeOnDocumentClick
+                                on={['hover', 'focus']}
+                            >
+                                <span> Please upload only .pdf format files only <sup className='text-red-700 text-md'>*</sup></span>
+                            </Popup>
+                            
                         </div>
+                        
+                        <input id="file" className='hidden' accept={".pdf"} type="file"/>
 
-                        <div className=' bg-[#1672DE] w-fit flex text-white text-[0.7rem] rounded flex-col gap-2  p-2 items-center justify-center px-2'>
+                        <button type='button' onClick={upload} className=' bg-[#1672DE] w-fit flex text-white text-[0.7rem] rounded flex-col gap-2  p-2 items-center justify-center px-2'>
                             <BsCloudUploadFill color='' size={20} />
-                            <p className=' '>Upload</p>
-                        </div>
+                            <p>Upload</p>
+                        </button>
                     </div>
                     <p className=' text-buyer-text-color'>Final Price will be available upon quotes</p>
-                    <button className=' bg-buyer-primary py-2 text-white rounded-md '>submit</button>
+                    <button type='submit' className=' bg-buyer-primary py-2 text-white rounded-md '>submit</button>
                 </form>
             </div>
 

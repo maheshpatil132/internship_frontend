@@ -35,13 +35,8 @@ const Bidding = () => {
 
     useEffect(() => {
         const getdata = async () => {
-
             const { data } = await axios.get('/getall/buyer/bids')
-
             setBids(data.buyerbids.bids)
-
-
-
         }
 
         content.current.addEventListener('scroll', () => {
@@ -53,39 +48,38 @@ const Bidding = () => {
             if (rect.top > 70) {
                 setChange(false)
             }
-
         })
         getdata()
-
-
-
     }, [status])
+
     return (
         <div className=' flex-1'>
             <Header />
             <div className="flex">
 
-                <div ref={content} className=' flex-1 px-14 py-8 space-y-7 overflow-y-scroll h-screen '>
-                    <Heading />
-                    <div className="box_cont flex gap-5">
-                        <div className={` text-sm box_shadow bg-white border flex flex-col gap-2  box_shadow rounded-lg py-3 cursor-pointer w-44 px-3 ${status === 'processing' && 'bg-buyer-primary text-white'} `} onClick={status_proccess}>
-                            <Box content={'Processing'} />
+                <div ref={content} className=' flex-1 px-8 py-8 space-y-7 overflow-y-scroll h-screen'>
+                    <div className="bg-white p-3 mt-10 rounded-md">
+                        <Heading />
+                        <div className="box_cont flex gap-5 mt-7">
+                            <div className={` text-sm box_shadow border flex flex-col gap-2  box_shadow rounded-lg py-3 cursor-pointer w-44 px-3 ${status === 'processing' && 'bg-buyer-primary text-white'} `} onClick={status_proccess}>
+                                <Box content={'Processing'} />
+                            </div>
+                            <div className={` text-sm box_shadow border flex flex-col gap-2  box_shadow rounded-lg py-3 cursor-pointer w-44 px-3 ${status === 'active' && 'bg-buyer-primary text-white'} `} onClick={status_active}>
+                                <Box content={'Active'} />
+                            </div>
+                            <div className={` text-sm box_shadow border flex flex-col gap-2  box_shadow rounded-lg py-3 cursor-pointer w-44 px-3 ${status === 'pending' && 'bg-buyer-primary text-white'} `} onClick={status_pending}>
+                                <Box content={'Pending'} />
+                            </div>
+                            <div className={` text-sm box_shadow border flex flex-col gap-2  box_shadow rounded-lg py-3 cursor-pointer w-44 px-3 ${status === 'previous' && 'bg-buyer-primary text-white'} `} onClick={status_previous}>
+                                <Box content={'Previous'} />
+                            </div>
                         </div>
-                        <div className={` text-sm box_shadow bg-white border flex flex-col gap-2  box_shadow rounded-lg py-3 cursor-pointer w-44 px-3 ${status === 'active' && 'bg-buyer-primary text-white'} `} onClick={status_active}>
-                            <Box content={'Active'} />
-                        </div>
-                        <div className={` text-sm box_shadow bg-white border flex flex-col gap-2  box_shadow rounded-lg py-3 cursor-pointer w-44 px-3 ${status === 'pending' && 'bg-buyer-primary text-white'} `} onClick={status_pending}>
-                            <Box content={'Pending'} />
-                        </div>
-                        <div className={` text-sm box_shadow bg-white border flex flex-col gap-2  box_shadow rounded-lg py-3 cursor-pointer w-44 px-3 ${status === 'previous' && 'bg-buyer-primary text-white'} `} onClick={status_previous}>
-                            <Box content={'Previous'} />
-                        </div>
-                    </div>
-                    <div ref={searchbar} className='sticky top-4' >
-                        <SearchBox change={change} />
                     </div>
 
-                    <div className=' flex flex-col space-y-5'>
+                    <div className=' flex flex-col space-y-5 bg-white p-4 rounded-md'>
+                        <div ref={searchbar} className='sticky top-4' >
+                            <SearchBox change={change} />
+                        </div>
 
                         {
                             status !== 'previous' ?
@@ -105,7 +99,7 @@ const Bidding = () => {
                                     //  for pending status
                                     bids.filter(bid => bid.quote_status === 'ended').length > 0 ?
 
-                                        bids.filter(bid => bid.quote_status === ('buyer_Accepted' || 'bidding ended')).map((elem, index) => {
+                                        bids.filter(bid => bid.quote_status === 'ended').map((elem, index) => {
                                             return (
                                                 <Bid key={elem._id} id={elem._id} elem={elem} />
                                             )
@@ -130,13 +124,7 @@ const Bidding = () => {
 
                                     <h1 className=' text-center text-xl'>No bids are in this status</h1>
                         }
-
-
-
-
                     </div>
-
-
                 </div>
             </div>
         </div>

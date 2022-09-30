@@ -1,121 +1,296 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { MdOutlineArrowDropDown } from 'react-icons/md'
-import { IoEllipsisVertical } from 'react-icons/io5'
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { FiPhoneCall } from 'react-icons/fi'
 import { GrDocumentDownload } from 'react-icons/gr'
-
 import img from '../../../images/structure.png'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
 
-const Bid = ({elem}) => {
+const Bid = ({ elem }) => {
 
+    useEffect(() => {
+        status_color();
+        startTimer();
+    })
+
+
+    // For adding documents by buyer 
     const [know_more, setKnow_more] = useState(false)
-    const navigate = useNavigate()
-
-    const show = () =>{
-      setKnow_more(!know_more)
+    const show = () => {
+        setKnow_more(!know_more)
     }
 
 
-    const acceptQuote = async () =>{
-        await axios.put('/updates/order/buyer',{
-            quote_status:'accepted',
-            id : elem._id
-        }).then((res)=>{
-             console.log(res)          
+    // Date of creation of bid
+    const date = new Date(elem.createdAt)
+    const dates = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`
+
+
+    // Bid accepted by buyer (Put request)
+    const acceptQuote = async () => {
+        await axios.put('/updates/order/buyer', {
+            quote_status: 'accepted',
+            id: elem._id
+        }).then((res) => {
+            // console.log(res)
         })
     }
-    return (
-        <div className=' bg-white p-6 border justify-between flex-col flex box_shadow rounded'>
 
-            <div className='  justify-between flex '>
+
+    // For changing color of status button
+    const [statusColor, setStatusColor] = useState("")
+    const status_color = () => {
+        if (elem.quote_status === 'processing') setStatusColor("#FFF61C")
+        else if (elem.quote_status === 'active') setStatusColor("#1672DE")
+        else if (elem.quote_status === 'ended') setStatusColor("#900404")
+        else if (elem.quote_status === 'accepted') setStatusColor("#BFFCA2")
+        else if (elem.quote_status === 'rejected') setStatusColor("#FF9B9B")
+        else if (elem.quote_status === 'preparing') setStatusColor("#FFF61C")
+        else if (elem.quote_status === 'inTransit') setStatusColor("#8AE3FF")
+        else if (elem.quote_status === 'delivered') setStatusColor("#64FF1C")
+    }
+
+
+    // Popup for admin rejected bid/order
+    const remark = () => {
+        window.confirm("Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum debitis sint maiores sed dicta, sapiente iure, molestias placeat architecto aut praesentium commodi, itaque consequuntur unde voluptas quisquam expedita officia fugit.")
+    }
+
+
+    // Timer for Bidding
+    const [timerDays, setTimerDays] = useState();
+    const [timerHours, setTimerHours] = useState();
+    const [timerMinutes, setTimerMinutes] = useState();
+    const [timerSeconds, setTimerSeconds] = useState();
+
+    let interval;
+
+    const startTimer = () => {
+        const countDownDate = new Date("Sept 31,2022").getTime();
+
+        interval = setInterval(() => {
+            const now = new Date().getTime();
+
+            const distance = countDownDate - now;
+
+            const days = Math.floor(distance / (24 * 60 * 60 * 1000));
+            const hours = Math.floor(
+                (distance % (24 * 60 * 60 * 1000)) / (1000 * 60 * 60)
+            );
+            const minutes = Math.floor((distance % (60 * 60 * 1000)) / (1000 * 60));
+            const seconds = Math.floor((distance % (60 * 1000)) / 1000);
+
+            if (distance <= 0) {
+
+                // Change the status in Database
+
+
+
+                // Stop Timer
+                clearInterval(interval.current);
+            } else {
+                // Update Timer
+                setTimerDays(days);
+                setTimerHours(hours);
+                setTimerMinutes(minutes);
+                setTimerSeconds(seconds);
+            }
+        });
+    };
+
+
+    return (
+        <div className=' bg-white px-6 pt-2 border justify-between flex-col flex box_shadow rounded hover:border-[#1060bc]'>
+
+            <div className='  justify-between flex'>
 
                 {/* left div start */}
-                <div className=' flex flex-1'>
-                    <img src={img} className='' alt="this is img" />
-                    <div className="left flex flex-1 flex-col gap-12 text-sm ">
-                        <h1 className=' text-2xl text-buyer-small_heading font-semibold'>Apixaban</h1>
-                        {/* <div className=' bg-buyer-button_1 p-1 rounded px-3 w-fit'>Bidding Ended</div> */}
-                        <div className="decr_box flex gap-10">
+                <div className=' flex'>
+                    <img src={img} className='h-4/5' alt="this is img" />
+                    <div className="left flex flex-col gap-10 text-sm w-2/3">
+                        <h1 className=' text-2xl text-buyer-small_heading font-semibold mt-10'>Apixaban</h1>
+                        <div className="flex gap-3">
                             <div className=" text-sm ">
                                 <p className=' my-2 text-center text-buyer-text-color font-semibold'>Quantity</p>
                                 <p className=' text-center'>{elem.quantity}</p>
                             </div>
                             <div className="text-sm">
-                                <p className='my-2  text-center text-buyer-text-color font-semibold'>HS CODE</p>
+                                <p className='my-2 w-20 text-center text-buyer-text-color font-semibold'>HS CODE</p>
                                 <p className=' text-center'>29153100</p>
                             </div>
                             <div className=" text-sm">
-                                <p className='my-2  text-center text-buyer-text-color font-semibold'>CAS NO.</p>
+                                <p className='my-2 w-28  text-center text-buyer-text-color font-semibold'>CAS NO.</p>
                                 <p className=' text-center'>503612-47-3</p>
                             </div>
                             <div className="text-sm">
-                                <p className='my-2  text-center text-buyer-text-color font-semibold'>status</p>
-                                <div className=' bg-buyer-button_2 p-1 rounded px-3 w-fit'>{elem.quote_status}</div>
+                                <p className='mt-2  text-center text-buyer-text-color font-semibold'>Date</p>
+                                <div className={`p-1 mt-1 rounded px-2 w-20 text-center`}>{dates}</div>
+                            </div>
+                            <div className="text-sm ">
+                                <p className='mt-2 text-center text-buyer-text-color font-semibold'>status</p>
+                                <div className={`bg-[${statusColor}]  p-1 mt-1 rounded px-3 w-fit text-center`}>{elem.quote_status}</div>
+                            </div>
+                            {
+                                elem.quote_status === 'active' ?
+                                    <div className="text-sm ">
+                                        <p className='mt-2 text-center text-buyer-text-color font-semibold'>Time Left</p>
+                                        <div className={`bg-[${statusColor}] p-1 mt-1 rounded w-20 text-center`}>{timerHours} : {timerMinutes} : {timerSeconds}</div>
+                                    </div>
+                                :
+                                    ""
+                            }
+                            
+                        </div>
+
+                    </div>
+                </div>
+
+                {
+                    elem.quote_status === "active" || elem.quote_status === "ended" ?
+                        <div className='left  flex flex-col text-sm  gap-3'>
+                            <div className="right_head text-buyer-text-color flex items-center justify-between mt-1">
+                                <p>Lowest Bid Yet</p>
+                                <ChevronRightIcon className='cursor-pointer' size={16} />
+                            </div>
+                            <h1 className=' text-2xl font-bold'>{elem.buyer_Price === 0 ? "Not Bidded" : 'Rs. ' + elem.buyer_Price}</h1>
+                            {elem.quote_status === "accepted" || elem.quote_status === "rejected" ? "" : <p className=' text-buyer-text-color mb-4'>*Updates in 12hrs</p>}
+
+
+                            <div className="buttons flex items-center gap-4">
+                                {elem.quote_status === "accepted" || elem.quote_status === "rejected" || elem.quote_status === "processing" ? <div></div> : <button onClick={acceptQuote} className=' py-3 px-12 rounded-md text-sm bg-buyer-second_know_more text-white'>Accept</button>}
+
+                                {
+                                    elem.quote_status === "accepted" || elem.quote_status === "rejected" ?
+                                        <div className=' border p-3 rounded border-buyer-second_know_more'>
+                                            <FiPhoneCall size={20} width={40} />
+                                        </div>
+                                        :
+                                        <div className=' border p-3 rounded border-buyer-second_know_more'>
+                                            <FiPhoneCall size={20} />
+                                        </div>
+                                }
+
+                            </div>
+                            {elem.quote_status === "rejected" ? <a href="/" className=' underline text-buyer-primary'>Negotiate</a> : ""}
+                        </div>
+                        :
+                        ""
+                }
+                {
+                    elem.quote_status === "processing" ?
+                        <div className='left  flex flex-col text-sm'>
+                            <div className="right_head text-buyer-text-color flex items-end justify-end mt-1">
+                                <ChevronRightIcon className='cursor-pointer' size={16} />
+                            </div>
+                            <h1 className=' text-2xl font-bold mt-4'>Bid not started yet</h1>
+
+                            <div className="buttons flex items-center gap-4 mt-14 hover:bg-[#1672DE] hover:text-white">
+                                <div className='flex justify-evenly border p-2 rounded border-buyer-second_know_more w-full cursor-pointer'>
+                                    <p className='border border-transparent border-r-gray-400 px-4'>Call for Inquries</p>
+                                    <FiPhoneCall size={20} />
+                                </div>
+                            </div>
+
+                            {elem.quote_status === "rejected" ? <a href="/" className=' underline text-buyer-primary'>Negotiate</a> : ""}
+                        </div>
+                        :
+                        ""
+                }
+                {
+                    elem.quote_status === "rejected" ?
+                        <div className='left  flex flex-col text-sm '>
+                            <div className="right_head text-buyer-text-color flex items-center justify-end mt-1">
+                                <ChevronRightIcon className='cursor-pointer' size={16} />
+                            </div>
+
+                            {
+                                elem.buyer_Price === 0 ?
+                                    <>
+                                        <h1 className='text-2xl font-semibold mt-3 text-[#ff2424]'>Bid Rejected</h1>
+                                        <div onClick={remark} className="buttons flex items-center gap-4 mt-4 my-2 hover:bg-[#1672DE] hover:text-white">
+                                            <div className='flex justify-evenly border p-2 rounded border-buyer-second_know_more w-full cursor-pointer'>
+                                                <p>Know the Reason</p>
+                                            </div>
+                                        </div>
+                                    </>
+                                    :
+                                    <>
+                                        <h1 className='text-2xl font-semibold mt-3 text-[#ff2424]'>Order Rejected</h1>
+                                        <h1 className="text-xl text-gray-500 mt-2 font-medium ">Amount: <span className='text-2xl text-black'>₹ 1234567</span></h1>
+                                    </>
+                            }
+
+
+
+
+                            <div className="buttons flex items-center gap-4 mt-1 hover:bg-[#1672DE] hover:text-white">
+                                <div className='flex justify-evenly border p-2 rounded border-buyer-second_know_more w-full cursor-pointer'>
+                                    <p className='border border-transparent border-r-gray-400 px-4'>Call for Inquries</p>
+                                    <FiPhoneCall size={20} />
+                                </div>
                             </div>
                         </div>
+                        :
+                        ""
+                }
+                {
+                    elem.quote_status === "accepted" ?
+                        <div className='left  flex flex-col text-sm '>
+                            <div className="right_head text-buyer-text-color flex items-center justify-end mt-1">
+                                <ChevronRightIcon className='cursor-pointer' size={16} />
+                            </div>
+                            <h1 className='text-2xl font-semibold mt-3 text-[#1672DE]'>Order Confirmed</h1>
 
-                    </div>
-                </div>
-
-                {/* right div start */}
-                <div className='left  flex flex-col text-sm  gap-3'>
-                    <div className="right_head text-buyer-text-color flex items-center justify-between">
-                        <p>Lowest Bid Yet</p>
-                        <IoEllipsisVertical className=' cursor-pointer' size={16} />
-                    </div>
-                    <h1 className=' text-2xl font-bold'>{elem.buyer_Price === 0 ? "Not Bidded" : 'Rs. ' + elem.buyer_Price }</h1>
-                    <p className=' text-buyer-text-color mb-4'>*Updates in 12hrs</p>
-
-                    <div className="buttons flex items-center gap-4">
-                        <button onClick={acceptQuote} className=' py-3 px-12 rounded-md text-sm bg-buyer-second_know_more text-white'>Accept</button>
-                        <div className=' border p-3 rounded border-buyer-second_know_more'>
-                            <FiPhoneCall size={20} />
+                            <h1 className="text-xl text-gray-500 mt-2 font-medium mb-4">Amount: <span className='text-2xl text-black'>₹ 1234567</span></h1>
+                            <div onClick={remark} className="buttons flex items-center gap-4 mt-2 my-2 hover:bg-[#1672DE] hover:text-white">
+                                <div className='flex justify-evenly border p-2 rounded-md border-buyer-second_know_more w-full cursor-pointer hover:rounded-md'>
+                                    <p>Go to Order Page</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <a href="/" className=' underline text-buyer-primary text-center'>Negotiate</a>
-                </div>
-
+                        :
+                        ""
+                }
             </div>
+
 
 
 
             {/* know maore */}
             <div onClick={show} className=' cursor-pointer flex items-center gap-2  mb-4 text-end text-base font-medium text-buyer-second_know_more capitalize'>
                 <p className='  font-semibold'>Know more</p>
-                <MdOutlineArrowDropDown  className={`cursor-pointer ${know_more && 'rotate-180'}`} size={22} />
+                <MdOutlineArrowDropDown className={`cursor-pointer ${know_more && 'rotate-180'}`} size={22} />
             </div>
 
 
-            
+
             {
-               know_more && 
+                know_more &&
                 <div className=' flex flex-col gap-2 text-sm'>
-                <div>
-                    <h1 className=' font-semibold text-base my-2'>Your Remarks</h1>
-                    <p className=' text-buyer-text-color'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum dui, sed id convallis rutrum. Arcu dolor imperdiet ipsum amet ut. Cursus mattis fringilla ut urna malesuada sagittis tortor. Aliquam molestie pellentesque dui, tincidunt ut fames egestas.</p>
+                    <div>
+                        <h1 className=' font-semibold text-base my-2'>Your Remarks</h1>
+                        <p className=' text-buyer-text-color'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum dui, sed id convallis rutrum. Arcu dolor imperdiet ipsum amet ut. Cursus mattis fringilla ut urna malesuada sagittis tortor. Aliquam molestie pellentesque dui, tincidunt ut fames egestas.</p>
+                    </div>
+                    <h1 className='font-semibold text-base my-2'>Documents </h1>
+                    <div className='flex gap-5 '>
+                        <div className=' flex flex-col items-center gap-1'>
+                            <GrDocumentDownload color='#1672DE' size={35} />
+                            <p className=' text-buyer-text-color'>abc.pdf</p>
+                        </div>
+                        <div className=' flex flex-col items-center gap-1'>
+                            <GrDocumentDownload color='#1672DE' size={35} />
+                            <p className=' text-buyer-text-color'>abc.pdf</p>
+                        </div>
+                        <div className=' flex flex-col items-center gap-1'>
+                            <GrDocumentDownload color='#1672DE' size={35} />
+                            <p className=' text-buyer-text-color'>abc.pdf</p>
+                        </div>
+                        <div className=' flex flex-col items-center gap-1'>
+                            <GrDocumentDownload color='#1672DE' size={35} />
+                            <p className=' text-buyer-text-color'>abc.pdf</p>
+                        </div>
+                    </div>
                 </div>
-                <h1 className='font-semibold text-base my-2'>Documents </h1>
-                <div className='flex gap-5 '>
-                    <div className=' flex flex-col items-center gap-1'>
-                        <GrDocumentDownload color='#1672DE' size={35} />
-                        <p className=' text-buyer-text-color'>abc.pdf</p>
-                    </div>
-                    <div className=' flex flex-col items-center gap-1'>
-                        <GrDocumentDownload color='#1672DE' size={35} />
-                        <p className=' text-buyer-text-color'>abc.pdf</p>
-                    </div>
-                    <div className=' flex flex-col items-center gap-1'>
-                        <GrDocumentDownload color='#1672DE' size={35} />
-                        <p className=' text-buyer-text-color'>abc.pdf</p>
-                    </div>
-                    <div className=' flex flex-col items-center gap-1'>
-                        <GrDocumentDownload color='#1672DE' size={35} />
-                        <p className=' text-buyer-text-color'>abc.pdf</p>
-                    </div>
-                </div>
-            </div>
             }
         </div>
     )

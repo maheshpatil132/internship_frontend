@@ -116,7 +116,7 @@ export default function RfqContent() {
           bid.filter(bid => bid.quote_status === status).length > 0 ?
             bid.filter(bid => bid.quote_status === status).map((elem, index) => {
               return (
-                <Qvotobox key={elem._id} id={elem._id} elem={elem} />
+                <Qvotobox key={elem._id} setStatus={setStatus} id={elem._id} elem={elem} />
               )
             })
 
