@@ -53,11 +53,14 @@ export default function Accepted() {
     <div className=''>
       
       <div className=''>
-        <div className="flex  flex-col mt-3 bg-white">
+        <div className="flex  flex-col mt-3 bg-white box_shadow">
           <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div className="   sm:px-6 lg:px-8">
               <div className="overflow-hidden">
-                <table className="min-w-full text-black text-1xl font-normal ">
+
+              {  bids.filter(bid => bid.quote_status === 'buyer_accepted').length > 0 ?
+              
+              <table className="min-w-full text-black text-1xl font-normal ">
                   <thead className="">
                     <tr className="border-b  hover:border-b  ">
 
@@ -101,8 +104,8 @@ export default function Accepted() {
                   </thead>
                   <tbody>
 
-                    {bids.filter(bid => bid.quote_status === 'accepted').length > 0 ?
-                      bids.filter(bid => bid.quote_status === 'accepted').map((elem, index) => {
+                    {bids.filter(bid => bid.quote_status === 'buyer_accepted').length > 0 &&
+                      bids.filter(bid => bid.quote_status === 'buyer_accepted').map((elem, index) => {
                         return (
                           <tr className="border-b h-12 hover:border-b  hover:border-blue-500">
 
@@ -122,24 +125,22 @@ export default function Accepted() {
                               <p className={`${elem.order_status==='preparing' ? 'bg-[#FFF61C]' : 'bg-[#1FACFB66]'} px-3 py-2 rounded-md text-center `}>{elem.order_status} </p>
                             </td>
 
-                            <td className="text-sm  font-light  whitespace-nowrap">
-                              <ChevronRightIcon />
+                            <td className="text-sm  font-light cursor-pointer whitespace-nowrap">
+                              <ChevronRightIcon onClick={()=>{navigate(`/rfq/${elem._id}`)}} />
 
                             </td>
                           </tr>
 
                         )
                       })
-
-                      :
-
-                      'no content'
-
                     }
 
 
                   </tbody>
                 </table>
+                :
+                <h1 className=' p-4 text-center'>No bids in this Status</h1>
+              }
               </div>
             </div>
           </div>

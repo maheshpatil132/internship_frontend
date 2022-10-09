@@ -1,4 +1,4 @@
-import React, { useEffect, useState  } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import updown from "./rfqimg/updown.png";
@@ -12,11 +12,14 @@ import { useNavigate } from 'react-router-dom';
 import Activerfq from './Activerfq';
 import Accepted from './AccepetedRfq';
 import RfqHistory from './RfqHistory';
+import Box from '../../Box';
 
 
 export default function RfqContent() {
   const [bids, setBids] = useState([])
   const [status, setStatus] = useState('processing')
+
+
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -25,18 +28,17 @@ export default function RfqContent() {
 
 
 
-
   const status_NewRFQs = () => {
     setStatus('processing')
   }
   const status_active = () => {
-    
+
     setStatus('active')
 
   }
   const status_Accepted = () => {
-   
-    setStatus('accepted')
+
+    setStatus('buyer_accepted')
 
   }
   const status_RfqHistory = () => {
@@ -47,19 +49,15 @@ export default function RfqContent() {
 
     dispatch(getallorders)
     setBids(bid)
-    
 
-  }, [dispatch])
-
-
-
+  }, [status])
 
 
 
   return (
     <div className='border flex-1 px-14 py-8 space-y-5 overflow-y-scroll h-screen'>
       <Header />
-      
+
       <div className=''>
         <div className='flex gap-4 mt-16'>
           <img src={updown} alt="" className='p-3 h-[70px] bg-[#E6F3FF]' />
@@ -68,38 +66,21 @@ export default function RfqContent() {
             <h2 className='text-[48px] font-[600] -mt-3'>15000</h2>
           </div>
         </div>
-        
-        <div className="track_mid ">
-          <div onClick={status_NewRFQs} className={` cursor-pointer  ${status === 'processing' ? 'first' : 'second'} `}>
-            <div className="flex">
-              <p className="flex-1">New RFQs</p>
-              <ChevronRightIcon className="mt-2 mr-4" />
-            </div>
-            <h3>15000</h3>
+
+        <div className="box_cont flex gap-5 mt-7">
+          <div className={` text-sm box_shadow border flex bg-white flex-col gap-2  box_shadow rounded-lg py-3 cursor-pointer w-44 px-3 ${status === 'processing' && 'bg-buyer-primary text-white'} `} onClick={status_NewRFQs}>
+            <Box content={'NewRFQs'} bids={bids} />
           </div>
-          <div onClick={status_active} className={` cursor-pointer  ${status === 'active' ? 'first' : ' second'} `}>
-            <div className="flex">
-              <p className="flex-1">Active RFQs</p>
-              <ChevronRightIcon className="mt-2 mr-4" />
-            </div>
-            <h3>15000</h3>
+          <div className={` text-sm box_shadow border bg-white flex flex-col gap-2  box_shadow rounded-lg py-3 cursor-pointer w-44 px-3 ${status === 'active' && 'bg-buyer-primary text-white'} `} onClick={status_active}>
+            <Box content={'ActiveRFQs'} bids={bids} />
           </div>
-          <div onClick={status_Accepted} className={` cursor-pointer  ${status === 'accepted' ? 'first' : ' second'} `}>
-            <div className="flex items-center">
-              <p className="flex-1">Accepted RFQs</p>
-              <ChevronRightIcon className="mt-2 mr-4" />
-            </div>
-            <h3>15000</h3>
+          <div className={` text-sm box_shadow border bg-white flex flex-col gap-2  box_shadow rounded-lg py-3 cursor-pointer w-44 px-3 ${status === 'buyer_accepted' && 'bg-buyer-primary text-white'} `} onClick={status_Accepted}>
+            <Box content={'AcceptedRFQs'} bids={bids} />
           </div>
-          <div onClick={status_RfqHistory} className={` cursor-pointer  ${status === 'history' ? 'first' : ' second'} `}>
-            <div className="flex">
-              <p className="flex-1">RFQs History</p>
-              <ChevronRightIcon className="mt-2 mr-4" />
-            </div>
-            <h3>15000</h3>
+          <div className={` text-sm box_shadow border bg-white flex flex-col gap-2  box_shadow rounded-lg py-3 cursor-pointer w-44 px-3 ${status === 'history' && 'bg-buyer-primary text-white'} `} onClick={status_RfqHistory}>
+            <Box content={'RFQHistory'} bids={bids} />
           </div>
         </div>
-
 
       </div>
 
@@ -109,49 +90,49 @@ export default function RfqContent() {
       </div>
 
       <div className=''>
-       <div className=' grid grid-cols-3  justify-around gap-6'>
-        {
-          status==='processing' &&
-          (
-          bid.filter(bid => bid.quote_status === status).length > 0 ?
-            bid.filter(bid => bid.quote_status === status).map((elem, index) => {
-              return (
-                <Qvotobox key={elem._id} setStatus={setStatus} id={elem._id} elem={elem} />
-              )
-            })
+        <div className=' grid grid-cols-3  justify-around gap-6'>
+          {
+            status === 'processing' &&
+            (
+              bid.filter(bid => bid.quote_status === status).length > 0 ?
+                bid.filter(bid => bid.quote_status === status).map((elem, index) => {
+                  return (
+                    <Qvotobox key={elem._id} setStatus={setStatus} id={elem._id} elem={elem} />
+                  )
+                })
 
-            :
-            <h1>no bids in this status</h1>
+                :
+                <h1>no bids in this status</h1>
 
-          )
+            )
 
-        }
+          }
         </div>
 
-       
 
-       {
-          status==='active' &&
-          <Activerfq  />
-        }
-        
 
         {
-          status==='accepted' &&
-          <Accepted  />
+          status === 'active' &&
+          <Activerfq />
+        }
+
+
+        {
+          status === 'accepted' &&
+          <Accepted />
         }
 
 
 
-       {
-           
-           status === 'history'  &&
+        {
 
-           <RfqHistory/>
+          status === 'history' &&
+
+          <RfqHistory />
 
 
-       }
-       
+        }
+
 
 
       </div>

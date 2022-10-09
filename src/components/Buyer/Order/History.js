@@ -9,16 +9,14 @@ export default function History() {
 	const [bids, setBids] = useState([])
 
 	useEffect(() => {
-
-		const getdata = async () => {
-			const { data } = await axios.get('/getall/buyer/bids')
-			setBids(data.buyerbids.bids)
-		}
-
 		getdata()
-
 	}, [])
-
+	
+	const getdata = async () => {
+		const { data } = await axios.get('/getall/buyer/bids')
+		setBids(data.buyerbids.bids)
+	}
+	
 	return (
 		<div className="  py-10 px-14 flex-1 overflow-y-scroll h-screen">
 			<div className="track_header mb-6 bg-white p-3 rounded-md shadow-md">
@@ -41,6 +39,8 @@ export default function History() {
 				<div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
 					<div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
 						<div className="overflow-hidden">
+
+							{ bids.filter(bid=>bid.quote_status==='accepted').length > 0 ?
 							<table className="min-w-full text-black text-1xl font-normal ">
 								<thead className="">
 									<tr className="h-12 hover:border ">
@@ -72,7 +72,7 @@ export default function History() {
 								</thead>
 								<tbody>
 									{
-										bids ? bids.map((elem) => {
+										bids ? bids.filter(bid=>bid.quote_status==='accepted').map((elem) => {
 											console.log(elem)
 											return (
 												<tr key={elem._id} className="border-b h-12 hover:border hover:z-50  hover:border-blue-500">
@@ -106,6 +106,9 @@ export default function History() {
 
 								</tbody>
 							</table>
+							: 
+							<h1 className=' text-lg mt-3 text-center'>No bids are accepted</h1>
+						}
 						</div>
 					</div>
 				</div>

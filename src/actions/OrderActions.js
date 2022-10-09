@@ -7,7 +7,6 @@ export const getallorders =async (dispatch)=>{
 
         const {data} = await axios.get('/getall/orders')
         
-        console.log(data);
 
         dispatch({
             type:'Get_Bid_Success',

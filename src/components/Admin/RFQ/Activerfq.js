@@ -136,10 +136,12 @@ export default function Activerfq() {
 
 
 
-        <div className="flex flex-col bg-white">
+        <div className="flex flex-col bg-white box_shadow">
           <div className="mr-6">
             <div className="">
               <div className="overflow-hidden">
+
+               { bids.filter(bid => bid.quote_status === 'active').length > 0 ?
                 <table className="min-w-full text-black text-1xl font-normal ">
                   <thead className="">
                     <tr className="border-b  hover:border-b  ">
@@ -189,7 +191,7 @@ export default function Activerfq() {
                   </thead>
                   <tbody>
                     {
-                      bids.filter(bid => bid.quote_status === status).length > 0 ?
+                      bids.filter(bid => bid.quote_status === status).length > 0 &&
                         bids.filter(bid => bid.quote_status === status).map((elem, index) => {
                           return (
                             <tr key={elem._id} className="border-b h-12 hover:border-b  hover:border-blue-500">
@@ -229,14 +231,16 @@ export default function Activerfq() {
                           )
                         })
 
-                        :
-                        'no'
+                        
 
                     }
 
 
                   </tbody>
                 </table>
+                : 
+                 <h1 className=' p-4 text-center'>No bids in this Status</h1>
+              }
               </div>
             </div>
           </div>

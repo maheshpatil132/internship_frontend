@@ -60,5 +60,5 @@
     "postcss": "^8.4.16",
     "tailwindcss": "^3.1.8"
   },
-  "proxy": "https://maqure.43.205.71.30.nip.io/"
+  "proxy": "http://localhost:5000/"
 }

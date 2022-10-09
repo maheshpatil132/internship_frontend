@@ -5,6 +5,8 @@ import { FiPhoneCall } from 'react-icons/fi'
 import { GrDocumentDownload } from 'react-icons/gr'
 import img from '../../../images/structure.png'
 import axios from 'axios'
+import { toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 const Bid = ({ elem }) => {
 
@@ -29,10 +31,14 @@ const Bid = ({ elem }) => {
     // Bid accepted by buyer (Put request)
     const acceptQuote = async () => {
         await axios.put('/updates/order/buyer', {
-            quote_status: 'accepted',
+            quote_status: 'buyer_accepted',
             id: elem._id
         }).then((res) => {
             // console.log(res)
+            
+        }).catch((error)=>{
+            console.log(error);
+            toast.error(error.response.data.error)
         })
     }
 
@@ -41,13 +47,13 @@ const Bid = ({ elem }) => {
     const [statusColor, setStatusColor] = useState("")
     const status_color = () => {
         if (elem.quote_status === 'processing') setStatusColor("#FFF61C")
-        else if (elem.quote_status === 'active') setStatusColor("#1672DE")
-        else if (elem.quote_status === 'ended') setStatusColor("#900404")
-        else if (elem.quote_status === 'accepted') setStatusColor("#BFFCA2")
-        else if (elem.quote_status === 'rejected') setStatusColor("#FF9B9B")
-        else if (elem.quote_status === 'preparing') setStatusColor("#FFF61C")
-        else if (elem.quote_status === 'inTransit') setStatusColor("#8AE3FF")
-        else if (elem.quote_status === 'delivered') setStatusColor("#64FF1C")
+        if (elem.quote_status === 'active') setStatusColor("#1672DE")
+        if (elem.quote_status === 'ended') setStatusColor("#900404")
+        if (elem.quote_status === 'buyer_accepted') setStatusColor('blue')
+        if (elem.quote_status === 'rejected') setStatusColor("#FF9B9B")
+        if (elem.quote_status === 'preparing') setStatusColor("#FFF61C")
+        if (elem.quote_status === 'inTransit') setStatusColor("#8AE3FF")
+        if (elem.quote_status === 'delivered') setStatusColor("#64FF1C")
     }
 
 
@@ -98,7 +104,6 @@ const Bid = ({ elem }) => {
         });
     };
 
-
     return (
         <div className=' bg-white px-6 pt-2 border justify-between flex-col flex box_shadow rounded hover:border-[#1060bc]'>
 
@@ -108,7 +113,7 @@ const Bid = ({ elem }) => {
                 <div className=' flex'>
                     <img src={img} className='h-4/5' alt="this is img" />
                     <div className="left flex flex-col gap-10 text-sm w-2/3">
-                        <h1 className=' text-2xl text-buyer-small_heading font-semibold mt-10'>Apixaban</h1>
+                        <h1 className=' text-2xl text-buyer-small_heading font-semibold mt-10'>{elem.product.name}</h1>
                         <div className="flex gap-3">
                             <div className=" text-sm ">
                                 <p className=' my-2 text-center text-buyer-text-color font-semibold'>Quantity</p>
@@ -116,11 +121,11 @@ const Bid = ({ elem }) => {
                             </div>
                             <div className="text-sm">
                                 <p className='my-2 w-20 text-center text-buyer-text-color font-semibold'>HS CODE</p>
-                                <p className=' text-center'>29153100</p>
+                                <p className=' text-center'>{elem.product['HS Code'] ?elem.product['HS Code'] :'null' }</p>
                             </div>
                             <div className=" text-sm">
                                 <p className='my-2 w-28  text-center text-buyer-text-color font-semibold'>CAS NO.</p>
-                                <p className=' text-center'>503612-47-3</p>
+                                <p className=' text-center'>{elem.product['CAS No']}</p>
                             </div>
                             <div className="text-sm">
                                 <p className='mt-2  text-center text-buyer-text-color font-semibold'>Date</p>
@@ -234,14 +239,14 @@ const Bid = ({ elem }) => {
                         ""
                 }
                 {
-                    elem.quote_status === "accepted" ?
+                    elem.quote_status === "buyer_accepted" ?
                         <div className='left  flex flex-col text-sm '>
                             <div className="right_head text-buyer-text-color flex items-center justify-end mt-1">
                                 <ChevronRightIcon className='cursor-pointer' size={16} />
                             </div>
                             <h1 className='text-2xl font-semibold mt-3 text-[#1672DE]'>Order Confirmed</h1>
 
-                            <h1 className="text-xl text-gray-500 mt-2 font-medium mb-4">Amount: <span className='text-2xl text-black'>₹ 1234567</span></h1>
+                            <h1 className="text-xl text-gray-500 mt-2 font-medium mb-4">Amount: <span className='text-2xl text-black'>₹ {elem.buyer_Price}</span></h1>
                             <div onClick={remark} className="buttons flex items-center gap-4 mt-2 my-2 hover:bg-[#1672DE] hover:text-white">
                                 <div className='flex justify-evenly border p-2 rounded-md border-buyer-second_know_more w-full cursor-pointer hover:rounded-md'>
                                     <p>Go to Order Page</p>
@@ -269,7 +274,7 @@ const Bid = ({ elem }) => {
                 <div className=' flex flex-col gap-2 text-sm'>
                     <div>
                         <h1 className=' font-semibold text-base my-2'>Your Remarks</h1>
-                        <p className=' text-buyer-text-color'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum dui, sed id convallis rutrum. Arcu dolor imperdiet ipsum amet ut. Cursus mattis fringilla ut urna malesuada sagittis tortor. Aliquam molestie pellentesque dui, tincidunt ut fames egestas.</p>
+                        <p className=' text-buyer-text-color'>{elem.remark ? elem.remark : 'No Remark'}</p>
                     </div>
                     <h1 className='font-semibold text-base my-2'>Documents </h1>
                     <div className='flex gap-5 '>

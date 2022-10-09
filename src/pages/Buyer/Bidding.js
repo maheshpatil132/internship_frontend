@@ -34,9 +34,21 @@ const Bidding = () => {
 
 
     useEffect(() => {
+
+        
         const getdata = async () => {
-            const { data } = await axios.get('/getall/buyer/bids')
-            setBids(data.buyerbids.bids)
+
+            try {
+
+                await axios.get('/getall/buyer/bids').then((res)=>{
+                        setBids(res.data.buyerbids.bids)
+                    })
+            
+            } catch (error) {
+                console.log(error);
+            }
+             
+            
         }
 
         content.current.addEventListener('scroll', () => {
@@ -62,16 +74,16 @@ const Bidding = () => {
                         <Heading />
                         <div className="box_cont flex gap-5 mt-7">
                             <div className={` text-sm box_shadow border flex flex-col gap-2  box_shadow rounded-lg py-3 cursor-pointer w-44 px-3 ${status === 'processing' && 'bg-buyer-primary text-white'} `} onClick={status_proccess}>
-                                <Box content={'Processing'} />
+                                <Box content={'Processing'} bids={bids} />
                             </div>
                             <div className={` text-sm box_shadow border flex flex-col gap-2  box_shadow rounded-lg py-3 cursor-pointer w-44 px-3 ${status === 'active' && 'bg-buyer-primary text-white'} `} onClick={status_active}>
-                                <Box content={'Active'} />
+                                <Box content={'Active'}  bids={bids}/>
                             </div>
                             <div className={` text-sm box_shadow border flex flex-col gap-2  box_shadow rounded-lg py-3 cursor-pointer w-44 px-3 ${status === 'pending' && 'bg-buyer-primary text-white'} `} onClick={status_pending}>
-                                <Box content={'Pending'} />
+                                <Box content={'Pending'} bids={bids} />
                             </div>
                             <div className={` text-sm box_shadow border flex flex-col gap-2  box_shadow rounded-lg py-3 cursor-pointer w-44 px-3 ${status === 'previous' && 'bg-buyer-primary text-white'} `} onClick={status_previous}>
-                                <Box content={'Previous'} />
+                                <Box content={'Previous'} bids={bids} />
                             </div>
                         </div>
                     </div>
@@ -112,9 +124,9 @@ const Bidding = () => {
                                 :
 
                                 // for previous status
-                                bids.filter(bid => bid.quote_status === 'rejected' || bid.quote_status === 'accepted').length > 0 ?
+                                bids.filter(bid => bid.quote_status === 'rejected' || bid.quote_status === 'buyer_accepted').length > 0 ?
 
-                                    bids.filter(bid => bid.quote_status === 'rejected' || bid.quote_status === 'accepted').map((elem, index) => {
+                                    bids.filter(bid => bid.quote_status === 'rejected' || bid.quote_status === 'buyer_accepted').map((elem, index) => {
                                         return (
                                             <Bid key={elem._id} id={elem._id} elem={elem} />
                                         )

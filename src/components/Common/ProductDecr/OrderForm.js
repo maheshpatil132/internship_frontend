@@ -7,6 +7,9 @@ import { BsCloudUploadFill } from 'react-icons/bs'
 import Popup from 'reactjs-popup';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
+  
 
 
 
@@ -44,12 +47,16 @@ const OrderForm = () => {
         console.log(remarks)
         await axios.post('/new/order', {
             quantity: quantity,
-            product: "632c3cde24cfa38779207ec6",
+            product: "6336d147dadbbed7f7f25e4f",
             buyer_pincode: parseInt(pincode),
             remark: remarks
-        }).then(() => {
+        }).then((res) => {
+            console.log(res)
+            toast.success(res.data.order)
             navigate('/bidding')
-        }).catch((error) => { console.log(error); })
+        }).catch((error) => { console.log(error);
+          toast.error(error.response.data.error)
+        })
     }
 
     const upload = () => {
@@ -149,7 +156,7 @@ const OrderForm = () => {
                     <button type='submit' className=' bg-buyer-primary py-2 text-white rounded-md '>submit</button>
                 </form>
             </div>
-
+          
         </div>
     )
 }

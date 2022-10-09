@@ -43,6 +43,8 @@ export default function Qvotobox({ elem, id ,setStatus }) {
 				id: id
 			}).then((res) => {
 					setIsActive(false)
+			setStatus('history')
+
 			})
 		} catch (error) {
 			console.log(error)
@@ -114,7 +116,7 @@ export default function Qvotobox({ elem, id ,setStatus }) {
 											</div>
 											<div className="w-1/5 mr-2 flex flex-col">
 												<p className="text-[#637F94] font-semibold">Cas No.</p>
-												<p className="text-base">503612-47</p>
+												<p className="text-base">{elem.product['CAS No']}</p>
 											</div>
 										</div>
 
@@ -210,7 +212,7 @@ export default function Qvotobox({ elem, id ,setStatus }) {
 			<div className="right bg-white shadow-xl px-3  rounded-md py-4">
 				<div className="flex flex-col gap-2">
 					<p className="text-[#1672DE] text-[14px] font-[400px]">#RFQ{val + '' + month + '' +year }</p>
-					<h2 className=" text-[24px] font-[600]">{elem.product.name}</h2>
+					<h2 className=" text-[24px] font-[600]">{elem.product ? elem.product.name : 'null'}</h2>
 				</div>
 				<div className="flex gap-4 mt-3">
 					<button onClick={process} className="bg-[#1672DE] rounded-md text-[#FFFFFF] font-[700] text-[16px] px-5 py-2 border-2 ">
@@ -232,7 +234,7 @@ export default function Qvotobox({ elem, id ,setStatus }) {
 					</div>
 					<div className="flex flex-col gap-2">
 						<p className="text-[14px] font-[600] text-[#637F94]">CAS No</p>
-						<p className="text-[14px] font-[400]">503612-47-3
+						<p className="text-[14px] font-[400]">{elem.product['CAS No'] ?elem.product['CAS No']:'null' }
 						</p>
 					</div>
 					<div className="flex flex-col gap-2">

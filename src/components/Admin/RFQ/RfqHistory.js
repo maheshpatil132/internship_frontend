@@ -36,6 +36,7 @@ export default function RfqHistory() {
           <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div className="   sm:px-6 lg:px-8">
               <div className="overflow-hidden">
+              { bids.filter(bid => bid.quote_status === 'accepted' || bid.quote_status === 'rejected' ).length > 0 ?
                 <table className="min-w-full text-black text-1xl font-normal ">
                   <thead className="">
                     <tr className="border-b  hover:border-b  ">
@@ -80,11 +81,10 @@ export default function RfqHistory() {
                   </thead>
                   <tbody>
 
-                    {bids.filter(bid =>  bid.quote_status === 'rejected' || bid.quote_status === 'accepted').length > 0 ?
+                    {bids.filter(bid =>  bid.quote_status === 'rejected' || bid.quote_status === 'accepted').length > 0 &&
                       bids.filter(bid =>  bid.quote_status === 'rejected' || bid.quote_status === 'accepted').map((elem, index) => {
-                        console.log(elem)
                         return (
-                          <tr className="border-b h-12 hover:border-b  hover:border-blue-500">
+                          <tr key={elem._id} className="border-b h-12 hover:border-b  hover:border-blue-500">
 
                             <td className="text-sm  text-[#1672DE]  font-light px-6 py-4 whitespace-nowrap">
                               #{elem._id}
@@ -111,15 +111,16 @@ export default function RfqHistory() {
                         )
                       })
 
-                      :
-
-                      'no content'
+                    
 
                     }
 
 
                   </tbody>
                 </table>
+                 :
+                 <h1 className=' p-4 text-center'>No bids in this Status</h1>
+                }
               </div>
             </div>
           </div>
