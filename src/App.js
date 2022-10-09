@@ -38,12 +38,12 @@ const dispatch = useDispatch()
 
   const Nav = () =>
     useRoutes([
-      { path: "/", element: <Navbar user={user.role} /> },
-      { path: "/bidding", element: <Navbar user={user.role} /> },
-      { path: "/enqires", element: <Navbar user={user.role} /> },
-      { path: '/sellerorder', element: <Navbar user={user.role}/> },
-      { path: '/buyerorder', element: <Navbar user={user.role} /> },
-      { path: '/trackshipment', element: <Navbar user={user.role}  /> },
+      { path: "/", element: <Navbar user={user && user.role} /> },
+      { path: "/bidding", element: <Navbar user={user && user.role} /> },
+      { path: "/enqires", element: <Navbar user={user && user.role} /> },
+      { path: '/sellerorder', element: <Navbar user={user && user.role}/> },
+      { path: '/buyerorder', element: <Navbar user={user && user.role} /> },
+      { path: '/trackshipment', element: <Navbar user={user && user.role}  /> },
       { path: '/activerfq', element: <Navbar user='admin'  /> },
       { path: '/rfq', element: <Navbar user='admin'  /> },
       { path: '/arfq', element: <Navbar user='admin'  /> },
@@ -75,7 +75,7 @@ const dispatch = useDispatch()
 
       <div className="App relative flex">
         {
-          isAuthenticated &&   <Nav user={user.role} />
+          isAuthenticated &&   <Nav user={user && user.role} />
         }
        
         <ToastContainer
