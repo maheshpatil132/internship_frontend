@@ -29,9 +29,12 @@ import SendRfq from "./components/SendRfq";
 import ComponentPage from "./components/Component";
 import Create from "./components/Create";
 import Profile from "./pages/CommonPages/Profile";
+import { instance } from "./components/Axios";
 
 
 function App() {
+
+
 
 const {user , isAuthenticated} = useSelector(state=>state.user)
 const dispatch = useDispatch()
