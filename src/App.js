@@ -64,13 +64,15 @@ const dispatch = useDispatch()
     useEffect(() => {
       
       
-
+      
       dispatch(getallproduct)
       dispatch(autologin())
 
       // if(!isAuthenticated){
       //    navigate('/login')
       // }
+
+      console.log(user)
     }, [dispatch])
     
   return (
