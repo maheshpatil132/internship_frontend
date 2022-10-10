@@ -41,12 +41,12 @@ const dispatch = useDispatch()
 
   const Nav = () =>
     useRoutes([
-      { path: "/", element: <Navbar user={user && user.role} /> },
-      { path: "/bidding", element: <Navbar user={user && user.role} /> },
-      { path: "/enqires", element: <Navbar user={user && user.role} /> },
-      { path: '/sellerorder', element: <Navbar user={user && user.role}/> },
-      { path: '/buyerorder', element: <Navbar user={user && user.role} /> },
-      { path: '/trackshipment', element: <Navbar user={user && user.role}  /> },
+      { path: "/", element: <Navbar user={ user.role ? user.role : "buyer"} /> },
+      { path: "/bidding", element: <Navbar user= {user.role ? user.role : "buyer"} /> },
+      { path: "/enqires", element: <Navbar user={user.role ? user.role : "buyer"} /> },
+      { path: '/sellerorder', element: <Navbar user={ user.role ? user.role : "buyer"}/> },
+      { path: '/buyerorder', element: <Navbar user={user.role ? user.role : "buyer"} /> },
+      { path: '/trackshipment', element: <Navbar user={ user.role ? user.role : "buyer"}  /> },
       { path: '/activerfq', element: <Navbar user='admin'  /> },
       { path: '/rfq', element: <Navbar user='admin'  /> },
       { path: '/arfq', element: <Navbar user='admin'  /> },
