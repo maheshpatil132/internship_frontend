@@ -32,6 +32,8 @@ export const loginadminaction = (email , password) => async(dispatch)=>{
 
     const {data} = await axios.post('/login/admin',{email ,password , config})
 
+    console.log(data)
+
     dispatch({
         type:'LoginSuccess',
         payload : data.user
