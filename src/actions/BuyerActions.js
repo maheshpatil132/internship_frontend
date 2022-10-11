@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { Axios } from '../components/Axios'
 
 export const loginbuyeraction = (email , password) => async(dispatch)=>{
    try {
@@ -7,7 +8,7 @@ export const loginbuyeraction = (email , password) => async(dispatch)=>{
 
     const config = { headers : { "Content-Type" : "application/json"} }
 
-    const {data} = await axios.post('https://maqure.43.205.71.30.nip.io/login/buyer',{email ,password , config})
+    const {data} = await Axios.post('/login/buyer',{email ,password , config})
 
     dispatch({
         type:'LoginSuccess',
@@ -30,7 +31,7 @@ export const loginadminaction = (email , password) => async(dispatch)=>{
 
     const config = { headers : { "Content-Type" : "application/json"} }
 
-    const {data} = await axios.post('https://maqure.43.205.71.30.nip.io/login/admin',{email ,password , config})
+    const {data} = await Axios.post('/login/admin',{email ,password , config})
 
     console.log(data)
 
@@ -55,7 +56,7 @@ export const loginselleraction = (email , password) => async(dispatch)=>{
 
     const config = { headers : { "Content-Type" : "application/json"} }
 
-    const {data} = await axios.post('https://maqure.43.205.71.30.nip.io/login/seller',{email ,password , config})
+    const {data} = await Axios.post('/login/seller',{email ,password , config})
 
     dispatch({
         type:'LoginSuccess',
@@ -78,7 +79,7 @@ export const autologin = () => async(dispatch)=>{
     dispatch({type: 'UserReq' })
 
 
-    const {data} = await axios.get('https://maqure.43.205.71.30.nip.io/auto/login')
+    const {data} = await Axios.get('/auto/login')
     console.log(data);
 
     dispatch({
