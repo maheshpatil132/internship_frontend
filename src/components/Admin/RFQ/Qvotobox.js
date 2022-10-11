@@ -68,7 +68,7 @@ export default function Qvotobox({ elem, id ,setStatus }) {
 	  };
 
       const sendRfq = async()=>{
-        await axios.put('/admin/click/sendrfq' , {
+        await Axios.put('/admin/click/sendrfq' , {
 			id:id,
 			sellers : sendarr
 		}).then((res)=>{
