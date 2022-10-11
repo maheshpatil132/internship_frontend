@@ -6,7 +6,7 @@ export const loginbuyeraction = (email , password) => async(dispatch)=>{
     
     dispatch({type: 'UserReq' })
     
-    const {data} = await Axios.post('/login/buyer',{email ,password })
+    const {data} = await Axios.post('/login/buyer',{email ,password } ,{withCredentials:true})
     
     console.log(data);
     dispatch({
