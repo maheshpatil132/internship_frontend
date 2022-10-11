@@ -118,7 +118,7 @@ export default function RfqContent() {
 
 
         {
-          status === 'accepted' &&
+          status === 'buyer_accepted' &&
           <Accepted />
         }
 
