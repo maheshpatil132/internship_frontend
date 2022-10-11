@@ -30,6 +30,7 @@ import ComponentPage from "./components/Component";
 import Create from "./components/Create";
 import Profile from "./pages/CommonPages/Profile";
 import { instance } from "./components/Axios";
+import axios from "axios";
 
 
 function App() {
@@ -63,8 +64,13 @@ const dispatch = useDispatch()
    
     useEffect(() => {
       
-      
-      
+       const getdata = async ()=>{
+         await axios.get('https://maqure.43.205.71.30.nip.io/').then((res)=>{
+           console.log(res);
+         })
+       }
+
+       getdata()
       dispatch(getallproduct)
       dispatch(autologin())
 
