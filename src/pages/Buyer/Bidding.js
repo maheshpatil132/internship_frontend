@@ -35,20 +35,20 @@ const Bidding = () => {
 
     useEffect(() => {
 
-        
+
         const getdata = async () => {
 
             try {
 
-                await Axios.get('/getall/buyer/bids').then((res)=>{
-                        setBids(res.data.buyerbids.bids)
-                    })
-            
+                await Axios.get('/getall/buyer/bids').then((res) => {
+                    setBids(res.data.buyerbids.bids)
+                })
+
             } catch (error) {
                 console.log(error);
             }
-             
-            
+
+
         }
 
         content.current.addEventListener('scroll', () => {
@@ -77,7 +77,7 @@ const Bidding = () => {
                                 <Box content={'Processing'} bids={bids} />
                             </div>
                             <div className={` text-sm box_shadow border flex flex-col gap-2  box_shadow rounded-lg py-3 cursor-pointer w-44 px-3 ${status === 'active' && 'bg-buyer-primary text-white'} `} onClick={status_active}>
-                                <Box content={'Active'}  bids={bids}/>
+                                <Box content={'Active'} bids={bids} />
                             </div>
                             <div className={` text-sm box_shadow border flex flex-col gap-2  box_shadow rounded-lg py-3 cursor-pointer w-44 px-3 ${status === 'pending' && 'bg-buyer-primary text-white'} `} onClick={status_pending}>
                                 <Box content={'Pending'} bids={bids} />
@@ -98,20 +98,39 @@ const Bidding = () => {
 
                                 status !== 'pending' ?
 
-                                    bids.filter(bid => bid.quote_status === status).length > 0 ?
-                                        bids.filter(bid => bid.quote_status === status).map((elem, index) => {
-                                            return (
-                                                <Bid key={elem._id} id={elem._id} elem={elem} />
-                                            )
-                                        })
+                                    status !== 'active' ?
+
+                                        // Processing
+                                        bids.filter(bid => bid.quote_status === 'processing').length > 0 ?
+                                            bids.filter(bid => bid.quote_status === 'processing').map((elem, index) => {
+                                                return (
+                                                    <Bid key={elem._id} id={elem._id} elem={elem} />
+                                                )
+                                            })
+                                            :
+                                            <h1 className=' text-center text-xl'>No bids are in this status</h1>
+
                                         :
-                                        <h1 className=' text-center text-xl'>No bids are in this status</h1>
+
+                                        // Active
+                                        bids.filter(bid => bid.quote_status === 'active').length > 0 ?
+
+                                            bids.filter(bid => bid.quote_status === 'active').map((elem, index) => {
+                                                return (
+                                                    <Bid key={elem._id} id={elem._id} elem={elem} />
+                                                )
+                                            })
+
+                                            :
+
+                                            <h1 className=' text-center text-xl'>No bids are in this status</h1>
 
                                     :
-                                    //  for pending status
-                                    bids.filter(bid => bid.quote_status === 'ended').length > 0 ?
 
-                                        bids.filter(bid => bid.quote_status === 'ended').map((elem, index) => {
+                                    // for pending status
+                                    bids.filter(bid => bid.quote_status === 'ended' || bid.quote_status === 'buyer_accepted').length > 0 ?
+
+                                        bids.filter(bid => bid.quote_status === 'ended' || bid.quote_status === 'buyer_accepted').map((elem, index) => {
                                             return (
                                                 <Bid key={elem._id} id={elem._id} elem={elem} />
                                             )
@@ -120,13 +139,10 @@ const Bidding = () => {
                                         :
 
                                         <h1 className=' text-center text-xl'>No bids are in this status</h1>
-
                                 :
+                                bids.filter(bid => bid.quote_status === 'accepted' || bid.quote_status === 'rejected').length > 0 ?
 
-                                // for previous status
-                                bids.filter(bid => bid.quote_status === 'rejected' || bid.quote_status === 'buyer_accepted').length > 0 ?
-
-                                    bids.filter(bid => bid.quote_status === 'rejected' || bid.quote_status === 'buyer_accepted').map((elem, index) => {
+                                    bids.filter(bid => bid.quote_status === 'accepted' || bid.quote_status === 'rejected').map((elem, index) => {
                                         return (
                                             <Bid key={elem._id} id={elem._id} elem={elem} />
                                         )
