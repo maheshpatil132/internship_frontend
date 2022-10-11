@@ -81,7 +81,7 @@ export default function Qvotobox({ elem, id ,setStatus }) {
 
 	useEffect(() => {
 		const getdata = async () => {
-			await axios.get(`/product/${elem.product._id}`).then((res) => {
+			await Axios.get(`/product/${elem.product._id}`).then((res) => {
 				setArr(res.data.product.sellers)
 			}).catch((err) => {
 				console.log(err);
