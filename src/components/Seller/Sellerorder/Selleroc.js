@@ -5,14 +5,14 @@ import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 import img from "../../../images/Chart.png";
 import SearchBox from "../../SearchBox";
 import '../../../css/content.css'
-import axios from "axios";
+import { Axios } from '../../Axios'
 
 export default function History() {
 
   const [data, setData] = useState([])
   const [sellerid, setSellerid] = useState('')
   useEffect(() => {
-    axios.get('/seller/enquries').then((data) => {
+    Axios.get('/seller/enquries').then((data) => {
       console.log(data.data.bids)
 
       setData(data.data.bids)

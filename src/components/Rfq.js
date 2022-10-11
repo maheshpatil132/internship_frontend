@@ -1,4 +1,4 @@
-import axios from 'axios'
+import { Axios } from './Axios'
 import React, { useEffect, useRef, useState } from 'react'
 import { FiSearch } from 'react-icons/fi'
 import LoadingOverlay from 'react-loading-overlay-ts';
@@ -23,7 +23,7 @@ export default function Rfq(change) {
         const val = window.prompt('Enter the Price')
         setLoad(true)
         if (val) {
-            await axios.put(`/updates/order/admin`, {
+            await Axios.put(`/updates/order/admin`, {
                 buyer_Price: val,
                 id: id
             }).then((res) => {
@@ -35,7 +35,7 @@ export default function Rfq(change) {
     }
 
     const Acceptorder = async (e) => {
-        await axios.put(`/admin/accept/${id}`, {
+        await Axios.put(`/admin/accept/${id}`, {
             id: id,
             seller: e.target.getAttribute('seller'),
             price: e.target.getAttribute('price'),
@@ -48,7 +48,7 @@ export default function Rfq(change) {
 
         const getdata = async () => {
             if (id) {
-                await axios.get(`/order/${id}`).then((res) => {
+                await Axios.get(`/order/${id}`).then((res) => {
                     setBid(res.data.order)
                     setLoad(false)
                     setWinner(res.data.order.winner[0].seller)

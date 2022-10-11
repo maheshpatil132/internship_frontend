@@ -5,11 +5,10 @@ export const loginbuyeraction = (email , password) => async(dispatch)=>{
    try {
     
     dispatch({type: 'UserReq' })
-
-    const config = { headers : { "Content-Type" : "application/json"} }
-
-    const {data} = await Axios.post('/login/buyer',{email ,password , config})
-
+    
+    const {data} = await Axios.post('/login/buyer',{email ,password })
+    
+    console.log(data);
     dispatch({
         type:'LoginSuccess',
         payload : data.user

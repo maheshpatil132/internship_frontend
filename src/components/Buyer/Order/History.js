@@ -3,7 +3,7 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { NavLink } from "react-router-dom";
 import img from "../../../images/Chart.png";
 import SearchBox from "../../SearchBox";
-import axios from "axios";
+import { Axios } from '../../Axios'
 
 export default function History() {
 	const [bids, setBids] = useState([])
@@ -13,7 +13,7 @@ export default function History() {
 	}, [])
 	
 	const getdata = async () => {
-		const { data } = await axios.get('/getall/buyer/bids')
+		const { data } = await Axios.get('/getall/buyer/bids')
 		setBids(data.buyerbids.bids)
 	}
 	

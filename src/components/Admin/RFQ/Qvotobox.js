@@ -5,7 +5,7 @@ import img from "../../../images/Vector.png";
 import rac from "./rfqimg/rac.png"
 import { FiSearch } from 'react-icons/fi'
 import { Checkbox } from "@material-tailwind/react";
-
+import { Axios } from '../../Axios'
 
 
 
@@ -38,7 +38,7 @@ export default function Qvotobox({ elem, id ,setStatus }) {
 	const Reject = async (e) => {
 		try {
 			setIsActive(true)
-			await axios.put('/updates/order/admin', {
+			await Axios.put('/updates/order/admin', {
 				quote_status: 'rejected',
 				id: id
 			}).then((res) => {

@@ -29,8 +29,6 @@ import SendRfq from "./components/SendRfq";
 import ComponentPage from "./components/Component";
 import Create from "./components/Create";
 import Profile from "./pages/CommonPages/Profile";
-import { Axios, instance } from "./components/Axios";
-import axios from "axios";
 
 
 function App() {

@@ -6,7 +6,7 @@ import Heading from '../../components/Heading'
 import SellerBidBox from '../../components/SellerBidBox'
 import ChevronRightIcon from '@mui/icons-material/ChevronRight'
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee'
-import axios from 'axios' 
+import { Axios } from '../../components/Axios'
 
 const Enquires = () => {
   const [change, setChange] = useState(false)
@@ -27,7 +27,7 @@ const Enquires = () => {
   const [data, setData] = useState([])
   const [sellerid, setSellerid] = useState('')
   useEffect(() => {
-    axios.get('/seller/enquries').then((data) => {
+    Axios.get('/seller/enquries').then((data) => {
       console.log(data.data.bids)
       setData(data.data.bids)
       setSellerid(data.data.sellerid)

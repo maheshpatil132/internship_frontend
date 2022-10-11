@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import img from '../images/Vector.png'
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee'
 import CancelIcon from '@mui/icons-material/Cancel';
-import axios from 'axios'
+import { Axios } from './Axios'
 
 
 
@@ -18,7 +18,7 @@ const SellerBidBox = ({ e }) => {
 
     const giveprice = (id) => {
       console.log(id)
-        axios.put(`/seller/quote/${id}`, {
+        Axios.put(`/seller/quote/${id}`, {
           kimat: price,
         })
    

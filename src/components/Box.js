@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { MdKeyboardArrowRight } from 'react-icons/md'
-import axios from 'axios'
+
 
 
 const Box = ({ content ,bids }) => {

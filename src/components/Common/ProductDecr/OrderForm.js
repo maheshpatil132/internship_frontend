@@ -5,7 +5,7 @@ import 'reactjs-popup/dist/index.css';
 import { IoArrowBackCircleSharp } from 'react-icons/io5'
 import { BsCloudUploadFill } from 'react-icons/bs'
 import Popup from 'reactjs-popup';
-import axios from 'axios'
+import { Axios } from '../../Axios'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
@@ -45,7 +45,7 @@ const OrderForm = () => {
     const create_order = async (e) => {
         e.preventDefault()
         console.log(remarks)
-        await axios.post('/new/order', {
+        await Axios.post('/new/order', {
             quantity: quantity,
             product: "6336d147dadbbed7f7f25e4f",
             buyer_pincode: parseInt(pincode),

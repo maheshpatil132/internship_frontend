@@ -4,7 +4,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { FiPhoneCall } from 'react-icons/fi'
 import { GrDocumentDownload } from 'react-icons/gr'
 import img from '../../../images/structure.png'
-import axios from 'axios'
+import { Axios } from '../../Axios'
 import { toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 
@@ -30,7 +30,7 @@ const Bid = ({ elem }) => {
 
     // Bid accepted by buyer (Put request)
     const acceptQuote = async () => {
-        await axios.put('/updates/order/buyer', {
+        await Axios.put('/updates/order/buyer', {
             quote_status: 'buyer_accepted',
             id: elem._id
         }).then((res) => {

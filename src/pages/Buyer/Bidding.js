@@ -5,7 +5,7 @@ import Heading from '../../components/Heading'
 import Bid from '../../components/Buyer/Bidding/Bid'
 import SearchBox from '../../components/SearchBox'
 // import CircularProgress from '@mui/material/CircularProgress';
-import axios from 'axios'
+import { Axios } from '../../components/Axios'
 
 const Bidding = () => {
 
@@ -40,7 +40,7 @@ const Bidding = () => {
 
             try {
 
-                await axios.get('/getall/buyer/bids').then((res)=>{
+                await Axios.get('/getall/buyer/bids').then((res)=>{
                         setBids(res.data.buyerbids.bids)
                     })
             

@@ -8,7 +8,7 @@ import { FiSearch } from "react-icons/fi";
 import { MdOutlineArrowDropDown } from "react-icons/md";
 
 import img from "../../../images/Chart.png";
-import axios from "axios";
+import { Axios } from '../../Axios'
 
 const TrackShipmentContent = () => {
   const [options, setOptions] = useState(false);
@@ -32,8 +32,8 @@ const TrackShipmentContent = () => {
 
     const getdata = async () => {
 
-      const { data } = await axios.get('/getall/buyer/bids')
-
+      const { data } = await Axios.get('/getall/buyer/bids')
+     
       setBids(data.buyerbids.bids)
     }
 

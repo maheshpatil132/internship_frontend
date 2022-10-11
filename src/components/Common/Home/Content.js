@@ -4,7 +4,7 @@ import FrameIcon from '../../../icons/growth.svg'
 import { NavLink } from 'react-router-dom'
 import { BsFillArrowRightCircleFill } from 'react-icons/bs'
 import Credit from './Credit'
-import axios from 'axios'
+import { Axios } from '../../Axios'
 import SearchBox from '../../SearchBox'
 import SellerBid from '../../SellerBid'
 import BuyerBid from '../../BuyerBid'
@@ -31,7 +31,7 @@ const Content = ({ user }) => {
 		})
 
 		const getdata = async () => {
-			const { data } = await axios.get('/getall/buyer/bids')
+			const { data } = await Axios.get('/getall/buyer/bids')
 			setBids(data.buyerbids.bids)
 		}
 

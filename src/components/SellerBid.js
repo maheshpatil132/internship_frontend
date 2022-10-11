@@ -1,4 +1,4 @@
-import axios from 'axios'
+import { Axios } from './Axios'
 import React, { useEffect, useState } from 'react'
 import SellerBidBox from './SellerBidBox'
 
@@ -6,7 +6,7 @@ const SellerBid = () => {
   const [data, setData] = useState([])
   const [sellerid, setSellerid] = useState('')
   useEffect(() => {
-    axios.get('/seller/enquries').then((data) => {
+    Axios.get('/seller/enquries').then((data) => {
       console.log(data.data)
       setData(data.data.bids)
       setSellerid(data.data.sellerid)

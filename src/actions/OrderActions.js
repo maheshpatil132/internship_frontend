@@ -1,11 +1,11 @@
-import axios from "axios"
+import { Axios } from '../components/Axios'
 
 
 export const getallorders =async (dispatch)=>{
     try {
         dispatch({type:'Bids_Req'})
 
-        const {data} = await axios.get('/getall/orders')
+        const {data} = await Axios.get('/getall/orders')
         
 
         dispatch({

@@ -1,11 +1,11 @@
-import axios from 'axios'
+import { Axios } from '../components/Axios'
 
 
 export const getallproduct = async (dispatch)=>{
     try {
         dispatch({type:'Prod_Req'})
 
-    const {data} = await axios.get('/products')
+    const {data} = await Axios.get('/products')
      
     await dispatch({
         type:'AllProduct_Success',

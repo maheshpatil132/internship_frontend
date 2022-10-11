@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import logo from '../images/logo.png'
-import axios from 'axios'
+import { Axios } from './Axios'
 
 const Create = () => {
 
@@ -22,7 +22,7 @@ const Create = () => {
 
 	const submit_form = async(e)=>{
 		e.preventDefault();
-       await axios.post('/new/buyer',{
+       await Axios.post('/new/buyer',{
 		email:email,
 		password:password,
 		mobile:number
