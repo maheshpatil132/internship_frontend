@@ -29,6 +29,9 @@ import SendRfq from "./components/SendRfq";
 import ComponentPage from "./components/Component";
 import Create from "./components/Create";
 import Profile from "./pages/CommonPages/Profile";
+import LandingPage from "./pages/CommonPages/LandingPage";
+import AllProducts from "./pages/CommonPages/AllProducts";
+import Protected from "./ProtectedRoutes/Protected";
 
 
 function App() {
@@ -40,7 +43,7 @@ const dispatch = useDispatch()
 
   const Nav = () =>
     useRoutes([
-      { path: "/", element: <Navbar user={ user.role ? user.role : "buyer"} /> },
+      { path: "/dashboard", element: <Navbar user={ user.role ? user.role : "buyer"} /> },
       { path: "/bidding", element: <Navbar user= {user.role ? user.role : "buyer"} /> },
       { path: "/enqires", element: <Navbar user={user.role ? user.role : "buyer"} /> },
       { path: '/sellerorder', element: <Navbar user={ user.role ? user.role : "buyer"}/> },
@@ -53,6 +56,8 @@ const dispatch = useDispatch()
       { path: '/sendRfq', element: <Navbar user='admin'  /> },
       { path: '/component', element: <Navbar user='admin'  /> },
       { path: '/profile', element: <Navbar user='admin'  /> },
+      { path: '/products', element: <Navbar user={user ? user.role : '' } /> },
+
 
 
 
@@ -91,20 +96,17 @@ const dispatch = useDispatch()
           draggable
           pauseOnHover
         />
-       { 
-       !isAuthenticated ?
+       
+       
         <Routes>
           <Route path="/login" element={<Login />}></Route>
-          <Route
-        path="*"
-        element={<Navigate to="/login" replace />}
-    />
+       
         </Routes>
-        :
+      
         <Routes>
           
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/prod" element={<Prodcut />}></Route>
+          <Route path="/dashboard" element={ <Protected  isAuthenticated={isAuthenticated}> <Home /> </Protected>}></Route>
+          <Route path="/prod/:id" element={<Prodcut />}></Route>
           <Route path="/enqires" element={<Enquires />}></Route>
           <Route path="/bidding" element={<Bidding />}></Route>
           <Route path="/onboard" element={<SellerPage />}></Route>
@@ -120,14 +122,12 @@ const dispatch = useDispatch()
           <Route path="/component" element={<ComponentPage />}></Route>
           <Route path="/create" element={<Create />}></Route>
           <Route path="/profile" element={<Profile />}></Route>
+          <Route path="/" element={<LandingPage />}></Route>
+          <Route path="/products" element={<AllProducts />}></Route>
 
 
 
-          <Route
-        path="*"
-        element={<Navigate to="/" replace />}
-    />
-        </Routes>}
+        </Routes>
       </div>
   
   );

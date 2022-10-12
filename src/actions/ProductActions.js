@@ -6,6 +6,8 @@ export const getallproduct = async (dispatch)=>{
         dispatch({type:'Prod_Req'})
 
     const {data} = await Axios.get('/products')
+
+    console.log(data);
      
     await dispatch({
         type:'AllProduct_Success',

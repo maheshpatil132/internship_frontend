@@ -205,3 +205,12 @@ body {
 .active-link{
   color: blue;
 }
+
+
+.image1 {
+  background-image: repeat(none);
+  background-image: url("./images/pics.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+

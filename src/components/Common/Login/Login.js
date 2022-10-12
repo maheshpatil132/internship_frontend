@@ -39,8 +39,7 @@ const Login = () => {
                     }
                     if (isAuthenticated) {
                         toast.success("Login Successfully!!")
-                        console.log("working");
-                        navigate('/')
+                        navigate('/dashboard')
                     }
                 })
             } else {
@@ -52,7 +51,7 @@ const Login = () => {
                         toast.success("Login Successfully!!")
                         console.log("working");
 
-                        navigate('/')
+                        navigate('/dashboard')
                     }
                 })
             }
@@ -66,7 +65,7 @@ const Login = () => {
                     toast.success("Login Successfully!!")
                     console.log("working");
 
-                    navigate('/')
+                    navigate('/dashboard')
                 }
             })
         }

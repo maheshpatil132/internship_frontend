@@ -1,10 +1,28 @@
 
+import { useEffect, useState } from 'react'
 import { GrDocumentDownload } from 'react-icons/gr'
+import { useParams } from 'react-router-dom'
 import img1 from '../../../images/image4.png'
 import img2 from '../../../images/image5.png'
 import img3 from '../../../images/image6.png'
+import { Axios } from '../../Axios'
 
 function ProdDecr() {
+
+	const {id} = useParams()
+	const [product, setProduct] = useState()
+
+	useEffect(() => {
+
+		const getdata = async()=>{
+
+			const {data} = await Axios.get(`/product/${id}`)
+			setProduct(data.product)
+            console.log(data);
+		}
+		getdata()
+	}, [])
+	
 	return (
 		<>
 			<div className="h-full w-10/12 ">
@@ -13,7 +31,7 @@ function ProdDecr() {
 
 					{/* Path */}
 					<p className="text-[#1672DE] mb-4">
-						products &gt; Titanium Dioxide NR960
+						products &gt; { product && product.name}
 					</p>
 
 					{/* Chemical Name */}
@@ -21,7 +39,7 @@ function ProdDecr() {
 						<div className="w-20 h-20 bg-black mr-5">
 						</div>
 
-						<div className="flex align-middle justify-center"><h1 className="my-auto text-2xl font-bold">TITANIUM DIOXIDE 960</h1></div>
+						<div className="flex align-middle justify-center"><h1 className="my-auto text-2xl font-bold">{product && product.name ? product.name : '-' }</h1></div>
 					</div>
 
 					{/* Technical Description */}
@@ -29,29 +47,30 @@ function ProdDecr() {
 						<div className="flex">
 							<div className="py-3 px-4 rounded prod_bag  w-1/4">
 								<p className="font-xs">Substance</p>
-								<h3 className="font-xl">Titanium Dioxide (Rutile)</h3>
+								<h3 className="font-xl">{product && product.name ? product.name : '-' }</h3>
 							</div>
 							<div className="py-3 mx-6 px-4 rounded prod_bag w-1/10">
-								<p className="font-xs">Substance</p>
-								<h3 className="font-xl">Name</h3>
+								<p className="font-xs">CAS</p>
+								<h3 className="font-xl">{product && product['CAS No'] ? product['CAS No'] : '-' }</h3>
 							</div>
 							<div className="py-3 px-4 rounded  prod_bag w-1/10">
-								<p className="font-xs">Substance</p>
+								<p className="font-xs">EC Number</p>
 								<h3 className="font-xl">Name</h3>
 							</div>
 						</div>
 						<div className="flex mt-6">
 							<div className="py-3 px-4 prod_bag rounded w-1/4">
-								<p className="font-xs">Substance</p>
+								<p className="font-xs">Min. Purity </p>
 								<h3 className="font-xl">Name</h3>
 							</div>
 							<div className="py-3 mx-6 px-4 rounded prod_bag w-1/10">
-								<p className="font-xs">Substance</p>
-								<h3 className="font-xl">Name</h3>
+								<p className="font-xs">Color</p>
+								<h3 className="font-xl text-center">{product && product.color ? product.color : '-'}</h3>
 							</div>
 							<div className="py-3 px-4 rounded prod_bag w-1/10">
-								<p className="font-xs">Substance</p>
-								<h3 className="font-xl">Name</h3>
+								<p className="font-xs">Appearance</p>
+								<h3 className="font-xl">{product && product.Appearance
+ ? product.Appearance : '-' }</h3>
 							</div>
 						</div>
 					</div>
@@ -105,9 +124,13 @@ function ProdDecr() {
 						<p className="mt-2">Micronized titanium dioxide rutile via sulfate.</p>
 						<p className="my-2 ">Key Features:</p>
 						<ul className='list-disc px-2 list-inside space-y-1'>
-							<li>High Gloss</li>
-							<li>High whiteness with blue undertone</li>
-							<li>Easy wetting and dispersing</li>
+							<li>{product && 'density :' +  product.Density}</li>
+							<li>{product && 'Boiling Point :' +  product['Boiling Point']}</li>
+							<li>{product && 'Melting Point :' +  product['Melting Point']}</li>
+							<li>{product && 'Molecular Weight :' +  product['Molecular Weight']}</li>
+							<li>{product && 'Molecular Weight :' +  product['Molecular Weight']}</li>
+							<li>{product && 'Formula :' +  product.Formula}</li>
+							
 						</ul>
 					</div>
 

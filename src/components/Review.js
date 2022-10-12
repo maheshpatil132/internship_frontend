@@ -5,7 +5,7 @@ import { Avatar } from '@mui/material';
 
 const Review = () => {
   return (
-    <div className=' flex flex-col gap-4 rounded-md bg-white p-5 box_shadow'>
+    <div className=' border flex flex-col gap-4 rounded-md bg-white p-5 box_shadow'>
        <p className=' font-semibold text-xl italic'>“Everything you need to move online — all in one place.”</p>
        <p className=' text-base text-[#637F94]'>Through Maqure, Optimize your sales and supply chain. We provide easy listing and selling options while taking care of everything in the sales process including credit risk.</p>
        <div className="flex gap-3 items-center">

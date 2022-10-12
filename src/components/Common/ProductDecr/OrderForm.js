@@ -6,7 +6,7 @@ import { IoArrowBackCircleSharp } from 'react-icons/io5'
 import { BsCloudUploadFill } from 'react-icons/bs'
 import Popup from 'reactjs-popup';
 import { Axios } from '../../Axios'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
   
@@ -15,12 +15,15 @@ import { toast } from 'react-toastify';
 
 const OrderForm = () => {
 
+
     const [form1, setForm1] = useState(true)
     const [quantity, setQuantity] = useState('')
     const [pincode, setPincode] = useState('')
     const [remarks, setRemarks] = useState('')
 
     const navigate = useNavigate()
+
+    const {id} = useParams()
 
     //functions
 
@@ -44,19 +47,16 @@ const OrderForm = () => {
 
     const create_order = async (e) => {
         e.preventDefault()
-        console.log(remarks)
         await Axios.post('/new/order', {
             quantity: quantity,
-            product: "6336d147dadbbed7f7f25e4f",
+            product: id,
             buyer_pincode: parseInt(pincode),
             remark: remarks
         }).then((res) => {
             console.log(res)
             toast.success(res.data.order)
             navigate('/bidding')
-        }).catch((error) => { console.log(error);
-          toast.error(error.response.data.error)
-        })
+        }).catch((error)=>console.log(error))
     }
 
     const upload = () => {
