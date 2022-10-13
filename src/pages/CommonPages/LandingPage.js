@@ -51,7 +51,7 @@ export default function LandingPage() {
                         <p className="font-[400] text-[40px]">
                             Solution to your end to end
                         </p>
-                        <p className="font-[600] text-[40px] text-[#1672DE]">
+                        <p className="font-[600] text-[40px] text-[#004AA2]">
                             Material Procurement & financing{" "}
                         </p>
                     </div>
@@ -67,8 +67,8 @@ export default function LandingPage() {
                             <img src={pag} className="h-[30px] w-[30px]" alt="" />
                             <p className="font-[500] text-[15px]">Health Care & Pharma </p>
                             <div className="flex">
-                                <p className="text-[#1672DE] flex flex-1">Explore</p>
-                                <div className="bg-[#1672DE] p-1 rounded-2xl">
+                                <p className="text-[#004AA2] flex flex-1">Explore</p>
+                                <div className="bg-[#004AA2] p-1 rounded-2xl">
                                     <ChevronRightIcon className="text-[#ffff]" />
                                 </div>
                             </div>
@@ -77,8 +77,8 @@ export default function LandingPage() {
                             <img src={pag} className="h-[30px] w-[30px]" alt="" />
                             <p className="font-[500] text-[15px]">Health Care & Pharma </p>
                             <div className="flex">
-                                <p className="text-[#1672DE] flex flex-1">Explore</p>
-                                <div className="bg-[#1672DE] p-1 rounded-2xl">
+                                <p className="text-[#004AA2] flex flex-1">Explore</p>
+                                <div className="bg-[#004AA2] p-1 rounded-2xl">
                                     <ChevronRightIcon className="text-[#ffff]" />
                                 </div>
                             </div>
@@ -87,8 +87,8 @@ export default function LandingPage() {
                             <img src={pag} className="h-[30px] w-[30px]" alt="" />
                             <p className="font-[500] text-[15px]">Health Care & Pharma </p>
                             <div className="flex">
-                                <p className="text-[#1672DE] flex flex-1">Explore</p>
-                                <div className="bg-[#1672DE] p-1 rounded-2xl">
+                                <p className="text-[#004AA2] flex flex-1">Explore</p>
+                                <div className="bg-[#004AA2] p-1 rounded-2xl">
                                     <ChevronRightIcon className="text-[#ffff]" />
                                 </div>
                             </div>
@@ -97,8 +97,8 @@ export default function LandingPage() {
                             <img src={pag} className="h-[30px] w-[30px]" alt="" />
                             <p className="font-[500] text-[15px]">Health Care & Pharma </p>
                             <div className="flex">
-                                <p className="text-[#1672DE] flex flex-1">Explore</p>
-                                <div className="bg-[#1672DE] p-1 rounded-2xl">
+                                <p className="text-[#004AA2] flex flex-1">Explore</p>
+                                <div className="bg-[#004AA2] p-1 rounded-2xl">
                                     <ChevronRightIcon className="text-[#ffff]" />
                                 </div>
                             </div>
@@ -107,8 +107,8 @@ export default function LandingPage() {
                             <img src={pag} className="h-[30px] w-[30px]" alt="" />
                             <p className="font-[500] text-[15px]">Health Care & Pharma </p>
                             <div className="flex">
-                                <p className="text-[#1672DE] flex flex-1">Explore</p>
-                                <div className="bg-[#1672DE] p-1 rounded-2xl">
+                                <p className="text-[#004AA2] flex flex-1">Explore</p>
+                                <div className="bg-[#004AA2] p-1 rounded-2xl">
                                     <ChevronRightIcon className="text-[#ffff]" />
                                 </div>
                             </div>
@@ -117,14 +117,14 @@ export default function LandingPage() {
                             <img src={pag} className="h-[30px] w-[30px]" alt="" />
                             <p className="font-[500] text-[15px]">Health Care & Pharma </p>
                             <div className="flex">
-                                <p className="text-[#1672DE] flex flex-1">Explore</p>
-                                <div className="bg-[#1672DE] p-1 rounded-2xl">
+                                <p className="text-[#004AA2] flex flex-1">Explore</p>
+                                <div className="bg-[#004AA2] p-1 rounded-2xl">
                                     <ChevronRightIcon className="text-[#ffff]" />
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <button className="bg-[#1672DE] px-3 py-2 w-[220px] mt-3 text-[#ffff]">
+                    <button onClick={()=>navigate('/products')} className="bg-[#004AA2] px-3 py-2 w-[220px] mt-3 text-[#ffff]">
                         View All Products <ChevronRightIcon className="text-[#ffff]" />{" "}
                     </button>
                 </div>
@@ -147,10 +147,10 @@ export default function LandingPage() {
                     <OtherCompany />
                     <OtherCompany />
                 </div>
-                <BsArrowDownCircleFill className=" text-[30px] text-[#1672DE] -rotate-90" />
+                <BsArrowDownCircleFill className=" text-[30px] text-[#004AA2] -rotate-90" />
             </div>
             <div className="flex flex-col pl-12 ">
-                <p className="text-[#1E94DD] text-[18px] mt-2 fomt-[400]">Why Maqure</p>
+                <p className="text-[#004AA2] text-[18px] mt-2 fomt-[400]">Why Maqure</p>
                 <h1 className="text-[#062940] font-[600] text-[40px] w-[600px] ">
                     {" "}
                     Buying and Selling Materials has never been easier
@@ -170,7 +170,7 @@ export default function LandingPage() {
                             any among the hunderds of suppliers at a gauranteed lowest price
                             in the market .
                         </p>
-                        <p className="text-[#1672DE]">Read more</p>
+                        <p className="text-[#004AA2]">Read more</p>
                     </div>
                     <div className="gap-3 flex flex-col bg-[#ffff] shadow-xl p-3">
                         <img src={rightcheck} className="w-[50px] h-[40px]" alt="" />
@@ -180,7 +180,7 @@ export default function LandingPage() {
                             any among the hunderds of suppliers at a gauranteed lowest price
                             in the market .
                         </p>
-                        <p className="text-[#1672DE]">Read more</p>
+                        <p className="text-[#004AA2]">Read more</p>
                     </div>
                     <div className="gap-3 flex flex-col bg-[#ffff] shadow-xl p-3">
                         <img src={notepage} className="w-[50px] h-[40px]" alt="" />
@@ -191,11 +191,11 @@ export default function LandingPage() {
                             Through Maqure, Save time & Money,by procuring raw material from
                             any among
                         </p>
-                        <p className="text-[#1672DE]">Read more</p>
+                        <p className="text-[#004AA2]">Read more</p>
                     </div>
                 </div>
 
-                <BsArrowDownCircleFill className=" text-[30px] text-[#1672DE] -rotate-90" />
+                <BsArrowDownCircleFill className=" text-[30px] text-[#004AA2] -rotate-90" />
             </div>
             <div className=" mt-16 bg-black ">
                 <h1 className="text-white w-[350px] relative top-32 left-24 font-[600] text-[36px]">
@@ -218,7 +218,7 @@ export default function LandingPage() {
             <div className="bg-[#E2F4FF] flex gap-5 rounded-lg p-4 w-[65%] m-auto mt-7">
                 <div className=" border-r-2 border-r-[#1e94dd] ">
                     <img src={homebox} className="p-2" alt="" />
-                    <p className="text-[#1672DE] font-[600] text-[24px]">Raise A RFQ</p>
+                    <p className="text-[#004AA2] font-[600] text-[24px]">Raise A RFQ</p>
                     <p className="font-[400] text-[18px]">
                         Raise a demand from our comprehensive product catalog from multiple
                         Sellers.
@@ -227,7 +227,7 @@ export default function LandingPage() {
 
                 <div className=" border-r-2 border-r-[#1e94dd] px-4">
                     <img src={chatdol} className="p-2" alt="" />
-                    <p className="text-[#1672DE] font-[600] text-[24px]">Bidding </p>
+                    <p className="text-[#004AA2] font-[600] text-[24px]">Bidding </p>
                     <p className="font-[400] text-[18px]">
                         We Recive Quotes from the demand raised and sort throught them.
                     </p>
@@ -235,14 +235,14 @@ export default function LandingPage() {
 
                 <div className="  ">
                     <img src={rightkon} className="p-2" alt="" />
-                    <p className="text-[#1672DE] font-[600] text-[24px]">Finalizing</p>
+                    <p className="text-[#004AA2] font-[600] text-[24px]">Finalizing</p>
                     <p className="font-[400] text-[18px]">
                         Finally an Agreed upon rate is Fixed and we start working for you to
                         make you get the material on time!
                     </p>
                 </div>
             </div>
-            <button className="w-[20%] ml-[40%] bg-[#1672DE] py-2  mt-10 font-[700] text-[16px] text-[#ffff] ">
+            <button onClick={()=>{navigate('/create')}} className="w-[20%] ml-[40%] bg-[#004AA2] py-2  mt-10 font-[700] text-[16px] text-[#ffff] ">
                 Get Started Now!{" "}
             </button>
             <div className="bg-[#000000] text-white mt-24 border pb-24">
@@ -301,7 +301,7 @@ export default function LandingPage() {
                     </div>
 
                     <div className="mt-10 text-center">
-                        <p className='text-[#1672DE] text-3xl font-semibold mb-1'>100+ Product Categories</p>
+                        <p className='text-[#004AA2] text-3xl font-semibold mb-1'>100+ Product Categories</p>
                         <p className='text-[#637F94] text-sm'>Raw Materials at Lowest Prices-Guaranteed</p>
 
                         <div className=" w-11/12 grid grid-cols-4 gap-4 mx-auto justify-between mt-6">
@@ -332,7 +332,7 @@ export default function LandingPage() {
 
 
 
-                        <button className='text-white bg-[#1672DE] my-16 rounded-md py-2 px-3'>View All Products</button>
+                        <button onClick={()=>navigate('/products')} className='text-white bg-[#004AA2] my-16 rounded-md py-2 px-3'>View All Products</button>
                     </div>
 
                 </div>
@@ -340,7 +340,7 @@ export default function LandingPage() {
             <div className="image1 p-28 h-[450px]">
                 {/* <h1 className="text-4xl font-medium text-white w-1/5">You Can Sell On Maqure As Well!</h1>
                 <p className="mt-2 text-white w-1/3">Request a demo to learn how Maqure makes it easier than ever for you to market, sell and transact online.</p>
-                <button className="bg-white rounded-md mt-4 px-10 py-2 hover:bg-[#1672DE] hover:text-white">Become a Seller</button> */}
+                <button className="bg-white rounded-md mt-4 px-10 py-2 hover:bg-[#004AA2] hover:text-white">Become a Seller</button> */}
             </div>
 
         </div>

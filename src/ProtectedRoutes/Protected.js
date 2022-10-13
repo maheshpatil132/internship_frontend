@@ -6,7 +6,7 @@ const Protected = ({isAuthenticated , children}) => {
    if(!isAuthenticated){
      return <Navigate to={'/login'}></Navigate>
    }
-
+    
    return  children
 
 }

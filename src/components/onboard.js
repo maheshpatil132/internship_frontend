@@ -9,7 +9,6 @@ import DoneAllIcon from "@mui/icons-material/DoneAll";
 export default function Onboard() {
   return (
     <div className=" mb-24">
-      <OnBoardHeader />
 
       <div className="flex gap-4 justify-around w-[80%] m-auto relative -top-16 ">
         <img src={cdpage} alt="" className="shadow-2xl" />
@@ -18,7 +17,7 @@ export default function Onboard() {
         <img src={cdpage} alt="" className="shadow-2xl" />
       </div>
       <div className="flex flex-col gap-3 text-center mt-10">
-        <h1 className="text-[48px] font-[600] text-[#1672DE]">
+        <h1 className="text-[48px] font-[600] text-[#004AA2]">
           How Maqure Makes it easy for you!
         </h1>
         <p className="text-[18px] font-[400] text-[#637F94]">
@@ -44,7 +43,7 @@ export default function Onboard() {
                   <p className="text-[18px] font-[400] text-[#637F94]">
                     Step 1{" "}
                   </p>
-                  <h1 className="text-[48px] font-[600] text-[#1672DE]">
+                  <h1 className="text-[48px] font-[600] text-[#004AA2]">
                     Recieve Quote
                   </h1>
                 </div>
@@ -77,7 +76,7 @@ export default function Onboard() {
             <div id="two" className="flex gap-6 mt-16 w-[80%] m-auto">
               <div className="flex flex-col mt-[1%] ">
                 <p className="text-[18px] font-[400] text-[#637F94]">Step 2 </p>
-                <h1 className="text-[48px] font-[600] text-[#1672DE]">
+                <h1 className="text-[48px] font-[600] text-[#004AA2]">
                   Start Preparing
                 </h1>
                 <div className="flex flex-col gap-7">
@@ -115,7 +114,7 @@ export default function Onboard() {
 
               <div className="flex flex-col mt-[1%] ">
                 <p className="text-[18px] font-[400] text-[#637F94]">Step 3 </p>
-                <h1 className="text-[48px] font-[600] text-[#1672DE]">
+                <h1 className="text-[48px] font-[600] text-[#004AA2]">
                   Get Paid
                 </h1>
                 <div className="flex flex-col gap-7">

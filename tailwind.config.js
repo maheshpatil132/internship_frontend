@@ -10,12 +10,12 @@ module.exports = {
           'primary':'#00A99D',
           'text-color':' #637D94',
           'text-heading':'#222C2E',
-          'dash_board_primary':'#1672DE',
+          'dash_board_primary':'#004AA2',
           'nav_dash':'#FBFCFC'
 
         },
         buyer : {
-          'primary':'#1672DE',
+          'primary':'#004AA2',
           'heading':'#222C2E',
           'button_1':'#DCFFD0',
           'button_2':'#FDCECE',

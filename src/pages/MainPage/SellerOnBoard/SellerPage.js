@@ -18,6 +18,7 @@ import Card from '../../../components/Card'
 import Review from '../../../components/Review'
 import FreqBox from '../../../components/FreqBox'
 import Onboard from '../../../components/onboard'
+import OnBoardHeader from '../../../components/OnBoardHeader'
 
 
 const SellerPage = () => {
@@ -26,7 +27,7 @@ const SellerPage = () => {
 
     return (
         <div className=' relative flex-1 flex flex-col overflow-hidden'>
-
+           <OnBoardHeader/>
             {/* home div */}
 
             <div className=' relative overflow-hidden px-36   h-screen flex flex-col'>
@@ -39,7 +40,7 @@ const SellerPage = () => {
 
                         <p className=' text-sm text-buyer-text-color'>Request a demo to learn how Maqure makes it easier than ever for you to market, sell and transact online.
                         </p>
-                        <form action="/" className=' z-50 flex flex-col gap-4 w-[21.6rem]'>
+                        <form action="/" className=' z-40 flex flex-col gap-4 w-[21.6rem]'>
                             <input type="text" className=' outline-none border-[#667080] rounded-md py-2 px-4 border' placeholder='Company Name' />
                             <input type="text" className=' border-[#667080] rounded-md py-2 px-4 border outline-none' placeholder='Email ' />
                             <input type="text" className=' border-[#667080] rounded-md py-2 px-4 border outline-none' placeholder='Phone Number' />
@@ -139,27 +140,27 @@ const SellerPage = () => {
                         <div className="left h-full  items-end flex flex-col  gap-3 text-[#004968]">
 
                             <div  className=' hover_effect bg-[#9898981a] hover:bg-[#72ccff1a] p-4 w-[322px]'>
-                                <h1 className=' text-[#1672DE]'>No Logistical Headaches</h1>
+                                <h1 className=' text-[#004AA2]'>No Logistical Headaches</h1>
                                 <p>No Logistical Headaches No Logistical HeadachesNo Logistical HeadachesNo Logistical Headaches</p>
                             </div>
                             <div  className=' hover_effect bg-[#9898981a] hover:bg-[#72ccff1a] p-4 w-[322px]'>
-                                <h1 className=' text-[#1672DE]'>No Logistical Headaches</h1>
+                                <h1 className=' text-[#004AA2]'>No Logistical Headaches</h1>
                                 <p>No Logistical Headaches No Logistical HeadachesNo Logistical HeadachesNo Logistical Headaches</p>
                             </div>
                             <div  className=' hover_effect bg-[#9898981a] hover:bg-[#72ccff1a] p-4 w-[322px]'>
-                                <h1 className=' text-[#1672DE]'>No Logistical Headaches</h1>
+                                <h1 className=' text-[#004AA2]'>No Logistical Headaches</h1>
                                 <p>No Logistical Headaches No Logistical HeadachesNo Logistical HeadachesNo Logistical Headaches</p>
                             </div>
                             <div  className=' hover_effect bg-[#9898981a] hover:bg-[#72ccff1a] p-4 w-[322px]'>
-                                <h1 className=' text-[#1672DE]'>No Logistical Headaches</h1>
+                                <h1 className=' text-[#004AA2]'>No Logistical Headaches</h1>
                                 <p>No Logistical Headaches No Logistical HeadachesNo Logistical HeadachesNo Logistical Headaches</p>
                             </div>
                             <div  className=' hover_effect bg-[#9898981a] hover:bg-[#72ccff1a] p-4 w-[322px]'>
-                                <h1 className=' text-[#1672DE]'>No Logistical Headaches</h1>
+                                <h1 className=' text-[#004AA2]'>No Logistical Headaches</h1>
                                 <p>No Logistical Headaches No Logistical HeadachesNo Logistical HeadachesNo Logistical Headaches</p>
                             </div>
                             <div  className=' hover_effect bg-[#9898981a] hover:bg-[#72ccff1a] p-4 w-[322px]'>
-                                <h1 className=' text-[#1672DE]'>No Logistical Headaches</h1>
+                                <h1 className=' text-[#004AA2]'>No Logistical Headaches</h1>
                                 <p>No Logistical Headaches No Logistical HeadachesNo Logistical HeadachesNo Logistical Headaches</p>
                             </div>
                         </div>

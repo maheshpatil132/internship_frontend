@@ -22,7 +22,7 @@ const Navbar = ({ user }) => {
       <nav className=' mt-24'>
         <div>
           {user !== 'admin' &&
-            <NavLink to={'/'} className='flex cursor-pointer dash_menu_li  p-3 px-5 rounded-lg  items-center justify-between'>
+            <NavLink to={'/dashboard'} className='flex cursor-pointer dash_menu_li  p-3 px-5 rounded-lg  items-center justify-between'>
               <div className='flex gap-6 items-center'>
                 <AiOutlineHome size={18} />
                 Home
