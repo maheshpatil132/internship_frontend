@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { loginbuyeraction, loginselleraction, loginadminaction } from '../../../actions/BuyerActions'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 const Login = () => {
 
@@ -17,8 +17,7 @@ const Login = () => {
     const dispatch = useDispatch()
     const { error, isAuthenticated } = useSelector(state => state.user)
     const navigate = useNavigate()
-
-
+    const location = useLocation()
     // functions
     const handle_email = (e) => {
         setEmail(e.target.value)
@@ -33,44 +32,27 @@ const Login = () => {
         e.preventDefault()
         if (byer) {
             if (email === 'hiren@gmail.com') {
-                dispatch(loginadminaction(email, password)).then(() => {
-                    if (!isAuthenticated) {
-                        toast.error(error)
-                    }
-                    if (isAuthenticated) {
-                        toast.success("Login Successfully!!")
-                        navigate('/dashboard')
-                    }
+                dispatch(loginadminaction(email, password)).then(()=>{
+                    navigate('/dashboard')
+                }).catch((error)=>{
+                    console.log(error);
                 })
             } else {
-                dispatch(loginbuyeraction(email, password)).then(() => {
-                    if (!isAuthenticated) {
-                        toast.error(error)
-                    }
-                    if (isAuthenticated) {
-                        toast.success("Login Successfully!!")
-                        console.log("working");
-
-                        navigate('/dashboard')
-                    }
+                dispatch(loginbuyeraction(email, password)).then(()=>{
+                    navigate('/dashboard')
+                }).catch((error)=>{
+                    console.log(error);
                 })
+
             }
         }
         else {
-            dispatch(loginselleraction(email, password)).then(() => {
-                if (!isAuthenticated) {
-                    toast.error(error)
-                }
-                if (isAuthenticated) {
-                    toast.success("Login Successfully!!")
-                    console.log("working");
-
-                    navigate('/dashboard')
-                }
+            dispatch(loginselleraction(email, password)).then(()=>{
+                navigate('/dashboard')
+            }).catch((error)=>{
+                console.log(error);
             })
         }
-
-
     }
 
     const [byer, setByer] = useState(true)
@@ -83,7 +65,7 @@ const Login = () => {
         e.preventDefault();
         setByer(true)
     }
-
+  
 
     return (
         <div className='p-3 fixed left-1/2 flex flex-col  -translate-x-1/2 top-1/2 -translate-y-1/2 rounded-md bg-white w-96 border'>

@@ -9,11 +9,15 @@ import clogo from '../../images/img.png'
 
 import Contact from '../../components/Contact';
 import BankDeteails from '../../components/BankDeteails';
+import AddredPopUp from '../../components/AddredPopUp';
+import ContactPopUp from '../../components/ContactPopUp';
 
 
 const Profile = () => {
 
 	const [value, setValue] = useState(0)
+    const [showModal, setShowModal] = React.useState(false);
+
 
 	const handletabs = (e, val) => {
 		setValue(val)
@@ -22,6 +26,7 @@ const Profile = () => {
 	return (
 		<div className='flex-1 px-14 py-8 space-y-5 overflow-y-scroll h-screen '>
 			<Header />
+
 			<div className="flex gap-4 justify-center border py-6 border-transparent border-b-2 border-b-[#1672DE]">
 				<img src={clogo} alt="" className="h-[123px]  w-[123px]" />
 				<div className="flex flex-col gap-3">
@@ -102,16 +107,35 @@ const Profile = () => {
 
 
 
+			{/* modal code */}
+			{showModal ? (
+				<>
+					<div
+						className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+					>
+						<div className="relative w-auto  my-6 mx-auto max-w-3xl">
+							{/* content */}
+
+							<AddredPopUp setShowModal={setShowModal} />
+							{/* <ContactPopUp setShowModal={setShowModal} /> */}
+
+						</div>
+					</div>
+					<div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+				</>
+			) : null}
+
+
 			<div className=' mt-16'>
 				{value === 0 &&
-					<Address />}
+					<Address setShowModal={setShowModal} />}
 				{
 					value === 2 &&
-					<Contact />
+					<Contact setShowModal={setShowModal} />
 				}
 				{
 					value === 1 &&
-					<BankDeteails />
+					<BankDeteails setShowModal={setShowModal} />
 				}
 			</div>
 		</div>

@@ -214,3 +214,7 @@ body {
   background-repeat: no-repeat;
 }
 
+.slick-prev:before,
+.slick-next:before {
+  color: yellow;
+}

@@ -2,11 +2,11 @@ import React from 'react'
 import { BsThreeDotsVertical } from 'react-icons/bs'
 import { AiOutlinePlusCircle } from 'react-icons/ai'
 
-const Address = () => {
+const Address = ({setShowModal}) => {
     return (
         <div >
-            <button className='flex items-center gap-4 py-3 px-4 my-8 rounded font-semibold text-lg bg-[#1672DE] text-white'>
-                <AiOutlinePlusCircle size={30} />
+            <button onClick={()=>{setShowModal('address')}} className='flex items-center gap-4 py-3 px-4 my-8 rounded font-semibold text-lg bg-[#1672DE] text-white'>
+                <AiOutlinePlusCircle  size={30} />
                 Add Address
             </button>
             <div className=' bg-white p-6 space-y-8 box_shadow rounded'>

@@ -56,7 +56,7 @@ function App() {
       { path: '/rfq/:id', element: <Navbar user='admin' /> },
       { path: '/sendRfq', element: <Navbar user='admin' /> },
       { path: '/component', element: <Navbar user='admin' /> },
-      { path: '/profile', element: <Navbar user='admin' /> },
+      { path: '/profile', element: <Navbar user={user.role && user.role} /> },
       { path: '/products', element: <Navbar user={user ? user.role : ''} /> },
 
 
@@ -101,7 +101,7 @@ function App() {
 
       <Routes>
 
-        <Route path="/login" element={
+        <Route path="/login" element={  
             <Login />
         }></Route>
 
@@ -110,7 +110,11 @@ function App() {
       <Routes>
 
         <Route path="/dashboard" element={<Protected isAuthenticated={isAuthenticated}> <Home /> </Protected>}></Route>
-        <Route path="/prod/:id" element={<Prodcut />}></Route>
+        <Route path="/prod/:id" element={
+        <Protected isAuthenticated={isAuthenticated}>
+        <Prodcut />
+        </Protected>
+        }></Route>
         <Route path="/enqires" element={<Protected isAuthenticated={isAuthenticated}><Enquires /></Protected>}></Route>
         <Route path="/bidding"
           element={

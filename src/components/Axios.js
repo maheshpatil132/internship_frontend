@@ -10,10 +10,10 @@ export const Axios = axios.create({
   });
 
 
-  Axios.interceptors.response.use(
-    response => (response), 
-    error => (Promise.reject(error.response.data.err))
-  )
+  // Axios.interceptors.response.use(
+  //   response => (response), 
+  //   error => (Promise.reject(error.response.data.err))
+  // )
 
 
   axios.defaults.withCredentials = true

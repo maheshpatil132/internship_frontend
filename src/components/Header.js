@@ -1,9 +1,12 @@
 import React from 'react'
+import logo from '../images/logo.png'
+import OnBoardHeader from './OnBoardHeader'
+
 
 const Header = () => {
   return (
     <div>
-         <header className='p-3 border header z-50 absolute w-full bg-white'>Navigation will be here...</header>
+          <OnBoardHeader/>
     </div>
   )
 }

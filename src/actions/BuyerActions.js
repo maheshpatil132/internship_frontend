@@ -1,30 +1,37 @@
 import axios from 'axios'
+import { toast } from 'react-toastify'
 import { Axios } from '../components/Axios'
+
+
 
 export const loginbuyeraction = (email , password) => async(dispatch)=>{
    try {
-    
     dispatch({type: 'UserReq' })
-    
     const {data} = await Axios.post('/login/buyer',{email ,password } ,{withCredentials:true})
     
     
-    console.log(data);
     dispatch({
         type:'LoginSuccess',
         payload : data.user
     })
+
+  
+  
+    toast.success('Login Success')
 
    } catch (error) {
       dispatch({
         type:'LoginFail',
         payload:error.response.data.error
       })
+   
+      toast.error(error.response.data.error)
 
    }
 }
 
 export const loginadminaction = (email , password) => async(dispatch)=>{
+
    try {
     
     dispatch({type: 'UserReq' })
@@ -40,6 +47,7 @@ export const loginadminaction = (email , password) => async(dispatch)=>{
         payload : data.user
     })
 
+
    } catch (error) {
       dispatch({
         type:'LoginFail',
@@ -50,6 +58,8 @@ export const loginadminaction = (email , password) => async(dispatch)=>{
 }
 
 export const loginselleraction = (email , password) => async(dispatch)=>{
+
+
    try {
     
     dispatch({type: 'UserReq' })
@@ -62,6 +72,8 @@ export const loginselleraction = (email , password) => async(dispatch)=>{
         type:'LoginSuccess',
         payload : data.user
     })
+
+
 
    } catch (error) {
       dispatch({

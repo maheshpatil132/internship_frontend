@@ -5,11 +5,12 @@ import pens from "../images/pens.png";
 import write from "../images/write.png";
 import rupi from "../images/rupi.png";
 import DoneAllIcon from "@mui/icons-material/DoneAll";
+import OnboardCom from "./OnboardCom";
 
 export default function Onboard() {
   return (
     <div className=" mb-24">
-
+      <OnboardCom/>
       <div className="flex gap-4 justify-around w-[80%] m-auto relative -top-16 ">
         <img src={cdpage} alt="" className="shadow-2xl" />
         <img src={cdpage} alt="" className="shadow-2xl" />

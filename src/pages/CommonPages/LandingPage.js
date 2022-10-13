@@ -7,8 +7,9 @@ import truckone from "../../images/truckone.png";
 import mainimg from "../../images/mainimg.png";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import OtherCompany from "../../components/Common/company-des/OtherCompany";
-import { BsArrowDownCircleFill } from "react-icons/bs";
 import half from "../../images/half.png";
+import { BsArrowDownCircleFill } from "react-icons/bs";
+
 import rightkon from "../../images/rightkon.png";
 import homebox from "../../images/homebox.png";
 import chatdol from "../../images/chatdol.png";
@@ -23,28 +24,45 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import logo from '../../images/logo.png'
 import OnBoardHeader from "../../components/OnBoardHeader";
+import Slider from "react-slick";
+import ProductSlide from "../../components/ProductSlide";
+import { Axios } from "../../components/Axios";
+
+
 
 export default function LandingPage() {
 
-    const { product } = useSelector(state => state.product)
     const [products, setProducts] = useState([])
     const navigate = useNavigate()
+
+
+    var settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 3
+      };
 
     const redirect = (id) => {
         navigate(`/prod/${id}`)
     }
 
     useEffect(() => {
+     const getdata = async()=>{
+       const {data} =  await Axios.get('/get/products')
+       setProducts(data.products)
+     }
 
-        setProducts(product)
+     getdata()
 
-    }, [product])
+    }, [])
 
     return (
         <div className=" flex-1 overflow-hidden relative top-0">
 
 
-          <OnBoardHeader/>
+            <OnBoardHeader />
             <div className="flex mt-24">
                 <div className=" z-10  flex flex-col gap-3 mt-16 relative left-12">
                     <div className="flex flex-col gap-0">
@@ -124,7 +142,7 @@ export default function LandingPage() {
                             </div>
                         </div>
                     </div>
-                    <button onClick={()=>navigate('/products')} className="bg-[#004AA2] px-3 py-2 w-[220px] mt-3 text-[#ffff]">
+                    <button onClick={() => navigate('/products')} className="bg-[#004AA2] px-3 py-2 w-[220px] mt-3 text-[#ffff]">
                         View All Products <ChevronRightIcon className="text-[#ffff]" />{" "}
                     </button>
                 </div>
@@ -139,15 +157,11 @@ export default function LandingPage() {
                 Maqure has teamed up with the biggest seller across the country to
                 ensure quality and timely delivery.{" "}
             </p>
-            <div className="flex gap-6 items-center my-3">
-                <div className="flex gap-4 w-[85%] pl-12">
-                    <OtherCompany />
-                    <OtherCompany />
-                    <OtherCompany />
-                    <OtherCompany />
-                    <OtherCompany />
+            <div className="gap-6 px-12 items-center my-3">
+                <div className="">
+                
+                    <ProductSlide/>
                 </div>
-                <BsArrowDownCircleFill className=" text-[30px] text-[#004AA2] -rotate-90" />
             </div>
             <div className="flex flex-col pl-12 ">
                 <p className="text-[#004AA2] text-[18px] mt-2 fomt-[400]">Why Maqure</p>
@@ -160,9 +174,12 @@ export default function LandingPage() {
                     ensure quality and timely delivery.{" "}
                 </p>
             </div>
-            <div className="flex gap-72 pl-12 items-center mt-10">
-                <div className="flex gap-4 w-[68%] ">
-                    <div className="gap-3 flex flex-col bg-[#ffff] shadow-xl p-3">
+            <div className="gap-72 px-12 mt-10">
+                <div className="gap-4  ">
+
+                    <Slider className=" gap-4" {...settings}>
+                        
+                    <div className="gap-3  flex flex-col bg-[#ffff] shadow-xl p-3">
                         <img src={truckone} className="w-[50px] h-[40px]" alt="" />
                         <h1 className="text-[32px] font-[600]">Logistics</h1>
                         <p className="text-[16px] font-[400] w-[300px]">
@@ -193,6 +210,27 @@ export default function LandingPage() {
                         </p>
                         <p className="text-[#004AA2]">Read more</p>
                     </div>
+                    <div className="gap-3 flex flex-col bg-[#ffff] shadow-xl p-3">
+                        <img src={rightcheck} className="w-[50px] h-[40px]" alt="" />
+                        <h1 className="text-[32px] font-[600]">Quality</h1>
+                        <p className="text-[16px] font-[400] w-[300px]">
+                            Through Maqure, Save time & Money,by procuring raw material from
+                            any among the hunderds of suppliers at a gauranteed lowest price
+                            in the market .
+                        </p>
+                        <p className="text-[#004AA2]">Read more</p>
+                    </div>
+                    <div className="gap-3 flex flex-col bg-[#ffff] shadow-xl p-3">
+                        <img src={rightcheck} className="w-[50px] h-[40px]" alt="" />
+                        <h1 className="text-[32px] font-[600]">Quality</h1>
+                        <p className="text-[16px] font-[400] w-[300px]">
+                            Through Maqure, Save time & Money,by procuring raw material from
+                            any among the hunderds of suppliers at a gauranteed lowest price
+                            in the market .
+                        </p>
+                        <p className="text-[#004AA2]">Read more</p>
+                    </div>
+                    </Slider>
                 </div>
 
                 <BsArrowDownCircleFill className=" text-[30px] text-[#004AA2] -rotate-90" />
@@ -242,7 +280,7 @@ export default function LandingPage() {
                     </p>
                 </div>
             </div>
-            <button onClick={()=>{navigate('/create')}} className="w-[20%] ml-[40%] bg-[#004AA2] py-2  mt-10 font-[700] text-[16px] text-[#ffff] ">
+            <button onClick={() => { navigate('/products') }} className="w-[20%] ml-[40%] bg-[#004AA2] py-2  mt-10 font-[700] text-[16px] text-[#ffff] ">
                 Get Started Now!{" "}
             </button>
             <div className="bg-[#000000] text-white mt-24 border pb-24">
@@ -332,7 +370,7 @@ export default function LandingPage() {
 
 
 
-                        <button onClick={()=>navigate('/products')} className='text-white bg-[#004AA2] my-16 rounded-md py-2 px-3'>View All Products</button>
+                        <button onClick={() => navigate('/products')} className='text-white bg-[#004AA2] my-16 rounded-md py-2 px-3'>View All Products</button>
                     </div>
 
                 </div>

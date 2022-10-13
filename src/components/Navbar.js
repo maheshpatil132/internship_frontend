@@ -63,14 +63,22 @@ const Navbar = ({ user }) => {
 
 
 
-              <NavLink to={'/arfq'} className={`flex cursor-pointer dash_menu_li  p-3 px-5 rounded-lg  items-center justify-between`}>
+
+              <NavLink to={'/products'} className={`flex cursor-pointer dash_menu_li  p-3 px-5 rounded-lg  items-center justify-between`}>
+                <div className='flex gap-6 items-center'>
+                  <FaTruck size={18} />
+                  Products
+                </div>
+                <MdKeyboardArrowRight size={18} />
+              </NavLink>
+
+              <NavLink to={'/payment'} className={`flex cursor-pointer dash_menu_li  p-3 px-5 rounded-lg  items-center justify-between`}>
                 <div className='flex gap-6 items-center'>
                   <FaTruck size={18} />
                   Payment
                 </div>
                 <MdKeyboardArrowRight size={18} />
               </NavLink>
-
             </>
 
           }
@@ -97,6 +105,15 @@ const Navbar = ({ user }) => {
               </NavLink>
 
 
+
+              <NavLink to={'/products'} className={`flex cursor-pointer dash_menu_li  p-3 px-5 rounded-lg  items-center justify-between`}>
+                <div className='flex gap-6 items-center'>
+                  <FaTruck size={18} />
+                  Products
+                </div>
+                <MdKeyboardArrowRight size={18} />
+              </NavLink>
+              
               <NavLink to={'/Payment'} className={`flex cursor-pointer dash_menu_li  p-3 px-5 rounded-lg  items-center justify-between`}>
                 <div className='flex gap-6 items-center'>
                   <FaTruck size={18} />
