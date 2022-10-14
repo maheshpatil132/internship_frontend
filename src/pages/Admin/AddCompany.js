@@ -48,20 +48,20 @@ export default function AddCompany() {
           <div className="flex flex-col gap-2 w-[26%]">
             <p className="font-[400] text-[16px] text-[#263238]">Number of employees</p>
             <input
-
+             
               type="text"
               className="p-2 shadow-md bg-[ #FFFFFF] rounded-md"
-              placeholder="Enter Substance Name"
+              placeholder="Enter Number of employees"
             />
           </div>
           <div className="flex flex-col gap-2 w-[26%]">
             <p className="font-[400] text-[16px] text-[#263238]"> Category </p>
             <input
 
-
+              value={category}
               type="text"
               className="p-2 shadow-md bg-[ #FFFFFF] rounded-md"
-              placeholder="Enter the EC Number "
+              placeholder="Enter the Category "
             />
           </div>
         </div>
@@ -70,22 +70,26 @@ export default function AddCompany() {
           <div className="flex flex-col gap-2 w-[26%]">
             <p className="font-[400] text-[16px] text-[#263238]">Area</p>
             <input
+
+              value={area}
               type="text"
               className="p-2 shadow-md bg-[ #FFFFFF] rounded-md"
-              placeholder="Enter the CAS Category  "
+              placeholder="Enter the area  "
             />
           </div>
           <div className="flex flex-col gap-2 w-[26%]">
             <p className="font-[400] text-[16px] text-[#263238]">CIN Number</p>
             <input
+              value={cin}
               type="text"
               className="p-2 shadow-md bg-[ #FFFFFF] rounded-md"
-              placeholder="Enter the Min Purity "
+              placeholder="Enter the CIN number "
             />
           </div>
           <div className="flex flex-col gap-2 w-[26%]">
             <p className="font-[400] text-[16px] text-[#263238]">GST Number</p>
             <input
+              value={gst}
               type="text"
               className="p-2 shadow-md bg-[ #FFFFFF] rounded-md"
               placeholder="Enter the Min Purity "
@@ -97,25 +101,28 @@ export default function AddCompany() {
           <div className="flex flex-col gap-2 w-[26%]">
             <p className="font-[400] text-[16px] text-[#263238]">Company owner name</p>
             <input
+              value={owner}
               type="text"
               className="p-2 shadow-md bg-[ #FFFFFF] rounded-md"
-              placeholder="Enter the Apperance Details"
+              placeholder="Enter the Company owner name"
             />
           </div>
           <div className="flex flex-col gap-2 w-[26%]">
             <p className="font-[400] text-[16px] text-[#263238]">Owners Contact Number</p>
             <input
+              value={ownermobile}
               type="text"
               className="p-2 shadow-md bg-[ #FFFFFF] rounded-md"
-              placeholder="Enter the Category"
+              placeholder="Enter the Owners Contact Number"
             />
           </div>
           <div className="flex flex-col gap-2 w-[26%]">
             <p className="font-[400] text-[16px] text-[#263238]">Warehousing Capacity</p>
             <input
+              value={capacity}
               type="text"
               className="p-2 shadow-md bg-[ #FFFFFF] rounded-md"
-              placeholder="Enter the Category"
+              placeholder="Enter the Warehousing Capacity"
             />
           </div>
         </div>
@@ -124,16 +131,19 @@ export default function AddCompany() {
       <div className="flex flex-col gap-2 p-2 w-[26%]">
         <p className="font-[400] text-[16px] text-[#263238]">Linkedin Id</p>
         <input
+          value={linkedin}
           type="text"
           className="p-2 shadow-md bg-[ #FFFFFF] rounded-md"
-          placeholder="Enter the Category"
+          placeholder="Enter the Linkedin Id"
         />
       </div>
 
 
       <div className="flex flex-col p-2 gap-2">
         <p>About The Company</p>
-        <textarea name="" id="" cols="10" rows="5" className=" p-2 rounded-md" placeholder="Enter the Product Description "  ></textarea>
+        <textarea 
+        value={about}
+        name="" id="" cols="10" rows="5" className=" p-2 rounded-md" placeholder="Enter the company Description "  ></textarea>
       </div>
    
       <div className="flex flex-col gap-3 mt-3 p-2">

@@ -93,7 +93,7 @@ const Login = () => {
                     </div>
                 </div>
                 <button onClick={submit_form} type='submit' className='my-5 bg-code-primary text-white p-4 w-full rounded-md font-bold text-base'>Login</button>
-                <span className=' font-bold text-code-primary block text-center'><a href="/" className='underline'>Forgot Password</a></span>
+                <span className=' font-bold text-[#004E97] block text-center'><a href="/" className='underline'>Forgot Password</a></span>
             </form>
 
 

@@ -7,7 +7,7 @@ module.exports = {
     extend: {
       colors:{
         code:{
-          'primary':'#00A99D',
+          'primary':'#004E97',
           'text-color':' #637D94',
           'text-heading':'#222C2E',
           'dash_board_primary':'#004AA2',
