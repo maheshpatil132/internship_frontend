@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { getallorders } from '../actions/OrderActions'
+import ExploreProducts from '../pages/Buyer/ExploreProducts'
 import Bid from './Buyer/Bidding/Bid'
-import BidBox from './Common/Home/BidBox'
 
 const BuyerBid = (bids) => {
 
@@ -15,28 +15,19 @@ const BuyerBid = (bids) => {
 		<div className=' flex flex-col space-y-5'>
 			{
 				bids.bids.filter(bid => bid.quote_status === 'ended').length + bids.bids.filter(bid => bid.quote_status === 'active').length > 0 ?
-					bids.bids.filter(bid => bid.quote_status === 'ended').map((elem) => {
-						return (
-							<Bid key={elem._id} id={elem._id} elem={elem} />
-						)
-					})
+					bids.bids.filter(bid => bid.quote_status === 'ended').length + bids.bids.filter(bid => bid.quote_status === 'active').length > 0 ?
+						bids.bids.filter((bid => bid.quote_status === 'ended') || (bid => bid.quote_status === 'active')).map((elem) => {
+							return (
+								<Bid key={elem._id} id={elem._id} elem={elem} />
+							)
+						})
+						:
+						""
 					:
-					<h1 className=' text-center text-xl'>No bids are in this status</h1>
-			}
-			{
-				bids.bids.filter(bid => bid.quote_status === 'ended').length + bids.bids.filter(bid => bid.quote_status === 'active').length > 0 ?
-					bids.bids.filter(bid => bid.quote_status === 'active').map((elem) => {
-						return (
-							<Bid key={elem._id} id={elem._id} elem={elem} />
-						)
-					})
-					:
-					<h1 className=' text-center text-xl'>No bids are in this status</h1>
-			}
-			{
-				<BidBox />
+					<ExploreProducts />
 			}
 
+			
 		</div>
 	)
 }

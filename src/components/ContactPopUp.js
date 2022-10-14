@@ -1,14 +1,14 @@
 import ClearIcon from '@mui/icons-material/Clear';
 // import './App.css';
 
-function ContactPopUp() {
+function ContactPopUp({ setShowModal }) {
     return (
         <>
             <div className="flex justify-center align-middle">
                 <div className="flex flex-col bg-[#f4f4f4] p-5 rounded-md">
-                    <div className="flex justify-betweens">
+                    <div className="flex justify-between">
                         <p className="font-medium text-2xl">Contact Details</p>
-                        <ClearIcon />
+                        <ClearIcon onClick={() => { setShowModal(false) }} className='cursor-pointer' />
                     </div>
 
                     <div className="flex flex-col mt-6">
@@ -25,11 +25,11 @@ function ContactPopUp() {
 
                         <div className="flex mt-6">
                             <div className="w-1/2">
+                                <p className='mb-1'>Mobile Number</p>
                                 <div className="flex justify-between my-1">
-                                    <p className='mb-1'>Mobile Number</p>
-                                    <button className='bg-[#1672DE] py-1 px-2 text-sm rounded-md text-white'>Send Otp</button>
+                                    <input type="text" className='bg-white rounded-md py-2 px-4 w-48 border border-gray-400 target::border-[#0377EB]' placeholder='Enter the Number' />
+                                    <button className='bg-[#1672DE] p-1 text-xs rounded-md text-white'>Send Otp</button>
                                 </div>
-                                <input type="text" className='bg-white rounded-md py-2 px-4 w-48 border border-gray-400 target::border-[#0377EB]' placeholder='Enter the Number' />
                             </div>
 
                             <div className="w-1/2 ml-8">
@@ -43,12 +43,12 @@ function ContactPopUp() {
 
                         <div className="mt-6">
                             <p className='mb-1'>Email Address</p>
-                            <input type="text" className='bg-white rounded-md py-2 px-4 w-64 border border-gray-400 target::border-[#0377EB]' placeholder='Enter Your Email' />
+                            <input type="text" className='bg-white rounded-md py-2 px-4 w-64 h-28 border border-gray-400 target::border-[#0377EB]' placeholder='Enter Your Email' />
                         </div>
                     </div>
 
-                    <div className="text-end mt-">
-                        <button className='bg-[#1672DE] px-3 py-2 mt-4 text-white rounded-md'>Submit</button>
+                    <div className="text-end mt-2">
+                        <button onClick={() => { setShowModal(false) }} className='bg-[#1672DE] px-3 py-2 mt-4 text-white rounded-md'>Submit</button>
                     </div>
                 </div>
             </div>

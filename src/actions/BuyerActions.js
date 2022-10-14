@@ -54,6 +54,9 @@ export const loginadminaction = (email , password) => async(dispatch)=>{
         payload:error.response.data.error
       })
 
+      toast.error(error.response.data.error)
+
+
    }
 }
 
@@ -80,6 +83,9 @@ export const loginselleraction = (email , password) => async(dispatch)=>{
         type:'LoginFail',
         payload:error.response.data.error
       })
+
+      toast.error(error.response.data.error)
+
 
    }
 }

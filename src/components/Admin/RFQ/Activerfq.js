@@ -221,7 +221,7 @@ export default function Activerfq() {
 
                               </td>
                               <td className="text-sm font-light px-6 py-4  whitespace-nowrap">
-                                <button onClick={()=>{navigate(`/rfq/${elem._id}`)}} className='bg-[#1672DE] px-5 py-2 rounded-md text-white font-[600] '>View Details</button>
+                                <button onClick={()=>{navigate(`/order/${elem._id}`)}} className='bg-[#1672DE] px-5 py-2 rounded-md text-white font-[600] '>View Details</button>
 
                               </td>
                               <td className="text-sm  font-light  whitespace-nowrap">

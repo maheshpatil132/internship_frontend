@@ -5,6 +5,13 @@ import { AiOutlineMenuUnfold } from 'react-icons/ai'
 import { MdKeyboardArrowRight } from 'react-icons/md'
 import { FaTruck } from 'react-icons/fa'
 import { RiArrowDownSFill } from 'react-icons/ri'
+import HomeIcon from '@mui/icons-material/Home';
+import LocalConvenienceStoreIcon from '@mui/icons-material/LocalConvenienceStore';
+import ListAltIcon from '@mui/icons-material/ListAlt';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import LocalShippingIcon from '@mui/icons-material/LocalShipping';
+import Inventory2Icon      from '@mui/icons-material/Inventory2'; 
+import PaymentIcon from '@mui/icons-material/Payment';
 
 import { NavLink } from 'react-router-dom'
 const Navbar = ({ user }) => {
@@ -24,7 +31,7 @@ const Navbar = ({ user }) => {
           {user !== 'admin' &&
             <NavLink to={'/dashboard'} className='flex cursor-pointer dash_menu_li  p-3 px-5 rounded-lg  items-center justify-between'>
               <div className='flex gap-6 items-center'>
-                <AiOutlineHome size={18} />
+                <HomeIcon size={18} />
                 Home
               </div>
               <MdKeyboardArrowRight size={18} />
@@ -36,9 +43,16 @@ const Navbar = ({ user }) => {
 
             user === 'buyer' &&
             <>
+              <NavLink to={'/profile'} className='flex cursor-pointer dash_menu_li p-3 px-5 rounded-lg  items-center justify-between  '>
+                <div className='flex gap-6 items-center'>
+                  <AccountBoxIcon size={18} />
+                  Profile
+                </div>
+                <MdKeyboardArrowRight size={18} />
+              </NavLink>
               <NavLink to={'/bidding'} className='flex cursor-pointer dash_menu_li p-3 px-5 rounded-lg  items-center justify-between  '>
                 <div className='flex gap-6 items-center'>
-                  <MdPayment size={18} />
+                  <LocalConvenienceStoreIcon size={18} />
                   Bidding
                 </div>
                 <MdKeyboardArrowRight size={18} />
@@ -46,7 +60,7 @@ const Navbar = ({ user }) => {
 
               <NavLink to={'/buyerorder'} className='flex cursor-pointer dash_menu_li  p-3 px-5 rounded-lg  items-center justify-between'>
                 <div className='flex gap-6 items-center'>
-                  <AiOutlineMenuUnfold size={18} />
+                  <ListAltIcon size={18} />
                   Order History
                 </div>
                 <MdKeyboardArrowRight size={18} />
@@ -55,18 +69,15 @@ const Navbar = ({ user }) => {
 
               <NavLink to={'/trackshipment'} className='flex cursor-pointer dash_menu_li  p-3 px-5 rounded-lg  items-center justify-between'>
                 <div className='flex gap-6 items-center'>
-                  <FaTruck size={18} />
+                  <LocalShippingIcon size={18} />
                   Track Shipment
                 </div>
                 <MdKeyboardArrowRight size={18} />
               </NavLink>
 
-
-
-
               <NavLink to={'/products'} className={`flex cursor-pointer dash_menu_li  p-3 px-5 rounded-lg  items-center justify-between`}>
                 <div className='flex gap-6 items-center'>
-                  <FaTruck size={18} />
+                  <Inventory2Icon size={12} />
                   Products
                 </div>
                 <MdKeyboardArrowRight size={18} />
@@ -74,7 +85,7 @@ const Navbar = ({ user }) => {
 
               <NavLink to={'/payment'} className={`flex cursor-pointer dash_menu_li  p-3 px-5 rounded-lg  items-center justify-between`}>
                 <div className='flex gap-6 items-center'>
-                  <FaTruck size={18} />
+                  <PaymentIcon size={12} />
                   Payment
                 </div>
                 <MdKeyboardArrowRight size={18} />
@@ -113,7 +124,7 @@ const Navbar = ({ user }) => {
                 </div>
                 <MdKeyboardArrowRight size={18} />
               </NavLink>
-              
+
               <NavLink to={'/Payment'} className={`flex cursor-pointer dash_menu_li  p-3 px-5 rounded-lg  items-center justify-between`}>
                 <div className='flex gap-6 items-center'>
                   <FaTruck size={18} />
@@ -139,7 +150,7 @@ const Navbar = ({ user }) => {
               </NavLink>
 
               <div>
-                <div onClick={() => { setBuyer_li(!buyer_li)}} className=' flex   cursor-pointer gap-6 p-3 px-5 rounded-lg justify-between'>
+                <div onClick={() => { setBuyer_li(!buyer_li) }} className=' flex   cursor-pointer gap-6 p-3 px-5 rounded-lg justify-between'>
                   <div className='flex gap-7'>
                     <MdPayment size={18} />
                     <h1>buyer</h1>
@@ -152,7 +163,7 @@ const Navbar = ({ user }) => {
                     buyer_li &&
                     <>
                       <NavLink className={({ isActive }) => (isActive ? 'active-link' : '')} to={'/create'}><li>Add New Buyer</li></NavLink>
-                      <NavLink className={({ isActive }) => (isActive ? 'active-link' : '')} to={'/profile'}><li>Buyer List</li></NavLink>
+                      <NavLink className={({ isActive }) => (isActive ? 'active-link' : '')} to={'/buyerlist'}><li>Buyer List</li></NavLink>
                     </>
                   }
 
@@ -160,65 +171,67 @@ const Navbar = ({ user }) => {
               </div>
 
 
-        
+
               <div>
-                <div onClick={() => {setSeller_li(!seller_li)}} className=' flex   cursor-pointer gap-6 p-3 px-5 rounded-lg justify-between'>
+                <div onClick={() => { setSeller_li(!seller_li) }} className=' flex   cursor-pointer gap-6 p-3 px-5 rounded-lg justify-between'>
                   <div className='flex gap-7'>
                     <MdPayment size={18} />
                     <h1>seller</h1>
                   </div>
-                  <RiArrowDownSFill className={`${seller_li  && 'rotate-180'}`} size={18} />
+                  <RiArrowDownSFill className={`${seller_li && 'rotate-180'}`} size={18} />
                 </div>
                 <ul className=' list-disc ml-14 list-inside space-y-1'>
                   {seller_li && <>
-                    <li>Add New Seller</li>
-                    <li>Sellers List</li>
+                    <NavLink className={({ isActive }) => (isActive ? 'active-link' : '')} to={'/addcompany'}><li>Add New Seller</li></NavLink>
+                    <NavLink className={({ isActive }) => (isActive ? 'active-link' : '')} to={'/sellerlist'}><li>Sellers List</li></NavLink>
+                    <NavLink className={({ isActive }) => (isActive ? 'active-link' : '')} to={'/sellerreq'}><li>Sellers Request</li></NavLink>
                   </>
                   }
                 </ul>
               </div>
 
 
-              
+
               <div>
-                <div onClick={() => {setProduct_li(!product_li)}} className=' flex   cursor-pointer gap-6 p-3 px-5 rounded-lg justify-between'>
+                <div onClick={() => { setProduct_li(!product_li) }} className=' flex   cursor-pointer gap-6 p-3 px-5 rounded-lg justify-between'>
                   <div className='flex gap-7'>
                     <MdPayment size={18} />
                     <h1>product</h1>
                   </div>
-                  <RiArrowDownSFill className={`${product_li  && 'rotate-180'}`} size={18} />
+                  <RiArrowDownSFill className={`${product_li && 'rotate-180'}`} size={18} />
                 </div>
                 <ul className=' list-disc ml-14 list-inside space-y-1'>
-                {product_li && <>
-                    <li>Add Product</li>
-                    <li>Categories</li>
-                    <li>Sellers Request</li>
-                  </>
-                  }
-                </ul>
-              </div>
-              
-              <div>
-                <div onClick={() => {setOrder_li(!order_li)}} className=' flex   cursor-pointer gap-6 p-3 px-5 rounded-lg justify-between'>
-                  <div className='flex gap-7'>
-                    <MdPayment size={18} />
-                    <h1>orders</h1>
-                  </div>
-                  <RiArrowDownSFill className={`${order_li  && 'rotate-180'}`} size={18} />
-                </div>
-                <ul className=' list-disc ml-14 list-inside space-y-1'>
-                  {order_li && <>
-                    <li>invoice</li>
-                      <li>Payments</li>
-                     <li>Track Shipment</li>
-                     <li>Issues Raised</li>
+                  {product_li && <>
+                    <NavLink className={({ isActive }) => (isActive ? 'active-link' : '')} to={'/addproduct'}><li>Add Product</li></NavLink>
+                    <NavLink className={({ isActive }) => (isActive ? 'active-link' : '')} to={'/products'}><li>Categories</li></NavLink>
+                    <NavLink className={({ isActive }) => (isActive ? 'active-link' : '')} to={'/prodreq'}> <li>Product Request</li></NavLink>
                   </>
                   }
                 </ul>
               </div>
 
-              
-              
+              <div>
+                <div onClick={() => { setOrder_li(!order_li) }} className=' flex   cursor-pointer gap-6 p-3 px-5 rounded-lg justify-between'>
+                  <div className='flex gap-7'>
+                    <MdPayment size={18} />
+                    <h1>orders</h1>
+                  </div>
+                  <RiArrowDownSFill className={`${order_li && 'rotate-180'}`} size={18} />
+                </div>
+                <ul className=' list-disc ml-14 list-inside space-y-1'>
+                  {order_li && <>
+                    <NavLink className={({ isActive }) => (isActive ? 'active-link' : '')} to={'/orderlist'}><li>Order List</li></NavLink>
+                    <li>invoice</li>
+                    <li>Payments</li>
+                    <li>Track Shipment</li>
+                    <li>Issues Raised</li>
+                  </>
+                  }
+                </ul>
+              </div>
+
+
+
             </>
           }
         </div>

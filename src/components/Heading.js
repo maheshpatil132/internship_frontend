@@ -3,7 +3,7 @@ import { FiBarChart2 } from 'react-icons/fi'
 const Heading = () => {
   return (
     <div>
-      <div className="heading mt-16 text-sm flex items-center gap-6">
+      <div className="heading  text-sm flex items-center gap-6">
         <FiBarChart2 className=' text-buyer-primary font-bold graph' size={60} />
         <div>
           <p className='text-buyer-text-color'>Total Enquries</p>

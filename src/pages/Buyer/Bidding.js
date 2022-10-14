@@ -4,7 +4,7 @@ import Header from '../../components/Header'
 import Heading from '../../components/Heading'
 import Bid from '../../components/Buyer/Bidding/Bid'
 import SearchBox from '../../components/SearchBox'
-// import CircularProgress from '@mui/material/CircularProgress';
+import ExploreProducts from './ExploreProducts'
 import { Axios } from '../../components/Axios'
 
 const Bidding = () => {
@@ -65,12 +65,12 @@ const Bidding = () => {
     }, [status])
 
     return (
-        <div className=' flex-1'>
+        <div className=' flex-1 h-screen'>
             <Header />
             <div className="flex">
 
-                <div ref={content} className=' flex-1 px-8 py-8 space-y-7 overflow-y-scroll h-screen'>
-                    <div className="bg-white p-3 mt-10 rounded-md">
+                <div ref={content} className=' flex-1 p-8 overflow-y-scroll mt-16'>
+                    <div className="bg-white p-3 rounded-md">
                         <Heading />
                         <div className="box_cont flex gap-5 mt-7">
                             <div className={` text-sm box_shadow border flex flex-col gap-2  box_shadow rounded-lg py-3 cursor-pointer w-44 px-3 ${status === 'processing' && 'bg-buyer-primary text-white'} `} onClick={status_proccess}>
@@ -88,7 +88,7 @@ const Bidding = () => {
                         </div>
                     </div>
 
-                    <div className=' flex flex-col space-y-5 bg-white p-4 rounded-md'>
+                    <div className=' flex flex-col space-y-5 bg-white p-4 rounded-md mt-10'>
                         <div ref={searchbar} className='sticky top-4' >
                             <SearchBox change={change} />
                         </div>
@@ -108,7 +108,7 @@ const Bidding = () => {
                                                 )
                                             })
                                             :
-                                            <h1 className=' text-center text-xl'>No bids are in this status</h1>
+                                            <ExploreProducts/>
 
                                         :
 
@@ -123,7 +123,7 @@ const Bidding = () => {
 
                                             :
 
-                                            <h1 className=' text-center text-xl'>No bids are in this status</h1>
+                                            <ExploreProducts/>
 
                                     :
 
@@ -138,8 +138,9 @@ const Bidding = () => {
 
                                         :
 
-                                        <h1 className=' text-center text-xl'>No bids are in this status</h1>
+                                        <ExploreProducts/>
                                 :
+                                // Previous Status
                                 bids.filter(bid => bid.quote_status === 'accepted' || bid.quote_status === 'rejected').length > 0 ?
 
                                     bids.filter(bid => bid.quote_status === 'accepted' || bid.quote_status === 'rejected').map((elem, index) => {
@@ -150,7 +151,7 @@ const Bidding = () => {
 
                                     :
 
-                                    <h1 className=' text-center text-xl'>No bids are in this status</h1>
+                                    <ExploreProducts/>
                         }
                     </div>
                 </div>

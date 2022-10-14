@@ -1,6 +1,7 @@
 import ArrowForward from '@mui/icons-material/ArrowForward';
 import ClearIcon from '@mui/icons-material/Clear';
 import React from 'react'
+import OnBoardHeader from '../../components/OnBoardHeader'
 import ControlPointIcon from '@mui/icons-material/ControlPoint';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -35,9 +36,10 @@ function AllProducts() {
 
     return (
         <>
-            <div className="flex justify-center align-middle h-screen overflow-y-scroll bg-white flex-1">
+            <div className="flex justify-center px-10 align-middle h-screen overflow-y-scroll bg-white flex-1">
+                <OnBoardHeader/>
                 <div className="flex flex-col ">
-                    <div className="flex w-10/12 justify-between mt-16">
+                    <div className="flex w-10/12 justify-between mt-20">
                         <p className='font-semibold text-2xl ml-44'>Product Catalouge</p>
                         {user && user.role === 'seller' &&
                             <button onClick={() => setShowModal(true)} className="border border-[#004AA2] text-[#004AA2] w-fit gap-4 px-2 py-1 rounded-md mr-5"><ControlPointIcon /><span className='mt-1 ml-3'>Add Product</span></button>
@@ -51,9 +53,9 @@ function AllProducts() {
                                     <div className="relative w-auto max-h-[95%] overflow-y-scroll my-6 mx-auto max-w-3xl">
                                         {/*content*/}
 
-{   showModal===true &&
-                                        <SearchPopUp setShowModal={setShowModal} />
-}
+                                        {showModal === true &&
+                                            <SearchPopUp setShowModal={setShowModal} />
+                                        }
                                         {showModal === "prodReq" &&
                                             <ProductReqpopUp setShowModal={setShowModal} />
                                         }
@@ -73,17 +75,17 @@ function AllProducts() {
                     </div>
 
                     {/* Seaaarch Box */}
-                    <div className="w-3/4 mx-auto my-4">
+                    <div className="w-full mx-auto my-4">
                         <SearchBox />
                     </div>
 
 
                     <div className=" text-center">
-                        <div className="w-10/12 flex flex-wrap mx-auto justify-center  mt-6">
+                        <div className=" grid grid-cols-4  gap-3 mt-6">
                             {
                                 products && products.map((elem, index) => {
                                     return (
-                                        <div className="w-64 flex flex-col rounded-md shadow-lg m-3">
+                                        <div className=" flex border flex-col rounded-md shadow-lg h-fit">
                                             <div className="">
                                                 <img src={pics} className="h-36 w-64 rounded-t-md" />
                                             </div>
@@ -101,8 +103,8 @@ function AllProducts() {
                                             </div>
 
                                             <div className="mt-2 border border-transparent border-t-gray-200 flex justify-between p-3">
-                                                <ArrowForward className="text-white bg-[#58A9E4] rounded-full my-auto" fontSize="medium" />
-                                                <button onClick={() => redirects(elem._id)} className='text-[#1E94DD] font-medium my-2'>View Product</button>
+                                                <ArrowForward className="text-white bg-[#004E97] rounded-full my-auto" fontSize="medium" />
+                                                <button onClick={() => redirects(elem._id)} className='text-[#004E97] font-medium my-2'>View Product</button>
                                             </div>
 
                                         </div>

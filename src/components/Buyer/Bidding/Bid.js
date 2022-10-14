@@ -6,7 +6,7 @@ import { GrDocumentDownload } from 'react-icons/gr'
 import img from '../../../images/structure.png'
 import { Axios } from '../../Axios'
 import { toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Bid = ({ elem }) => {
 
@@ -35,8 +35,8 @@ const Bid = ({ elem }) => {
             id: elem._id
         }).then((res) => {
             // console.log(res)
-            
-        }).catch((error)=>{
+
+        }).catch((error) => {
             console.log(error);
             toast.error(error.response.data.error)
         })
@@ -48,9 +48,10 @@ const Bid = ({ elem }) => {
     const status_color = () => {
         if (elem.quote_status === 'processing') setStatusColor("#FFF61C")
         if (elem.quote_status === 'active') setStatusColor("#1672DE")
-        if (elem.quote_status === 'ended') setStatusColor("#900404")
-        if (elem.quote_status === 'buyer_accepted') setStatusColor('blue')
-        if (elem.quote_status === 'rejected') setStatusColor("#FF9B9B")
+        if (elem.quote_status === 'ended') setStatusColor("")
+        if (elem.quote_status === 'buyer_accepted') setStatusColor('#1672DE')
+        if (elem.quote_status === 'accepted') setStatusColor('#64FF1C')
+        if (elem.quote_status === 'rejected') setStatusColor("#FF2424")
         if (elem.quote_status === 'preparing') setStatusColor("#FFF61C")
         if (elem.quote_status === 'inTransit') setStatusColor("#8AE3FF")
         if (elem.quote_status === 'delivered') setStatusColor("#64FF1C")
@@ -64,7 +65,6 @@ const Bid = ({ elem }) => {
 
 
     // Timer for Bidding
-    const [timerDays, setTimerDays] = useState();
     const [timerHours, setTimerHours] = useState();
     const [timerMinutes, setTimerMinutes] = useState();
     const [timerSeconds, setTimerSeconds] = useState();
@@ -72,7 +72,7 @@ const Bid = ({ elem }) => {
     let interval;
 
     const startTimer = () => {
-        const countDownDate = new Date("Sept 31,2022").getTime();
+        const countDownDate = new Date("Oct 14,2022").getTime();
 
         interval = setInterval(() => {
             const now = new Date().getTime();
@@ -96,7 +96,6 @@ const Bid = ({ elem }) => {
                 clearInterval(interval.current);
             } else {
                 // Update Timer
-                setTimerDays(days);
                 setTimerHours(hours);
                 setTimerMinutes(minutes);
                 setTimerSeconds(seconds);
@@ -121,11 +120,11 @@ const Bid = ({ elem }) => {
                             </div>
                             <div className="text-sm">
                                 <p className='my-2 w-20 text-center text-buyer-text-color font-semibold'>HS CODE</p>
-                                <p className=' text-center'>{elem.product['HS Code'] ?elem.product['HS Code'] :'null' }</p>
+                                <p className=' text-center'>{elem.product['HS Code'] ? elem.product['HS Code'] : 'null'}</p>
                             </div>
                             <div className=" text-sm">
                                 <p className='my-2 w-28  text-center text-buyer-text-color font-semibold'>CAS NO.</p>
-                                <p className=' text-center'>{elem.product['CAS No']}</p>
+                                <p className=' text-center'>{elem.product['CASNo']}</p>
                             </div>
                             <div className="text-sm">
                                 <p className='mt-2  text-center text-buyer-text-color font-semibold'>Date</p>
@@ -141,10 +140,10 @@ const Bid = ({ elem }) => {
                                         <p className='mt-2 text-center text-buyer-text-color font-semibold'>Time Left</p>
                                         <div className={`bg-[${statusColor}] p-1 mt-1 rounded w-20 text-center`}>{timerHours} : {timerMinutes} : {timerSeconds}</div>
                                     </div>
-                                :
+                                    :
                                     ""
                             }
-                            
+
                         </div>
 
                     </div>
@@ -221,7 +220,7 @@ const Bid = ({ elem }) => {
                                     :
                                     <>
                                         <h1 className='text-2xl font-semibold mt-3 text-[#ff2424]'>Order Rejected</h1>
-                                        <h1 className="text-xl text-gray-500 mt-2 font-medium ">Amount: <span className='text-2xl text-black'>₹ 1234567</span></h1>
+                                        <h1 className="text-xl text-gray-500 mt-2 font-medium ">Amount: <span className='text-2xl text-black'>Rs. 1234567</span></h1>
                                     </>
                             }
 
@@ -239,6 +238,24 @@ const Bid = ({ elem }) => {
                         ""
                 }
                 {
+                    elem.quote_status === "accepted" ?
+                        <div className='left  flex flex-col text-sm '>
+                            <div className="right_head text-buyer-text-color flex items-center justify-end mt-1">
+                                <ChevronRightIcon className='cursor-pointer' size={16} />
+                            </div>
+                            <h1 className='text-2xl font-semibold mt-3 text-[#1672DE]'>Order Confirmed</h1>
+
+                            <h1 className="text-xl text-gray-500 mt-2 font-medium mb-4">Amount: <span className='text-2xl text-black'>Rs. {elem.buyer_Price}</span></h1>
+                            <div onClick={remark} className="buttons flex items-center gap-4 mt-2 my-2 hover:bg-[#1672DE] hover:text-white">
+                                <div className='flex justify-evenly border p-2 rounded-md border-buyer-second_know_more w-full cursor-pointer hover:rounded-md'>
+                                    <p>Go to Order Page</p>
+                                </div>
+                            </div>
+                        </div>
+                        :
+                        ""
+                }
+                {
                     elem.quote_status === "buyer_accepted" ?
                         <div className='left  flex flex-col text-sm '>
                             <div className="right_head text-buyer-text-color flex items-center justify-end mt-1">
@@ -246,7 +263,7 @@ const Bid = ({ elem }) => {
                             </div>
                             <h1 className='text-2xl font-semibold mt-3 text-[#1672DE]'>Order Confirmed</h1>
 
-                            <h1 className="text-xl text-gray-500 mt-2 font-medium mb-4">Amount: <span className='text-2xl text-black'>₹ {elem.buyer_Price}</span></h1>
+                            <h1 className="text-xl text-gray-500 mt-2 font-medium mb-4">Amount: <span className='text-2xl text-black'>Rs. {elem.buyer_Price}</span></h1>
                             <div onClick={remark} className="buttons flex items-center gap-4 mt-2 my-2 hover:bg-[#1672DE] hover:text-white">
                                 <div className='flex justify-evenly border p-2 rounded-md border-buyer-second_know_more w-full cursor-pointer hover:rounded-md'>
                                     <p>Go to Order Page</p>
@@ -274,7 +291,7 @@ const Bid = ({ elem }) => {
                 <div className=' flex flex-col gap-2 text-sm'>
                     <div>
                         <h1 className=' font-semibold text-base my-2'>Your Remarks</h1>
-                        <p className=' text-buyer-text-color'>{elem.remark ? elem.remark : 'No Remark'}</p>
+                        <p className=''>{elem.remark ? elem.remark : 'No Remark'}</p>
                     </div>
                     <h1 className='font-semibold text-base my-2'>Documents </h1>
                     <div className='flex gap-5 '>

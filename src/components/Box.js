@@ -20,6 +20,10 @@ const Box = ({ content ,bids }) => {
 		else if (content === 'NewRFQs') setVal( bids.filter(bid => bid.quote_status === 'processing').length )
 		else if (content === 'ActiveRFQs') setVal( bids.filter(bid => bid.quote_status === 'active').length )
 		else if (content === 'AcceptedRFQs') setVal( bids.filter(bid => bid.quote_status === 'buyer_accepted').length )
+		else if (content === 'Preparing') setVal( bids.filter(bid => bid.order_status === 'preparing').length )
+		else if (content === 'In-Transit') setVal( bids.filter(bid => bid.order_status === 'in-transit').length )
+		else if (content === 'Delivered') setVal( bids.filter(bid => bid.order_status === 'delivered').length )
+
 		else if (content === 'RFQHistory') setVal( bids.filter(bid => bid.quote_status === 'accepted' || bid.quote_status === 'rejected').length )
 		else setVal((bids.filter(bid => bid.quote_status === 'accepted').length) + (bids.filter(bid => bid.quote_status === 'rejected').length)) 
 	}

@@ -98,6 +98,7 @@ export default function RfqContent() {
                 bid.filter(bid => bid.quote_status === status).map((elem, index) => {
                   return (
                     <Qvotobox key={elem._id} setStatus={setStatus} id={elem._id} elem={elem} />
+                   
                   )
                 })
 

@@ -27,7 +27,7 @@ function ProdDecr() {
 		<>
 			<div className="h-full w-10/12 ">
 
-				<div className="px-20 py-14">
+				<div className="px-20 py-14 mt-10">
 
 					{/* Path */}
 					<p className="text-[#1672DE] mb-4">

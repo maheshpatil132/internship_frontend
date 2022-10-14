@@ -234,7 +234,7 @@ export default function Qvotobox({ elem, id ,setStatus }) {
 					</div>
 					<div className="flex flex-col gap-2">
 						<p className="text-[14px] font-[600] text-[#637F94]">CAS No</p>
-						<p className="text-[14px] font-[400]">{elem.product['CAS No'] ?elem.product['CAS No']:'null' }
+						<p className="text-[14px] font-[400]">{elem.product['CASNo'] ?elem.product['CASNo']:'null' }
 						</p>
 					</div>
 					<div className="flex flex-col gap-2">
@@ -246,7 +246,7 @@ export default function Qvotobox({ elem, id ,setStatus }) {
 				<div className="flex gap-3 mt-6 mb-2">
 					<img src={rac} className={' h-full'} alt="" />
 					<div className="flex flex-col gap-1">
-						<p className="text-[14px] font-[600] text-[#1672DE]">Buyer Id : {elem.buyer} </p>
+						<p className="text-[14px] font-[600] text-[#1672DE]">Buyer Id : {elem.buyer._id} </p>
 						<p className="text-[16px] font-[400] text-black">Abc ltd. </p>
 					</div>
 				</div>

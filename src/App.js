@@ -33,6 +33,14 @@ import LandingPage from "./pages/CommonPages/LandingPage";
 import AllProducts from "./pages/CommonPages/AllProducts";
 import Protected from "./ProtectedRoutes/Protected";
 import NoPage from "./error/NoPage";
+import AddCompany from "./pages/Admin/AddCompany";
+import AddProduct from "./pages/Admin/AddProduct";
+import OrderList from "./pages/Admin/OrderList";
+import BuyerLIst from "./pages/Admin/BuyerLIst";
+import SellerList from "./pages/Admin/SellerList";
+import ProdReq from "./pages/Admin/ProdReq";
+import SellerReq from "./pages/Admin/SellerReq";
+import Payment from "./components/Buyer/Payment/Payment";
 
 
 function App() {
@@ -53,11 +61,21 @@ function App() {
       { path: '/activerfq', element: <Navbar user='admin' /> },
       { path: '/rfq', element: <Navbar user='admin' /> },
       { path: '/arfq', element: <Navbar user='admin' /> },
-      { path: '/rfq/:id', element: <Navbar user='admin' /> },
+      { path: '/order/:id', element: <Navbar user='admin' /> },
       { path: '/sendRfq', element: <Navbar user='admin' /> },
       { path: '/component', element: <Navbar user='admin' /> },
+      { path: '/payment', element: <Navbar user={user.role ? user.role : "buyer"} /> },
       { path: '/profile', element: <Navbar user={user.role && user.role} /> },
       { path: '/products', element: <Navbar user={user ? user.role : ''} /> },
+      { path: '/addcompany', element: <Navbar user={user ? user.role : ''} /> },
+      { path: '/addproduct', element: <Navbar user={user ? user.role : ''} /> },
+      { path: '/orderlist', element: <Navbar user={user ? user.role : ''} /> },
+      { path: '/buyerlist', element: <Navbar user={user ? user.role : ''} /> },
+      { path: '/sellerlist', element: <Navbar user={user ? user.role : ''} /> },
+      { path: '/prodreq', element: <Navbar user={user ? user.role : ''} /> },
+      { path: '/sellerreq', element: <Navbar user={user ? user.role : ''} /> },
+
+
 
 
 
@@ -147,7 +165,7 @@ function App() {
             <AccepetedRfq />
           </Protected>
         }></Route>
-        <Route path="/rfq/:id" element={
+        <Route path="/order/:id" element={
           <Protected isAuthenticated={isAuthenticated}>
             <Rfq />
           </Protected>
@@ -157,11 +175,20 @@ function App() {
             <SendRfq />
           </Protected>
         }></Route>
+        <Route path="/payment" element={<Payment />}></Route>
         <Route path="/component" element={<ComponentPage />}></Route>
         <Route path="/create" element={<Create />}></Route>
         <Route path="/profile" element={<Profile />}></Route>
         <Route path="/" element={<LandingPage />}></Route>
         <Route path="/products" element={<AllProducts />}></Route>
+        <Route path="/addcompany" element={<AddCompany />}></Route>
+        <Route path="/addproduct" element={<AddProduct />}></Route>
+        <Route path="/orderlist" element={<OrderList />}></Route>
+        <Route path="/buyerlist" element={<BuyerLIst />}></Route>
+        <Route path="/sellerlist" element={<SellerList />}></Route>
+        <Route path="/prodreq" element={<ProdReq />}></Route>
+        <Route path="/sellerreq" element={<SellerReq />}></Route>
+
 
 
 

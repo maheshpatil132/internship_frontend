@@ -11,12 +11,13 @@ import Contact from '../../components/Contact';
 import BankDeteails from '../../components/BankDeteails';
 import AddredPopUp from '../../components/AddredPopUp';
 import ContactPopUp from '../../components/ContactPopUp';
+import BankDetailsPopup from '../../components/BankDetailsPopup';
 
 
 const Profile = () => {
 
 	const [value, setValue] = useState(0)
-    const [showModal, setShowModal] = React.useState(false);
+	const [showModal, setShowModal] = React.useState(false);
 
 
 	const handletabs = (e, val) => {
@@ -24,7 +25,7 @@ const Profile = () => {
 	}
 
 	return (
-		<div className='flex-1 px-14 py-8 space-y-5 overflow-y-scroll h-screen '>
+		<div className='flex-1 px-14 py-8 space-y-5 overflow-y-scroll h-screen'>
 			<Header />
 
 			<div className="flex gap-4 justify-center border py-6 border-transparent border-b-2 border-b-[#1672DE]">
@@ -102,7 +103,7 @@ const Profile = () => {
 				<Tab label='Address (2)' />
 				<Tab label='Bank Details' />
 				<Tab label='Contacts' />
-				<Tab label='Store Front' />
+				{/* <Tab label='Store Front' /> */}
 			</Tabs>
 
 
@@ -115,10 +116,10 @@ const Profile = () => {
 					>
 						<div className="relative w-auto  my-6 mx-auto max-w-3xl">
 							{/* content */}
-
-							<AddredPopUp setShowModal={setShowModal} />
-							{/* <ContactPopUp setShowModal={setShowModal} /> */}
-
+							{showModal === "address" && <AddredPopUp setShowModal={setShowModal} />}
+							{showModal === "contact" && <ContactPopUp setShowModal={setShowModal} />}
+							{showModal === "bankDetails" && <BankDetailsPopup setShowModal={setShowModal} />}
+						
 						</div>
 					</div>
 					<div className="opacity-25 fixed inset-0 z-40 bg-black"></div>

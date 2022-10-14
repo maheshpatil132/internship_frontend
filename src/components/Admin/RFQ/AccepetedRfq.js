@@ -126,7 +126,7 @@ export default function Accepted() {
                             </td>
 
                             <td className="text-sm  font-light cursor-pointer whitespace-nowrap">
-                              <ChevronRightIcon onClick={()=>{navigate(`/rfq/${elem._id}`)}} />
+                              <ChevronRightIcon onClick={()=>{navigate(`/order/${elem._id}`)}} />
 
                             </td>
                           </tr>

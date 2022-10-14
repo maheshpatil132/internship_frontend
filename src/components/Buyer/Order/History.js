@@ -4,19 +4,21 @@ import { NavLink } from "react-router-dom";
 import img from "../../../images/Chart.png";
 import SearchBox from "../../SearchBox";
 import { Axios } from '../../Axios'
+import ExploreProducts from "../../../pages/Buyer/ExploreProducts";
 
 export default function History() {
 	const [bids, setBids] = useState([])
 
 	useEffect(() => {
+		const getdata = async () => {
+			const { data } = await Axios.get('/getall/buyer/bids')
+			setBids(data.buyerbids.bids)
+			console.log(bids)
+		}
 		getdata()
 	}, [])
-	
-	const getdata = async () => {
-		const { data } = await Axios.get('/getall/buyer/bids')
-		setBids(data.buyerbids.bids)
-	}
-	
+
+
 	return (
 		<div className="  py-10 px-14 flex-1 overflow-y-scroll h-screen">
 			<div className="track_header mb-6 bg-white p-3 rounded-md shadow-md">
@@ -33,86 +35,66 @@ export default function History() {
 
 			{/* table start */}
 			<div className="flex flex-col mt-5 bg-white p-3 rounded-md shadow-md">
-				<div className="mt-2">
+				<div className="my-3">
 					<SearchBox />
 				</div>
 				<div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
 					<div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
 						<div className="overflow-hidden">
 
-							{ bids.filter(bid=>bid.quote_status==='accepted').length > 0 ?
-							<table className="min-w-full text-black text-1xl font-normal ">
-								<thead className="">
-									<tr className="h-12 hover:border ">
-										<th
-											scope="col"
-											className="text-sm text-center w-1/5 font-medium text-gray-900 py-4">
+							{bids.filter(bid => bid.quote_status === 'accepted').length > 0 ?
+								<div>
+									<div className="flex">
+										<div className="text-sm px-6  w-1/4 font-medium text-gray-900 py-4">
 											Order No
-										</th>
-										<th
-											scope="col"
-											className="text-sm text-center w-2/5 font-medium text-gray-900 py-4">
+										</div>
+										<div className="text-sm px-6  w-1/4 font-medium text-gray-900 py-4">
 											Product Name
-										</th>
-										<th
-											scope="col"
-											className="text-sm text-center w-1/5 font-medium text-gray-900 py-4">
+										</div>
+										<div className="text-sm px-6  w-1/6 font-medium text-gray-900 py-4">
 											Delivered at
-										</th>
-										<th
-											scope="col"
-											className="text-sm w-1/5 text-center font-medium text-gray-900 py-4">
+										</div>
+										<div className="text-sm px-6 w-1/6  font-medium text-gray-900 py-4">
 											Price Bought at
-										</th>
-										<th
-											scope="col"
-											className="text-sm text-center w-1/5 font-medium text-gray-900 py-4">
-										</th>
-									</tr>
-								</thead>
-								<tbody>
+										</div>
+										<div className="text-sm  w-1/6 font-medium text-gray-900 py-4">
+										</div>
+									</div>
+
 									{
-										bids ? bids.filter(bid=>bid.quote_status==='accepted').map((elem) => {
-											console.log(elem)
-											return (
-												<tr key={elem._id} className="border-b h-12 hover:border hover:z-50  hover:border-blue-500">
-													<td className="px-6 py-4 text-center text-blue-400  whitespace-nowrap text-sm font-medium ">
-														{elem._id}
-													</td>
-													<td className="text-sm  text-center  font-light px-6 py-4 whitespace-nowrap">
-														{elem.product ? elem.product.name : 'null'}
-													</td>
-													<td className="text-sm 	 text-center font-light px-6 py-4 whitespace-nowrap">
-														12/12/12
-													</td>
-													<td className="text-sm  text-center  font-light px-6 py-4 whitespace-nowrap">
-														{elem.buyer_Price}
-													</td>
-													<td className="text-sm  font-light  whitespace-nowrap">
-														<NavLink to={"/track"}>
-															{" "}
-															<ChevronRightIcon />{" "}
-														</NavLink>
-													</td>
-												</tr>
-											)
-										})
-
+										bids.filter(bid => bid.quote_status === 'accepted').length > 0 ?
+											bids.filter(bid => bid.quote_status === 'accepted').map((elem) => {
+												return (
+													<div key={elem._id} className="flex my-1 border rounded-md hover:border-blue-500">
+														<div className="px-6 w-1/4 py-4  text-blue-400  whitespace-nowrap text-sm font-medium ">
+															{elem._id}
+														</div>
+														<div className="text-sm w-1/4    font-light px-6 py-4 whitespace-nowrap">
+															{elem.product ? elem.product.name : 'null'}
+														</div>
+														<div className="text-sm w-1/6  font-light px-6 py-4 whitespace-nowrap">
+															12/12/12
+														</div>
+														<div className="text-sm w-1/6   font-light px-6 py-4 whitespace-nowrap">
+															Rs. {elem.buyer_Price}
+														</div>
+														<div className="text-sm w-1/6 font-light  whitespace-nowrap m-auto flex justify-center">
+															<button className="bg-[#004E97] hover:bg-[#187bd7] text-white p-2 rounded-md">View Order</button>
+														</div>
+													</div>
+												)
+											})
 											:
-
-											'no content'
-
+											<ExploreProducts/>
 									}
-
-								</tbody>
-							</table>
-							: 
-							<h1 className=' text-lg mt-3 text-center'>No bids are accepted</h1>
-						}
+								</div>
+								:
+								<ExploreProducts/>
+							}
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
+			</div >
+		</div >
 	);
 }

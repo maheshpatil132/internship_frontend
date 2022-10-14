@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import MainHeading from '../../../components/MainHeading'
 import img from '../../../images/onboard.png'
 import company1 from '../../../images/image4.png'
@@ -23,6 +23,10 @@ import OnBoardHeader from '../../../components/OnBoardHeader'
 
 const SellerPage = () => {
   const image = useRef()
+
+  const [company, setCompany] = useState('')
+  const [mobile, setMobile] = useState('')
+  const [email, setEmail] = useState('')
    
 
     return (
@@ -41,7 +45,7 @@ const SellerPage = () => {
                         <p className=' text-sm text-buyer-text-color'>Request a demo to learn how Maqure makes it easier than ever for you to market, sell and transact online.
                         </p>
                         <form action="/" className=' z-40 flex flex-col gap-4 w-[21.6rem]'>
-                            <input type="text" className=' outline-none border-[#667080] rounded-md py-2 px-4 border' placeholder='Company Name' />
+                            <input  type="text" className=' outline-none border-[#667080] rounded-md py-2 px-4 border' placeholder='Company Name' />
                             <input type="text" className=' border-[#667080] rounded-md py-2 px-4 border outline-none' placeholder='Email ' />
                             <input type="text" className=' border-[#667080] rounded-md py-2 px-4 border outline-none' placeholder='Phone Number' />
                             <button className=' bg-buyer-primary py-3 px-6 text-white rounded-md'>Request A Call </button>
