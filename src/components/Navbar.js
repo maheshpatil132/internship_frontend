@@ -14,7 +14,8 @@ import Inventory2Icon      from '@mui/icons-material/Inventory2';
 import PaymentIcon from '@mui/icons-material/Payment';
 
 import { NavLink } from 'react-router-dom'
-const Navbar = ({ user }) => {
+import { useSelector } from 'react-redux'
+const Navbar = ({ role }) => {
 
   // states
   const [rfq_li, setRfq_li] = useState(false)
@@ -24,11 +25,13 @@ const Navbar = ({ user }) => {
 
   const [product_li, setProduct_li] = useState(false)
 
+  const {user} = useSelector(state=>state.user)
+
   return (
     <div className='navbar   h-screen overflow-y-scroll flex flex-col justify-between text-base px-2'>
       <nav className=' mt-24'>
         <div>
-          {user !== 'admin' &&
+          {role !== 'admin' &&
             <NavLink to={'/dashboard'} className='flex cursor-pointer dash_menu_li  p-3 px-5 rounded-lg  items-center justify-between'>
               <div className='flex gap-6 items-center'>
                 <HomeIcon size={18} />
@@ -41,9 +44,9 @@ const Navbar = ({ user }) => {
           {/* buyer's navbar links */}
           {
 
-            user === 'buyer' &&
+            role === 'buyer' &&
             <>
-              <NavLink to={'/profile'} className='flex cursor-pointer dash_menu_li p-3 px-5 rounded-lg  items-center justify-between  '>
+              <NavLink to={`/profile/${user._id}`} className='flex cursor-pointer dash_menu_li p-3 px-5 rounded-lg  items-center justify-between  '>
                 <div className='flex gap-6 items-center'>
                   <AccountBoxIcon size={18} />
                   Profile
@@ -97,7 +100,7 @@ const Navbar = ({ user }) => {
           {/* seller's navbar links */}
           {
 
-            user === 'seller' &&
+            role === 'seller' &&
             <>
               <NavLink to={'/enqires'} className='flex cursor-pointer dash_menu_li p-3 px-5 rounded-lg  items-center justify-between  '>
                 <div className='flex gap-6 items-center'>
@@ -139,7 +142,7 @@ const Navbar = ({ user }) => {
           {/* admin routes */}
 
           {
-            user === 'admin' &&
+            role === 'admin' &&
             <>
               <NavLink to={'/rfq'} className='flex cursor-pointer dash_menu_li  p-3 px-5 rounded-lg  items-center justify-between'>
                 <div className='flex gap-6 items-center'>
@@ -239,7 +242,7 @@ const Navbar = ({ user }) => {
       <div className=' gap-5 my-6 flex flex-col justify-center'>
 
 
-        {user !== 'admin' &&
+        {role !== 'admin' &&
           <>
             <div className="credit flex flex-col space-y-6  px-6 ">
               <button className=' w-full dash_button border px-3 py-3 rounded '>Get Credit Now!</button>

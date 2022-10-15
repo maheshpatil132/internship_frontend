@@ -1,17 +1,19 @@
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import BorderColorIcon from '@mui/icons-material/BorderColor';
+
 // import './App.css';
 
 function Contact({ setShowModal }) {
 	return (
 		<>
 			<div className="mt-6">
-				<button onClick={() => { setShowModal('contact') }} className='text-white bg-[#1672DE] px-3 py-2 text-lg font-medium rounded-md'><AddCircleOutlineIcon className='mr-1 mb-1' fontSize='small' />Contacts</button>
+				<button onClick={() => { setShowModal('contact') }} className='text-white bg-[#004AA1] px-3 py-2 text-lg font-medium rounded-md'><AddCircleOutlineIcon className='mr-1 mb-1' fontSize='small' />Contacts</button>
 
 				<div className="mt-5 rounded-md box_shadow bg-white p-3 box_shadow">
 					<div className="flex justify-between">
 						<h1>Contacts (1)</h1>
-						<p><MoreVertIcon /></p>
+						<button onClick={() => { setShowModal('contact') }} className='text-white bg-[#004AA1] px-2 py-1 rounded-md '><BorderColorIcon className='mb-1' fontSize='small' /><span className='mx-2'>Edit</span></button>
 					</div>
 
 					<div className="flex w-11/12 mt-3 p-1">

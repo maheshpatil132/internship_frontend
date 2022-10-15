@@ -19,6 +19,8 @@ import Review from '../../../components/Review'
 import FreqBox from '../../../components/FreqBox'
 import Onboard from '../../../components/onboard'
 import OnBoardHeader from '../../../components/OnBoardHeader'
+import { Axios } from '../../../components/Axios'
+import { toast } from 'react-toastify'
 
 
 const SellerPage = () => {
@@ -27,8 +29,35 @@ const SellerPage = () => {
   const [company, setCompany] = useState('')
   const [mobile, setMobile] = useState('')
   const [email, setEmail] = useState('')
-   
+    
 
+  const company_handle = (e) =>{
+    setCompany(e.target.value)
+  }
+
+  const mobile_handle = (e) =>{
+    setMobile(e.target.value)
+}
+
+const email_handle = (e) =>{
+    setEmail(e.target.value)
+}
+ 
+const submit_form = async(e) =>{
+    e.preventDefault();
+  await Axios.post('/send/createreq', {
+    email:email,
+    mobile:mobile,
+    companyName:company
+  }).then((res)=>{
+    toast.success(res.data.message)
+    setEmail('')
+    setCompany('')
+    setMobile('')
+  }).catch((error)=>{
+    toast.error(error.response.data.error)
+  })
+}
     return (
         <div className=' relative flex-1 flex flex-col overflow-hidden'>
            <OnBoardHeader/>
@@ -44,11 +73,11 @@ const SellerPage = () => {
 
                         <p className=' text-sm text-buyer-text-color'>Request a demo to learn how Maqure makes it easier than ever for you to market, sell and transact online.
                         </p>
-                        <form action="/" className=' z-40 flex flex-col gap-4 w-[21.6rem]'>
-                            <input  type="text" className=' outline-none border-[#667080] rounded-md py-2 px-4 border' placeholder='Company Name' />
-                            <input type="text" className=' border-[#667080] rounded-md py-2 px-4 border outline-none' placeholder='Email ' />
-                            <input type="text" className=' border-[#667080] rounded-md py-2 px-4 border outline-none' placeholder='Phone Number' />
-                            <button className=' bg-buyer-primary py-3 px-6 text-white rounded-md'>Request A Call </button>
+                        <form onSubmit={submit_form} className=' z-40 flex flex-col gap-4 w-[21.6rem]'>
+                            <input required onChange={company_handle} value={company} type="text" className=' outline-none border-[#667080] rounded-md py-2 px-4 border' placeholder='Company Name' />
+                            <input required  onChange={email_handle} value={email} type="text" className=' border-[#667080] rounded-md py-2 px-4 border outline-none' placeholder='Email ' />
+                            <input required onChange={mobile_handle} value={mobile} type="text" className=' border-[#667080] rounded-md py-2 px-4 border outline-none' placeholder='Phone Number' />
+                            <button type='submit' className=' bg-buyer-primary py-3 px-6 text-white rounded-md'>Request A Call </button>
                         </form>
 
                     </div>

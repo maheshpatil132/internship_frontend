@@ -1,9 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Axios } from '../../components/Axios'
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { useNavigate } from 'react-router-dom';
 
 const SellerList = () => {
   
     const [sellers, setSellers] = useState([])
+    const navigate = useNavigate()
 
     useEffect(() => {
         const getdata = async () => {
@@ -46,19 +49,26 @@ const SellerList = () => {
       scope="col"
       className="text-sm font-medium text-gray-900 px-4 py-4 text-left"
     >
-     Buyer Id
+     seller Id
     </th>
     <th
       scope="col"
       className="text-sm font-medium text-gray-900 px-4 py-4 text-left"
     >
-      Buyer Name
+      seller Name
     </th>
     <th
       scope="col"
       className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
     >
-     Email
+     category
+    </th>
+
+    <th
+      scope="col"
+      className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+    >
+     Area
     </th>
 
     <th
@@ -70,6 +80,12 @@ const SellerList = () => {
     
 
     <th
+      scope="col"
+      className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+    >
+       </th>
+
+       <th
       scope="col"
       className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
     >
@@ -90,16 +106,24 @@ const SellerList = () => {
             {elem.name}
           </td>
           <td className="text-sm  font-light px-6 py-4 whitespace-nowrap">
-           {elem.email}
+           {elem.Category}
           </td>
+          <td className="text-sm   font-light px-6 py-4 whitespace-nowrap  ">
+            {elem.Area}
+          </td>
+          
           <td className="text-sm   font-light px-6 py-4 whitespace-nowrap  ">
             {elem.mobile}
           </td>
-          
 
           <td className="text-sm font-light cursor-pointer whitespace-nowrap">
             {/* <ChevronRightIcon onClick={()=>{navigate(`/rfq/${elem._id}`)}} /> */}
-            <button className=' bg-[#004aa2] text-white px-4 py-2 rounded-md'>view Profile</button>
+            <button onClick={()=>{ navigate(`/seller/profile/${elem._id}`)  }} className=' bg-[#004aa2] text-white px-4 py-2 rounded-md'>view </button>
+          </td>
+
+          <td className="text-sm font-light cursor-pointer whitespace-nowrap">
+            {/* <ChevronRightIcon onClick={()=>{navigate(`/rfq/${elem._id}`)}} /> */}
+            <MoreVertIcon/>
           </td>
         </tr>
 

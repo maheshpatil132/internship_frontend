@@ -41,6 +41,7 @@ import SellerList from "./pages/Admin/SellerList";
 import ProdReq from "./pages/Admin/ProdReq";
 import SellerReq from "./pages/Admin/SellerReq";
 import Payment from "./components/Buyer/Payment/Payment";
+import BuyerOrderPage from "./pages/CommonPages/BuyerOrderPage";
 
 
 function App() {
@@ -52,28 +53,29 @@ function App() {
 
   const Nav = () =>
     useRoutes([
-      { path: "/dashboard", element: <Navbar user={user.role ? user.role : "buyer"} /> },
-      { path: "/bidding", element: <Navbar user={user.role ? user.role : "buyer"} /> },
-      { path: "/enqires", element: <Navbar user={user.role ? user.role : "buyer"} /> },
-      { path: '/sellerorder', element: <Navbar user={user.role ? user.role : "buyer"} /> },
-      { path: '/buyerorder', element: <Navbar user={user.role ? user.role : "buyer"} /> },
-      { path: '/trackshipment', element: <Navbar user={user.role ? user.role : "buyer"} /> },
-      { path: '/activerfq', element: <Navbar user='admin' /> },
-      { path: '/rfq', element: <Navbar user='admin' /> },
-      { path: '/arfq', element: <Navbar user='admin' /> },
-      { path: '/order/:id', element: <Navbar user='admin' /> },
-      { path: '/sendRfq', element: <Navbar user='admin' /> },
-      { path: '/component', element: <Navbar user='admin' /> },
-      { path: '/payment', element: <Navbar user={user.role ? user.role : "buyer"} /> },
-      { path: '/profile', element: <Navbar user={user.role && user.role} /> },
-      { path: '/products', element: <Navbar user={user ? user.role : ''} /> },
-      { path: '/addcompany', element: <Navbar user={user ? user.role : ''} /> },
-      { path: '/addproduct', element: <Navbar user={user ? user.role : ''} /> },
-      { path: '/orderlist', element: <Navbar user={user ? user.role : ''} /> },
-      { path: '/buyerlist', element: <Navbar user={user ? user.role : ''} /> },
-      { path: '/sellerlist', element: <Navbar user={user ? user.role : ''} /> },
-      { path: '/prodreq', element: <Navbar user={user ? user.role : ''} /> },
-      { path: '/sellerreq', element: <Navbar user={user ? user.role : ''} /> },
+      { path: "/dashboard", element: <Navbar role={user.role ? user.role : "buyer"} /> },
+      { path: "/bidding", element: <Navbar role={user.role ? user.role : "buyer"} /> },
+      { path: "/enqires", element: <Navbar role={user.role ? user.role : "buyer"} /> },
+      { path: '/sellerorder', element: <Navbar role={user.role ? user.role : "buyer"} /> },
+      { path: '/buyerorder', element: <Navbar role={user.role ? user.role : "buyer"} /> },
+      { path: '/trackshipment', element: <Navbar role={user.role ? user.role : "buyer"} /> },
+      { path: '/activerfq', element: <Navbar role='admin' /> },
+      { path: '/rfq', element: <Navbar role='admin' /> },
+      { path: '/arfq', element: <Navbar role='admin' /> },
+      { path: '/order/:id', element: <Navbar role='admin' /> },
+      { path: '/sendRfq', element: <Navbar role='admin' /> },
+      { path: '/component', element: <Navbar role='admin' /> },
+      { path: '/payment', element: <Navbar role={user.role ? user.role : "buyer"} /> },
+      { path: '/:role/profile/:id', element: <Navbar role={user.role && user.role} /> },
+      { path: '/products', element: <Navbar role={user ? user.role : ''} /> },
+      { path: '/addcompany', element: <Navbar role={user ? user.role : ''} /> },
+      { path: '/addproduct', element: <Navbar role={user ? user.role : ''} /> },
+      { path: '/orderlist', element: <Navbar role={user ? user.role : ''} /> },
+      { path: '/buyerlist', element: <Navbar role={user ? user.role : ''} /> },
+      { path: '/sellerlist', element: <Navbar role={user ? user.role : ''} /> },
+      { path: '/prodreq', element: <Navbar role={user ? user.role : ''} /> },
+      { path: '/sellerreq', element: <Navbar role={user ? user.role : ''} /> },
+      { path: '/buyerorderpage', element: <Navbar role={user ? user.role : ''} /> },
 
 
 
@@ -101,7 +103,7 @@ function App() {
 
     <div className="App relative flex">
       {
-        isAuthenticated && <Nav user={user && user.role} />
+        isAuthenticated && <Nav role={user && user.role} />
       }
 
       <ToastContainer
@@ -178,7 +180,7 @@ function App() {
         <Route path="/payment" element={<Payment />}></Route>
         <Route path="/component" element={<ComponentPage />}></Route>
         <Route path="/create" element={<Create />}></Route>
-        <Route path="/profile" element={<Profile />}></Route>
+        <Route path="/:role/profile/:id" element={<Profile />}></Route>
         <Route path="/" element={<LandingPage />}></Route>
         <Route path="/products" element={<AllProducts />}></Route>
         <Route path="/addcompany" element={<AddCompany />}></Route>
@@ -188,6 +190,7 @@ function App() {
         <Route path="/sellerlist" element={<SellerList />}></Route>
         <Route path="/prodreq" element={<ProdReq />}></Route>
         <Route path="/sellerreq" element={<SellerReq />}></Route>
+        <Route path="/buyerorderpage" element={<BuyerOrderPage />}></Route>
 
 
 

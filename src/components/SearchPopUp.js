@@ -2,11 +2,27 @@ import React from 'react'
 import ArrowForward from '@mui/icons-material/ArrowForward';
 import ClearIcon from '@mui/icons-material/Clear';
 import {FiSearch} from 'react-icons/fi'
+import { Axios } from './Axios';
+import { toast } from 'react-toastify';
 
 
-const SearchPopUp = ({setShowModal}) => {
+const SearchPopUp = ({setShowModal ,products}) => {
+
+  const addreq = async (elem)=>{
+
+    await Axios.post(`/addprod/${elem._id}`, {
+      product: elem._id
+    }).then((res)=>{
+      toast.success(res.data.message)
+      setShowModal(false)
+    }).catch((error)=>{
+      toast.error(error.response.data.error)
+    })
+  }
+
+    
   return (
-    <div>
+    <div className=''>
         <div className="flex justify-center align-middle">
                 <div className="flex flex-col bg-[#f4f4f4] p-5 rounded-md">
                     <div className="flex justify-between">
@@ -23,6 +39,24 @@ const SearchPopUp = ({setShowModal}) => {
             <input type="text" className='flex-1 outline-none' placeholder='search' />
             <FiSearch size={20} className='text-buyer-text-color' />
         </div>
+
+           <div className=' flex flex-col h-[200px] overflow-y-scroll'>
+    {
+          
+          products.map((elem,index)=>{
+            return(
+               
+                <div key={elem._id} className=' bg-white p-1 border items-center gap-1 flex justify-between'>
+                 <h1>{elem.name}</h1>
+                 <button onClick={()=> addreq(elem)} className=' bg-[#004E97] text-white px-6 py-1 hover:bg-[#01407a] rounded-md'>ADD</button>
+            </div>
+
+            )
+          })
+
+             
+
+           }</div>
 
                     <div className="text-center mt-20">
                         <button onClick={()=>{setShowModal('prodReq')}} className='bg-[#1672DE] px-3 py-2 mt-4 text-white rounded-md'>Request to add the product</button>

@@ -2,6 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { NavLink, useNavigate } from 'react-router-dom'
 import logo from '../images/logo.png'
+import { Axios } from './Axios'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 
@@ -9,6 +10,14 @@ const OnBoardHeader = () => {
 
     const { isAuthenticated } = useSelector(state => state.user)
 
+    const logout = () => {
+        Axios.get(`logout/buyer`).then((req, res) => {
+            // toast.success(res.data.message)
+        }).catch((error) => {
+            console.log(error.response.data.error)
+            // toast.error(error.response.data.error)
+        })
+    }
     const navigate = useNavigate()
     return (
         <div>
@@ -24,14 +33,14 @@ const OnBoardHeader = () => {
                     <li className="text-lg font-semibold px-2 py-1">About Us</li>
 
                     {!isAuthenticated ? <>
-                        <button className="bg-[#004AA2] rounded-md text-white text-lg font-semibold px-2 py-1  ml-4" onClick={() => { navigate('/login') }}>Sign In</button>
-                        <button onClick={() => { navigate('/create') }} className="bg-[#004AA2] rounded-md text-white text-lg font-semibold px-2 py-1  ml-4">Join Us</button>
+                        <button onClick={() => { navigate('/create') }} className="bg-[#004AA2] rounded-md text-white text-lg font-semibold px-2 py-1  ml-4">Sign Up</button>
+                        <button className="bg-[#004AA2] rounded-md text-white text-lg font-semibold px-2 py-1  ml-4" onClick={() => { navigate('/login') }}>Log In</button>
                     </>
                         :
                         <div className='flex gap-6 mt-1'>
                             <NotificationsNoneIcon />
-                            <AccountCircleIcon className=' cursor-pointer' onClick={() => { navigate('/profile') }} />
-
+                            <AccountCircleIcon className=' cursor-pointer' onClick={() => { navigate('/dashboard') }} />
+                            <button onClick={logout} className='bg-[#ee1818] px-2 py-1 text-white rounded-md'>Logout</button>
                         </div>
                     }
                 </ul>

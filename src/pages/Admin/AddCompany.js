@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
 import UploadFileIcon from '@mui/icons-material/UploadFile';
+import { Axios } from "../../components/Axios";
+import { toast } from "react-toastify";
 
 export default function AddCompany() {
  
@@ -15,10 +17,105 @@ export default function AddCompany() {
   const [capacity, setCapacity] = useState('')
   const [linkedin, setLinkedin] = useState('')
   const [about, setAbout] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [company, setCompany] = useState('')
+
+
  
+  const name_handle = (e) =>{
+   setName(e.target.value)
+  }
+  const employesno_handle = (e) =>{
+    setEmployesno(e.target.value)
+   }
+   const capacity_handle = (e) =>{
+    setCapacity(e.target.value)
+   }
+   const owner_handle = (e) =>{
+    setOwner(e.target.value)
+   }
+   const linkedin_handle = (e) =>{
+    setLinkedin(e.target.value)
+   }
+   const about_handle = (e) =>{
+    setAbout(e.target.value)
+   }
+   const ownermobile_handle = (e) =>{
+    setOwnerMobile(e.target.value)
+   }
+
+   const gst_handle = (e) =>{
+    setGst(e.target.value)
+   }
+   const cin_handle = (e) =>{
+    setCin(e.target.value)
+   }
+
+   const area_handle = (e) =>{
+    setArea(e.target.value)
+   }
+
+   const category_handle = (e) =>{
+    setCategory(e.target.value)
+   }
+
+   const email_handle = (e) =>{
+    setEmail(e.target.value)
+   }
+
+   const password_handle = (e) =>{
+    setPassword(e.target.value)
+   }
+
+   const company_handle = (e) =>{
+    setCompany(e.target.value)
+   }
+
+   
+  const submit_form = async(e) =>{
+  e.preventDefault();
+
+  await Axios.post('/new/seller', {
+     name:name,
+     employees:employesno,
+     Category:category,
+     Area:area,
+     cin:cin,
+     gst:gst,
+     ownername:owner,
+     mobile:ownermobile,
+     capacity:capacity,
+     linkedin:linkedin,
+     about:about,
+     email:email,
+     password:password,
+     companyName:company
+  }).then((res)=>{
+    toast.success(res.data.message)
+    setName('')
+    setCategory('')
+    setEmployesno('')
+    setOwner('')
+    setOwnerMobile('')
+    setLinkedin('')
+    setEmail('')
+    setPassword('')
+    setAbout('')
+    setGst('')
+    setCapacity('')
+    setArea('')
+    setCompany('')
+
+  }).catch((error)=>{
+    toast.error(error.response.data.error)
+  })
+    
+  }
+       
 
   return (
-    <div className=" flex-1 px-10 py-8  h-screen overflow-y-scroll">
+    <form onSubmit={submit_form} className=" flex-1 px-10 py-8  h-screen overflow-y-scroll">
       <h1 className="font-[400] text-[24px] mt-8 p-2 ">Add Company Details </h1>
       <div className="flex gap-3 p-2">
         <DriveFolderUploadIcon />
@@ -39,7 +136,9 @@ export default function AddCompany() {
               Company Name
             </p>
             <input
-              value={name}
+              value={company}
+              required
+              onChange={company_handle}
               type="text"
               className="p-2 shadow-md bg-[ #FFFFFF] rounded-md"
               placeholder="Enter Company Name"
@@ -48,8 +147,11 @@ export default function AddCompany() {
           <div className="flex flex-col gap-2 w-[26%]">
             <p className="font-[400] text-[16px] text-[#263238]">Number of employees</p>
             <input
-             
-              type="text"
+              value={employesno}
+              required
+
+              onChange={employesno_handle}
+              type="number"
               className="p-2 shadow-md bg-[ #FFFFFF] rounded-md"
               placeholder="Enter Number of employees"
             />
@@ -59,6 +161,8 @@ export default function AddCompany() {
             <input
 
               value={category}
+              onChange={category_handle}
+              required
               type="text"
               className="p-2 shadow-md bg-[ #FFFFFF] rounded-md"
               placeholder="Enter the Category "
@@ -72,6 +176,9 @@ export default function AddCompany() {
             <input
 
               value={area}
+              required
+              onChange={area_handle}
+
               type="text"
               className="p-2 shadow-md bg-[ #FFFFFF] rounded-md"
               placeholder="Enter the area  "
@@ -81,6 +188,8 @@ export default function AddCompany() {
             <p className="font-[400] text-[16px] text-[#263238]">CIN Number</p>
             <input
               value={cin}
+              onChange={cin_handle}
+              required
               type="text"
               className="p-2 shadow-md bg-[ #FFFFFF] rounded-md"
               placeholder="Enter the CIN number "
@@ -90,6 +199,8 @@ export default function AddCompany() {
             <p className="font-[400] text-[16px] text-[#263238]">GST Number</p>
             <input
               value={gst}
+              onChange={gst_handle}
+              required
               type="text"
               className="p-2 shadow-md bg-[ #FFFFFF] rounded-md"
               placeholder="Enter the Min Purity "
@@ -102,6 +213,8 @@ export default function AddCompany() {
             <p className="font-[400] text-[16px] text-[#263238]">Company owner name</p>
             <input
               value={owner}
+              onChange={owner_handle}
+              required
               type="text"
               className="p-2 shadow-md bg-[ #FFFFFF] rounded-md"
               placeholder="Enter the Company owner name"
@@ -111,7 +224,9 @@ export default function AddCompany() {
             <p className="font-[400] text-[16px] text-[#263238]">Owners Contact Number</p>
             <input
               value={ownermobile}
-              type="text"
+              onChange={ownermobile_handle}
+              required
+              type="number"
               className="p-2 shadow-md bg-[ #FFFFFF] rounded-md"
               placeholder="Enter the Owners Contact Number"
             />
@@ -120,11 +235,57 @@ export default function AddCompany() {
             <p className="font-[400] text-[16px] text-[#263238]">Warehousing Capacity</p>
             <input
               value={capacity}
+              onChange={capacity_handle}
+              required
               type="text"
               className="p-2 shadow-md bg-[ #FFFFFF] rounded-md"
               placeholder="Enter the Warehousing Capacity"
             />
           </div>
+          
+        </div>
+
+
+
+        <div className="flex gap-8 p-2">
+          {" "}
+          <div className="flex flex-col gap-2 w-[26%]">
+        <p className="font-[400] text-[16px] text-[#263238]">Email</p>
+        <input
+          value={email}
+          onChange={email_handle}
+          required
+          type="text"
+          className="p-2 shadow-md bg-[ #FFFFFF] rounded-md"
+          placeholder="Enter the email Id"
+        />
+      </div>
+
+      <div className="flex flex-col gap-2 w-[26%]">
+        <p className="font-[400] text-[16px] text-[#263238]">Password</p>
+        <input
+          value={password}
+          onChange={password_handle}
+          required
+          type="text"
+          className="p-2 shadow-md bg-[ #FFFFFF] rounded-md"
+          placeholder="Enter the passowrd"
+        />
+      </div>
+
+      <div className="flex flex-col gap-2 w-[26%]">
+        <p className="font-[400] text-[16px] text-[#263238]">Password</p>
+        <input
+          value={name}
+          onChange={name_handle}
+          required
+          type="text"
+          className="p-2 shadow-md bg-[ #FFFFFF] rounded-md"
+          placeholder="Enter the your Name"
+        />
+      </div>
+          
+          
         </div>
       </div>
 
@@ -132,17 +293,23 @@ export default function AddCompany() {
         <p className="font-[400] text-[16px] text-[#263238]">Linkedin Id</p>
         <input
           value={linkedin}
+          onChange={linkedin_handle}
+          required
           type="text"
           className="p-2 shadow-md bg-[ #FFFFFF] rounded-md"
           placeholder="Enter the Linkedin Id"
         />
       </div>
 
+      
+
 
       <div className="flex flex-col p-2 gap-2">
         <p>About The Company</p>
         <textarea 
         value={about}
+        onChange={about_handle}
+        required
         name="" id="" cols="10" rows="5" className=" p-2 rounded-md" placeholder="Enter the company Description "  ></textarea>
       </div>
    
@@ -156,6 +323,6 @@ export default function AddCompany() {
         </div>
       </div>
       <button className="font-[600] text-[16px] bg-[#1672DE] text-[#ffff] p-3 mt-3 ml-2 ">Add Company</button>
-    </div>
+    </form>
   );
 }

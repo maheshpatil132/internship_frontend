@@ -31,7 +31,7 @@ const Login = () => {
     const submit_form = (e) => {
         e.preventDefault()
         if (byer) {
-            if (email === 'hiren@gmail.com') {
+            if (email === "admin@maqure.com") {
                 dispatch(loginadminaction(email, password)).then(()=>{
                     navigate('/dashboard')
                 }).catch((error)=>{
