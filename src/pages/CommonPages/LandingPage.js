@@ -9,6 +9,7 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import OtherCompany from "../../components/Common/company-des/OtherCompany";
 import half from "../../images/half.png";
 import { BsArrowDownCircleFill } from "react-icons/bs";
+import Login from '../../components/Common/Login/Login'
 
 import rightkon from "../../images/rightkon.png";
 import homebox from "../../images/homebox.png";
@@ -33,6 +34,7 @@ import { Axios } from "../../components/Axios";
 export default function LandingPage() {
 
     const [products, setProducts] = useState([])
+    const [showModal, setShowModal] = useState(false)
     const navigate = useNavigate()
 
 
@@ -61,6 +63,21 @@ export default function LandingPage() {
     return (
         <div className=" flex-1 overflow-hidden relative top-0">
 
+             {
+                showModal &&
+                <>
+                <div
+                className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+              >
+                <div className="relative w-auto my-6 mx-auto max-w-3xl">
+                  {/*content*/}
+                    <Login setShowModal={setShowModal}/>
+                </div>
+              </div>
+              <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+              </>
+             }
+             
 
             <OnBoardHeader />
             <div className="flex mt-24">

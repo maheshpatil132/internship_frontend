@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import Box from '../../components/Box'
 import { useNavigate } from 'react-router-dom';
 import { Axios } from '../../components/Axios'
+import OnBoardHeader from '../../components/OnBoardHeader';
 
 const SellerReq = () => {
 
@@ -44,7 +45,8 @@ const SellerReq = () => {
 
   return (
     <div className=' flex-1 h-screen overflow-y-scroll px-10 py-6'>
-            <h1 className=' text-2xl font-medium'> Seller Account Request</h1>
+      <OnBoardHeader/>
+            <h1 className=' text-2xl mt-16 font-medium'> Seller Account Request</h1>
             {/* <div className="box_cont flex gap-5 mt-7">
                             <div className={` text-sm box_shadow border flex flex-col gap-2  box_shadow rounded-lg py-3 cursor-pointer w-44 px-3 ${status === 'processing' && 'bg-buyer-primary text-white'} `} onClick={status_proccess}>
                                 <Box content={'Already Product'} bids={bids} />
@@ -55,7 +57,7 @@ const SellerReq = () => {
                             
                         </div> */}
 
-                        <div className=' mt-16'>
+                        <div className=''>
       
       <div className=''>
         <div className="flex  flex-col mt-3 bg-white box_shadow">

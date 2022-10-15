@@ -5,6 +5,7 @@ import UploadFileIcon from '@mui/icons-material/UploadFile';
 import ClearIcon from "@mui/icons-material/Clear";
 import { Axios } from "../../components/Axios";
 import { toast } from "react-toastify";
+import OnBoardHeader from "../../components/OnBoardHeader";
 
 export default function AddProduct() {
 
@@ -86,7 +87,8 @@ const submit_form = async(e)=>{
 }
   return (
     <div className=" flex-1 h-screen overflow-y-scroll px-10 py-8 bg-white">
-      <form onSubmit={submit_form} className="m-auto  flex-1 mx-auto   px-3 pb-6  overflow-y-auto ">
+      <OnBoardHeader/>
+      <form onSubmit={submit_form} className=" mt-16 flex-1 mx-auto   px-3 pb-6  overflow-y-auto ">
         <div className="flex  ">
 
           <h1 className="font-[400] text-[24px] p-2 flex-1 ">

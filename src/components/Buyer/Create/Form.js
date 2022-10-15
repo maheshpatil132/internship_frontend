@@ -96,7 +96,7 @@ function Form() {
                   setPage((currPage) => currPage - 1)
                 }}
                 className={`rounded-md p-2 text-white w-[100px] bg-[${
-                  page === 0 ? '#1672DE' : '#004AA1'
+                  page === 0 ? '#FFFFFF' : '#004AA1'
                 }]`}
               >
                 Previous

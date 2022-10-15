@@ -3,6 +3,7 @@ import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
 import UploadFileIcon from '@mui/icons-material/UploadFile';
 import { Axios } from "../../components/Axios";
 import { toast } from "react-toastify";
+import OnBoardHeader from "../../components/OnBoardHeader";
 
 export default function AddCompany() {
  
@@ -115,8 +116,11 @@ export default function AddCompany() {
        
 
   return (
+   
     <form onSubmit={submit_form} className=" flex-1 px-10 py-8  h-screen overflow-y-scroll">
-      <h1 className="font-[400] text-[24px] mt-8 p-2 ">Add Company Details </h1>
+    <OnBoardHeader/>
+      
+      <h1 className="font-[400] text-[24px] mt-16 p-2 ">Add Company Details </h1>
       <div className="flex gap-3 p-2">
         <DriveFolderUploadIcon />
         <div className="flex gap-1 justify-center flex-col ">

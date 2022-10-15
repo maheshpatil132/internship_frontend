@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { Axios } from '../../components/Axios'
 import company from "../../images/company.png";
 import { BsArrowDownCircleFill } from "react-icons/bs";
+import { toast } from 'react-toastify';
+import OnBoardHeader from '../../components/OnBoardHeader';
 
 
 
@@ -28,36 +30,43 @@ const ProdReq = () => {
       products:elem.product._id,
       sellers:elem.seller._id
     }).then((res)=>{
-      console.log(res);
+     
+      toast.success(res.data.message)
+      setRequests(res.data.requests)
     }).catch((error)=>{
-      console.log(error);
+    toast.error(error.response.data.error)
+
     })
+  }
+
+
+  const getdata = async () => {
+
+    try {
+
+      await Axios.get('/getall/request/product').then((res) => {
+        setRequests(res.data.addrequs.AddprodReq)
+        console.log(res.data);
+      })
+
+    } catch (error) {
+      console.log(error);
+    }
+
   }
 
   useEffect(() => {
 
 
-    const getdata = async () => {
-
-      try {
-
-        await Axios.get('/getall/request/product').then((res) => {
-          setRequests(res.data.addrequs.AddprodReq)
-          console.log(res.data);
-        })
-
-      } catch (error) {
-        console.log(error);
-      }
-
-    }
+    
 
     getdata()
   }, [status])
 
   return (
     <div className=' flex-1 h-screen overflow-y-scroll px-10 py-6'>
-      <h1 className=' text-2xl font-medium'> Add Product Request</h1>
+      <OnBoardHeader/>
+      <h1 className=' text-2xl mt-16 font-medium'> Add Product Request</h1>
       <div className="box_cont flex gap-5 mt-7">
         <div className={` text-sm box_shadow border flex flex-col gap-2  box_shadow rounded-lg py-3 cursor-pointer w-44 px-3 ${status === 'Already' && 'bg-buyer-primary text-white'} `} onClick={status_proccess}>
           Already Prodreq

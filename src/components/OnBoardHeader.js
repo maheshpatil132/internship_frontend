@@ -6,7 +6,7 @@ import { Axios } from './Axios'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 
-const OnBoardHeader = () => {
+const OnBoardHeader = ({setShowModal}) => {
 
     const { isAuthenticated } = useSelector(state => state.user)
 
@@ -21,7 +21,7 @@ const OnBoardHeader = () => {
     const navigate = useNavigate()
     return (
         <div>
-            <div className="flex justify-between px-14 border-b items-center py-2 mb-6 bg-white fixed w-full left-0 top-0 z-50">
+            <div className="flex justify-between px-14 border-b items-center py-2 mb-6 bg-white fixed w-full left-0 top-0  z-40">
                 <NavLink to={'/'} className={({ isActive }) => (isActive ? 'active-link' : '')}><img src={logo} alt="" /></NavLink>
                 <ul className="flex gap-6 py-2">
                     <NavLink to={'/'} className={({ isActive }) => (isActive ? 'active-link' : '')}><li className="text-lg font-semibold  px-2 py-1 text-[#004AA2]">Home</li></NavLink>
@@ -34,7 +34,7 @@ const OnBoardHeader = () => {
 
                     {!isAuthenticated ? <>
                         <button onClick={() => { navigate('/create') }} className="bg-[#004AA2] rounded-md text-white text-lg font-semibold px-2 py-1  ml-4">Sign Up</button>
-                        <button className="bg-[#004AA2] rounded-md text-white text-lg font-semibold px-2 py-1  ml-4" onClick={() => { navigate('/login') }}>Log In</button>
+                        <button className="bg-[#004AA2] rounded-md text-white text-lg font-semibold px-2 py-1  ml-4" onClick={() => { setShowModal(true) }}>Log In</button>
                     </>
                         :
                         <div className='flex gap-6 mt-1'>

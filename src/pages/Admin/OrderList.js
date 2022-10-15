@@ -5,6 +5,7 @@ import Box from '../../components/Box'
 import { Axios } from '../../components/Axios'
 import { useNavigate } from 'react-router-dom';
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import OnBoardHeader from '../../components/OnBoardHeader';
 
 
 
@@ -56,6 +57,7 @@ useEffect(() => {
 
   return (
     <div className='  flex-1 h-screen overflow-y-scroll px-10'>
+      <OnBoardHeader/>
         {/* <div className="box_cont flex gap-5 mt-7">
                             <div className={` bg-white text-sm box_shadow border flex flex-col gap-2  box_shadow rounded-lg py-3 cursor-pointer w-44 px-3 ${status === 'preparing' && 'bg-buyer-primary text-white'} `} onClick={status_preparing}>
                                 <Box content={'Preparing'} bids={bids} />
@@ -70,7 +72,7 @@ useEffect(() => {
                         </div> */}
 
 
-                        <div className=' mt-16'>
+                        <div className=' mt-24'>
       
       <div className=''>
         <div className="flex  flex-col mt-3 bg-white box_shadow">

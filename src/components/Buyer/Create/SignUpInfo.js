@@ -31,7 +31,7 @@ function SignUpInfo({ formData, setFormData }) {
         onChange={(event) =>
           setFormData({ ...formData, name: event.target.value })
         }
-        className="py-2 px-4 rounded-md border w-3/5 my-2 mx-auto"
+        className="py-2 px-4 rounded-md border w-3/5 my-2 ml-[86px]"
       />
 
       <div className="flex">

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Axios } from '../../components/Axios'
+import OnBoardHeader from '../../components/OnBoardHeader'
 
 
 const BuyerLIst = () => {
@@ -32,10 +33,11 @@ const BuyerLIst = () => {
   
   return (
     <div className=' flex-1 h-screen overflow-y-scroll px-10'>
-                      <div className=' mt-16'>
+      <OnBoardHeader/>
       
+      <div className=' mt-24'>
       <div className=''>
-        <div className="flex  flex-col mt-3 bg-white box_shadow">
+        <div className="flex  flex-col  bg-white box_shadow">
           <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div className="   sm:px-6 lg:px-8">
               <div className="overflow-hidden">

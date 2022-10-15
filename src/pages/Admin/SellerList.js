@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Axios } from '../../components/Axios'
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { useNavigate } from 'react-router-dom';
+import OnBoardHeader from '../../components/OnBoardHeader';
 
 const SellerList = () => {
   
@@ -31,7 +32,8 @@ const SellerList = () => {
 
   return (
     <div className=' flex-1 h-screen overflow-y-scroll px-10'>
-    <div className=' mt-16'>
+      <OnBoardHeader/>
+    <div className=' mt-24'>
 
 <div className=''>
 <div className="flex  flex-col mt-3 bg-white box_shadow">
