@@ -10,6 +10,7 @@ const OnBoardHeader = ({setShowModal}) => {
 
     const { isAuthenticated } = useSelector(state => state.user)
 
+
     const logout = () => {
         Axios.get(`logout/buyer`).then((req, res) => {
             // toast.success(res.data.message)
@@ -34,7 +35,7 @@ const OnBoardHeader = ({setShowModal}) => {
 
                     {!isAuthenticated ? <>
                         <button onClick={() => { navigate('/create') }} className="bg-[#004AA2] rounded-md text-white text-lg font-semibold px-2 py-1  ml-4">Sign Up</button>
-                        <button className="bg-[#004AA2] rounded-md text-white text-lg font-semibold px-2 py-1  ml-4" onClick={() => { setShowModal(true) }}>Log In</button>
+                        <button className="bg-[#004AA2] rounded-md text-white text-lg font-semibold px-2 py-1  ml-4" onClick={() =>  setShowModal(true) }>Log In</button>
                     </>
                         :
                         <div className='flex gap-6 mt-1'>

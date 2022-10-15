@@ -35,6 +35,8 @@ export default function LandingPage() {
 
     const [products, setProducts] = useState([])
     const [showModal, setShowModal] = useState(false)
+
+
     const navigate = useNavigate()
 
 
@@ -71,7 +73,7 @@ export default function LandingPage() {
               >
                 <div className="relative w-auto my-6 mx-auto max-w-3xl">
                   {/*content*/}
-                    <Login setShowModal={setShowModal}/>
+                    <Login setShowModal={setShowModal} />
                 </div>
               </div>
               <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
@@ -79,7 +81,7 @@ export default function LandingPage() {
              }
              
 
-            <OnBoardHeader />
+            <OnBoardHeader setShowModal={setShowModal} />
             <div className="flex mt-24">
                 <div className=" z-10  flex flex-col gap-3 mt-16 relative left-12">
                     <div className="flex flex-col gap-0">
