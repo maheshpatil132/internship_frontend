@@ -27,10 +27,13 @@ const Enquires = () => {
   const [data, setData] = useState([])
   const [sellerid, setSellerid] = useState('')
   useEffect(() => {
-    Axios.get('/seller/enquries').then((data) => {
+    console.log("ho");
+    Axios.get('/get/enquries').then((data) => {
       console.log(data.data.bids)
       setData(data.data.bids)
       setSellerid(data.data.sellerid)
+    }).catch((error)=>{
+      console.log(error);
     })
   }, [])
 

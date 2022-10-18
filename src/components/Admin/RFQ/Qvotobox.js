@@ -15,6 +15,8 @@ export default function Qvotobox({ elem, id ,setStatus }) {
 	const [arr, setArr] = useState([])
  
 	const date = new Date(elem.createdAt)
+   
+	console.log(elem)
 
 	const val = date.getDate()
 	const month = date.getMonth()
@@ -246,7 +248,7 @@ export default function Qvotobox({ elem, id ,setStatus }) {
 				<div className="flex gap-3 mt-6 mb-2">
 					<img src={rac} className={' h-full'} alt="" />
 					<div className="flex flex-col gap-1">
-						<p className="text-[14px] font-[600] text-[#1672DE]">Buyer Id : {elem.buyer._id} </p>
+						<p className="text-[14px] font-[600] text-[#1672DE]">Buyer Id : {elem && elem.buyer ? elem.buyer._id : "null"} </p>
 						<p className="text-[16px] font-[400] text-black">Abc ltd. </p>
 					</div>
 				</div>

@@ -46,7 +46,7 @@ const Navbar = ({ role }) => {
 
             role === 'buyer' &&
             <>
-              <NavLink to={`/profile/${user._id}`} className='flex cursor-pointer dash_menu_li p-3 px-5 rounded-lg  items-center justify-between  '>
+              <NavLink to={`/buyer/profile/${user._id}`} className='flex cursor-pointer dash_menu_li p-3 px-5 rounded-lg  items-center justify-between  '>
                 <div className='flex gap-6 items-center'>
                   <AccountBoxIcon size={18} />
                   Profile

@@ -15,6 +15,7 @@ import EditName from '../../components/EditName';
 import Company_description from './Company_description'
 import { Axios } from '../../components/Axios';
 import { useParams } from 'react-router-dom'
+import { useSelector } from 'react-redux';
 
 
 
@@ -24,7 +25,11 @@ const Profile = () => {
 	const [showModal, setShowModal] = React.useState(false);
 	const { id } = useParams()
 	const {role} = useParams()
+   
 
+	const data  = useSelector(state=>state.user)
+
+	console.log(data.user);
 
 	useEffect(() => {
 
